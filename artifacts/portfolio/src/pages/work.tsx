@@ -145,88 +145,248 @@ const designSnippets = [
 const projects = [
   {
     id: 0,
-    title: "Fintrack",
-    subtitle: "Fintech Dashboard",
+    title: "CareerFlow AI",
+    subtitle: "Job Search Platform",
     image: project1Url,
     accentColor: "bg-primary",
     year: "2024",
-    tags: ["React", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
-    role: "Full Stack + UI Design",
-    duration: "3 months",
-    shortDesc: "Real-time financial data visualisation with uncompromising clarity.",
+    tags: ["React", "TypeScript", "AI Resume Analyzer", "Job Engine"],
+    role: "Full Stack + UX Design",
+    duration: "4 months",
+    shortDesc: "An AI-powered platform that matches jobs, optimizes resumes, and tracks applications.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
-    longDesc:
-      "Fintrack is a B2B fintech dashboard built for investment analysts who need to monitor portfolios, track transactions, and surface anomalies in real time. The challenge was making dense data feel instantly readable without hiding complexity behind oversimplification.",
-    highlights: [
-      "Custom D3.js chart library with 6 interactive chart types",
-      "WebSocket-powered live data feeds with < 200ms latency",
-      "Role-based access control for team/enterprise tiers",
-      "Dark-mode-first design system with 40+ components",
-    ],
+    caseStudy: {
+      problem: {
+        statement: "Job seekers spend hours searching, tailoring resumes, and tracking applications across multiple platforms.",
+        whoFacesIt: "Job seekers, recent graduates, and professionals looking for a career change."
+      },
+      research: {
+        userInterviews: "20 job seekers, 5 HR recruiters.",
+        surveys: "Survey: 100 participants to understand job search pain points.",
+        competitorAnalysis: "Analyzed LinkedIn, Indeed, and specialized ATS platforms."
+      },
+      personas: {
+        goals: ["Find jobs matching exact skills", "Pass ATS filters"],
+        painPoints: ["Time-consuming resume tailoring", "Ghosting from recruiters"],
+        motivations: ["Career progression", "Streamlined workflow"]
+      },
+      journey: {
+        discovery: "User signs up and imports their base resume.",
+        interaction: "AI analyzes the resume and recommends matching jobs. User tailors resume for a specific job in one click.",
+        painPoints: "Ensuring the AI does not hallucinate skills."
+      },
+      architecture: {
+        sitemap: "Landing Page, Dashboard, Job Search, Job Details, Resume Builder, Application Tracker, Profile Settings.",
+        navigationFlow: "Dashboard -> Job Search -> Resume Tailor -> Apply -> Tracker."
+      },
+      wireframes: {
+        lowFidelity: "Initial sketches focusing on the Dashboard and Resume Builder.",
+        midFidelity: "Interactive Figma prototypes tested with 5 users."
+      },
+      designSystem: {
+        colors: "Primary Blue, Accent Green for success states.",
+        typography: "Inter for readability, Space Grotesk for headings.",
+        components: "Job Cards, AI Chat Interface, Kanban Tracker.",
+        icons: "Lucide Icons."
+      },
+      finalUI: {
+        mobileScreens: "Fully responsive job search and application tracker.",
+        webScreens: "Dense, informative dashboard for desktop users.",
+        responsiveLayouts: "Fluid grids for side-by-side resume vs job description view."
+      },
+      usabilityTesting: {
+        findings: "Users loved the 1-click ATS optimizer, but wanted manual override options.",
+        iterations: "Added a 'Review AI Changes' diff view before finalizing resume."
+      },
+      impact: {
+        metricsImproved: "Reduced time-to-apply by 60%. 40% increase in interview requests.",
+        futureEnhancements: "Integration with LinkedIn for auto-applying."
+      }
+    }
   },
   {
     id: 1,
-    title: "Threadly",
-    subtitle: "Social Platform",
+    title: "MediSync",
+    subtitle: "Smart Healthcare Management",
     image: project2Url,
     accentColor: "bg-secondary",
     year: "2024",
-    tags: ["Next.js", "Prisma", "Redis", "Socket.io", "TailwindCSS"],
-    role: "Full Stack + Product Design",
-    duration: "4 months",
-    shortDesc: "High-concurrency real-time interactions wrapped in brutalist aesthetics.",
+    tags: ["React Native", "Node.js", "Healthcare UX", "Accessibility"],
+    role: "Product Design + Frontend",
+    duration: "5 months",
+    shortDesc: "A unified healthcare ecosystem for patients and doctors.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
-    longDesc:
-      "Threadly is a discussion platform designed for professional communities. It supports nested threads, real-time notifications, and rich media posts. The design challenge was achieving the warmth of an engaged community while scaling to 10k+ concurrent users.",
-    highlights: [
-      "Real-time notifications via Socket.io (10k+ concurrent users)",
-      "Nested comment threading with optimistic UI updates",
-      "Full-text search powered by PostgreSQL FTS",
-      "Mobile-first responsive layout with PWA support",
-    ],
+    caseStudy: {
+      problem: {
+        statement: "Patients struggle with appointment booking, prescription management, and health tracking.",
+        whoFacesIt: "Patients (especially elderly), Doctors, and Hospital Staff."
+      },
+      research: {
+        userInterviews: "Interviews with 15 patients and 8 healthcare providers.",
+        surveys: "Surveyed 50 clinic administrators on operational bottlenecks.",
+        competitorAnalysis: "Reviewed existing portals (Epic MyChart, Zocdoc)."
+      },
+      personas: {
+        goals: ["Easy appointment booking", "Access to digital prescriptions"],
+        painPoints: ["Long wait times on phone", "Losing paper prescriptions"],
+        motivations: ["Better health management", "Reduced anxiety"]
+      },
+      journey: {
+        discovery: "Patient feels unwell, opens app to find a specialist.",
+        interaction: "Books slot, attends online consultation, receives digital prescription, sets medicine reminders.",
+        painPoints: "Digital literacy barriers for older users."
+      },
+      architecture: {
+        sitemap: "Onboarding, Dashboard, Doctor Search, Consultation, Reports, Settings.",
+        navigationFlow: "Bottom tab navigation for core functions: Home, Appointments, Records, Profile."
+      },
+      wireframes: {
+        lowFidelity: "Paper prototyping for the consultation flow.",
+        midFidelity: "Wireframes emphasizing large touch targets and high contrast."
+      },
+      designSystem: {
+        colors: "Calming Teal and clean White backgrounds.",
+        typography: "Roboto for clarity and cross-platform consistency.",
+        components: "Doctor Profile Cards, Calendar Picker, Notification Toasts.",
+        icons: "Medical-specific custom icon set."
+      },
+      finalUI: {
+        mobileScreens: "Patient App optimized for accessibility (large text, voice search).",
+        webScreens: "Doctor Dashboard and Admin Portal for clinic management.",
+        responsiveLayouts: "Tablet-optimized views for doctors during consultations."
+      },
+      usabilityTesting: {
+        findings: "Elderly users struggled with the calendar interface.",
+        iterations: "Simplified date picker and added a 'Quick Rebook' feature."
+      },
+      impact: {
+        metricsImproved: "No-show rate dropped by 25%. Prescription adherence improved by 40%.",
+        futureEnhancements: "Wearable device integration for live vitals monitoring."
+      }
+    }
   },
   {
     id: 2,
-    title: "Oxide DS",
-    subtitle: "Design System",
+    title: "TrackMint",
+    subtitle: "Business Operations SaaS",
     image: project3Url,
     accentColor: "bg-[#B8F0A0]",
     year: "2023",
-    tags: ["React", "TypeScript", "Storybook", "Figma", "Rollup"],
-    role: "Design + Engineering",
+    tags: ["Next.js", "SaaS", "Dashboard Design", "Data Visualization"],
+    role: "Lead Product Designer",
     duration: "6 months",
-    shortDesc: "A component library built for scale and hard, consistent impact.",
+    shortDesc: "An all-in-one business management platform for inventory, sales, and analytics.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
-    longDesc:
-      "Oxide is a design system built for a SaaS startup scaling from 3 to 30 engineers. The goal was to eliminate inconsistency across the product while enabling rapid feature development. Every component is typed, accessible, and documented with Storybook.",
-    highlights: [
-      "80+ production-ready React components",
-      "Design tokens covering colour, typography, spacing, and elevation",
-      "100% WCAG 2.1 AA accessibility compliance",
-      "Figma library in sync with code via token pipeline",
-    ],
+    caseStudy: {
+      problem: {
+        statement: "Small businesses use multiple disconnected tools for inventory, sales, and financial tracking.",
+        whoFacesIt: "Small business owners, inventory managers, and accountants."
+      },
+      research: {
+        userInterviews: "12 small business owners across retail and wholesale.",
+        surveys: "Survey of 80 retail shop managers.",
+        competitorAnalysis: "Evaluated QuickBooks, Zoho Inventory, and Shopify POS."
+      },
+      personas: {
+        goals: ["Centralized view of operations", "Automated low-stock alerts"],
+        painPoints: ["Manual data entry across apps", "Inaccurate inventory counts"],
+        motivations: ["Business growth", "Time savings"]
+      },
+      journey: {
+        discovery: "Owner reviews daily sales and inventory alerts on dashboard.",
+        interaction: "Approves purchase orders, generates GST reports, and tracks vendor payments.",
+        painPoints: "Information overload on the main dashboard."
+      },
+      architecture: {
+        sitemap: "Login, Dashboard, Products, Orders, Vendors, Reports, Settings.",
+        navigationFlow: "Left sidebar navigation with collapsible nested menus."
+      },
+      wireframes: {
+        lowFidelity: "Layout explorations for data-dense tables.",
+        midFidelity: "Dashboard layout emphasizing key metrics (Revenue Cards, Insights)."
+      },
+      designSystem: {
+        colors: "Dark sidebar, light workspace, status colors (Red/Yellow/Green).",
+        typography: "Inter for data tables, monospaced fonts for numerical data.",
+        components: "Data Grids, Complex Filters, Chart Widgets.",
+        icons: "Phosphor Icons for enterprise feel."
+      },
+      finalUI: {
+        mobileScreens: "Companion app for quick stock checks and alerts.",
+        webScreens: "Dense, scannable data tables and interactive charts on desktop.",
+        responsiveLayouts: "Collapsible sidebars and fluid charts."
+      },
+      usabilityTesting: {
+        findings: "Users had trouble finding specific vendor invoices.",
+        iterations: "Introduced a global command palette (Cmd+K) for quick search."
+      },
+      impact: {
+        metricsImproved: "Reduced time spent on accounting by 15 hours/week. 99% inventory accuracy.",
+        futureEnhancements: "AI-based sales forecasting."
+      }
+    }
   },
   {
     id: 3,
-    title: "Flowmind",
-    subtitle: "AI Productivity Tool",
+    title: "EventSphere",
+    subtitle: "Event Management & Approvals",
     image: project4Url,
     accentColor: "bg-[#C8B8FF]",
     year: "2024",
-    tags: ["Next.js", "OpenAI API", "Drizzle ORM", "Vercel AI SDK"],
-    role: "Full Stack + UX Design",
-    duration: "2 months",
-    shortDesc: "Neural net workflows simplified for human velocity.",
+    tags: ["React", "Workflow Design", "Role-Based UX", "Enterprise"],
+    role: "UX/UI Designer",
+    duration: "3 months",
+    shortDesc: "A centralized platform resolving delays and poor visibility in event management.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
-    longDesc:
-      "Flowmind is an AI-powered task management tool that uses GPT-4 to break down goals into actionable steps, prioritise by impact, and auto-schedule into the user's week. The UX challenge was making AI suggestions feel like assistance, not interference.",
-    highlights: [
-      "GPT-4 powered goal-decomposition with contextual prompts",
-      "Drag-and-drop weekly planner with conflict detection",
-      "Streak tracking and focus session timer (Pomodoro-based)",
-      "One-click export to Notion, Linear, and Google Calendar",
-    ],
-  },
+    caseStudy: {
+      problem: {
+        statement: "Colleges and organizations manage events through emails and spreadsheets, causing delays and poor visibility.",
+        whoFacesIt: "Faculty, Event Teams, and Administrators."
+      },
+      research: {
+        userInterviews: "Interviews with 10 faculty heads and 5 student coordinators.",
+        surveys: "Feedback from 40 event organizers on approval bottlenecks.",
+        competitorAnalysis: "Looked at internal university portals and generic workflow tools like Jira."
+      },
+      personas: {
+        goals: ["Fast event approvals", "Clear budget tracking"],
+        painPoints: ["Lost email requests", "Unclear approval status"],
+        motivations: ["Successful events", "Accountability"]
+      },
+      journey: {
+        discovery: "Organizer submits an event request with budget details.",
+        interaction: "Request enters a multi-level approval workflow. Admins review, allocate resources, and approve.",
+        painPoints: "Tracking where a request is stuck."
+      },
+      architecture: {
+        sitemap: "Request Submission, Event Tracking, Approval Workflow, Dashboard, Reports.",
+        navigationFlow: "Role-based dashboards displaying relevant pending actions."
+      },
+      wireframes: {
+        lowFidelity: "Workflow mapping and form structuring.",
+        midFidelity: "Approval pipeline visualization and detailed request view."
+      },
+      designSystem: {
+        colors: "Clean corporate palette with clear status indicators.",
+        typography: "System fonts for fast rendering and native feel.",
+        components: "Multi-step Forms, Timeline / Progress Trackers, Status Badges.",
+        icons: "Minimalist outline icons."
+      },
+      finalUI: {
+        mobileScreens: "Mobile view for quick admin approvals on the go.",
+        webScreens: "Detailed form submission and budget allocation tables.",
+        responsiveLayouts: "Side-by-side request details and approval chat."
+      },
+      usabilityTesting: {
+        findings: "Organizers found the budget form too rigid.",
+        iterations: "Added dynamic line items and standard templates for common events."
+      },
+      impact: {
+        metricsImproved: "Approval time reduced from 2 weeks to 3 days. 100% visibility on event budgets.",
+        futureEnhancements: "Vendor management and ticketing integration."
+      }
+    }
+  }
 ];
 
 const workflowSteps = [
@@ -390,26 +550,103 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
             ))}
           </div>
 
-          <p className="font-mono text-base leading-relaxed mb-8">{project.longDesc}</p>
+                    <div className="space-y-12 mb-12 mt-8">
+            {/* 1. Overview */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">1. Overview</h3>
+              <p className="font-mono text-base mb-4">{project.shortDesc}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map(t => <span key={t} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-white">{t}</span>)}
+              </div>
+            </section>
 
-          <h3 className="text-2xl font-black uppercase tracking-tight mb-6 border-b-[3px] border-black pb-3">Key Highlights</h3>
-          <ul className="space-y-3 mb-8">
-            {project.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-4 font-mono text-sm">
-                <span className="w-6 h-6 border-[2px] border-black bg-primary flex items-center justify-center shrink-0 font-black text-xs mt-0.5">
-                  +
-                </span>
-                {h}
-              </li>
-            ))}
-          </ul>
+            {/* 2. Problem Statement */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Problem Statement</h3>
+              <p className="font-mono text-base"><strong>The Problem:</strong> {project.caseStudy.problem.statement}</p>
+              <p className="font-mono text-base mt-2"><strong>Who faces it:</strong> {project.caseStudy.problem.whoFacesIt}</p>
+            </section>
 
-          <div className="flex flex-wrap gap-3">
-            {project.tags.map((tag) => (
-              <span key={tag} className="border-[2px] border-black px-4 py-2 font-mono text-xs font-bold uppercase bg-white">
-                {tag}
-              </span>
-            ))}
+            {/* 3. Research */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research</h3>
+              <ul className="space-y-2 font-mono text-base">
+                <li><strong className="bg-primary/20 px-1">Interviews:</strong> {project.caseStudy.research.userInterviews}</li>
+                <li><strong className="bg-secondary/20 px-1">Surveys:</strong> {project.caseStudy.research.surveys}</li>
+                {project.caseStudy.research.competitorAnalysis && <li><strong className="bg-[#B8F0A0]/30 px-1">Competitor Analysis:</strong> {project.caseStudy.research.competitorAnalysis}</li>}
+              </ul>
+            </section>
+
+            {/* 4. Personas */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Personas</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
+                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Goals</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.goals.map(g => <li key={g}>{g}</li>)}</ul></div>
+                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Pain Points</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.painPoints.map(p => <li key={p}>{p}</li>)}</ul></div>
+                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Motivations</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.motivations.map(m => <li key={m}>{m}</li>)}</ul></div>
+              </div>
+            </section>
+
+            {/* 5. User Journey Map */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. User Journey Map</h3>
+              <div className="space-y-4 font-mono text-base border-[2px] border-black p-5 bg-white">
+                <div className="border-l-[4px] border-primary pl-4"><strong className="block mb-1 uppercase text-xs">Discovery</strong> {project.caseStudy.journey.discovery}</div>
+                <div className="border-l-[4px] border-secondary pl-4"><strong className="block mb-1 uppercase text-xs">Interaction</strong> {project.caseStudy.journey.interaction}</div>
+                <div className="border-l-[4px] border-[#B8F0A0] pl-4"><strong className="block mb-1 uppercase text-xs">Pain Points</strong> {project.caseStudy.journey.painPoints}</div>
+              </div>
+            </section>
+
+            {/* 6. Information Architecture */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Information Architecture</h3>
+              <p className="font-mono text-base mb-2"><strong>Sitemap:</strong> {project.caseStudy.architecture.sitemap}</p>
+              <p className="font-mono text-base"><strong>Navigation Flow:</strong> {project.caseStudy.architecture.navigationFlow}</p>
+            </section>
+
+            {/* 7. Wireframes */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Wireframes</h3>
+              <p className="font-mono text-base mb-2"><strong>Low Fidelity:</strong> {project.caseStudy.wireframes.lowFidelity}</p>
+              <p className="font-mono text-base"><strong>Mid Fidelity:</strong> {project.caseStudy.wireframes.midFidelity}</p>
+            </section>
+
+            {/* 8. Design System */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Design System</h3>
+              <ul className="space-y-2 font-mono text-base">
+                <li><strong>Colors:</strong> {project.caseStudy.designSystem.colors}</li>
+                <li><strong>Typography:</strong> {project.caseStudy.designSystem.typography}</li>
+                <li><strong>Components:</strong> {project.caseStudy.designSystem.components}</li>
+                <li><strong>Icons:</strong> {project.caseStudy.designSystem.icons}</li>
+              </ul>
+            </section>
+
+            {/* 9. Final UI */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">9. Final UI</h3>
+              <ul className="space-y-2 font-mono text-base bg-[#C8B8FF]/20 p-4 border-[2px] border-black">
+                <li><strong>Mobile Screens:</strong> {project.caseStudy.finalUI.mobileScreens}</li>
+                <li><strong>Web Screens:</strong> {project.caseStudy.finalUI.webScreens}</li>
+                <li><strong>Responsive Layouts:</strong> {project.caseStudy.finalUI.responsiveLayouts}</li>
+              </ul>
+            </section>
+
+            {/* 10. Usability Testing */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">10. Usability Testing</h3>
+              <p className="font-mono text-base mb-2"><strong>Findings:</strong> {project.caseStudy.usabilityTesting.findings}</p>
+              <p className="font-mono text-base border-l-[4px] border-black pl-3 ml-2 bg-gray-50 py-2"><strong>Iterations:</strong> {project.caseStudy.usabilityTesting.iterations}</p>
+            </section>
+
+            {/* 11. Impact & Learnings */}
+            <section>
+              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">11. Impact & Learnings</h3>
+              <div className="bg-primary border-[3px] border-black p-5">
+                <p className="font-mono text-base mb-2"><strong className="text-black uppercase text-sm">Metrics Improved:</strong><br/>{project.caseStudy.impact.metricsImproved}</p>
+                <p className="font-mono text-base"><strong className="text-black uppercase text-sm">Future Enhancements:</strong><br/>{project.caseStudy.impact.futureEnhancements}</p>
+              </div>
+            </section>
           </div>
         </div>
       </motion.div>

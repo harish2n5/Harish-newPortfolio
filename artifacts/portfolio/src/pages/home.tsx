@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send, ExternalLink } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send, ExternalLink, FileDown } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import project1Url from "../assets/project-1.png";
 import project2Url from "../assets/project-2.png";
@@ -16,39 +16,47 @@ const HERO_IMAGE = "https://i.postimg.cc/XqvfT30M/Whats-App-Image-2026-04-27-at-
 
 const MARQUEE_TEXT = "UI/UX DESIGNER • FULL STACK DEVELOPER • DESIGN THAT SHIPS • PIXEL-PERFECT • ";
 
-const skills = [
-  "Figma", "React", "TypeScript", "Node.js", "PostgreSQL", "Framer", "Next.js", "TailwindCSS"
+const frontendSkills = [
+  "React", "JavaScript / TypeScript", "HTML5", "CSS / Tailwind", "Framer Motion"
+];
+
+const designTools = [
+  "Figma", "Photoshop", "Illustrator", "Canva", "Sketch"
+];
+
+const designExpertise = [
+  "User-Centered Design", "Wireframing", "Prototyping", "Design Systems", "Responsive Design", "Accessibility (WCAG)", "Interaction Design", "UX Research & Usability Testing"
 ];
 
 const projects = [
   {
-    title: "Fintrack",
-    subtitle: "Fintech Dashboard",
-    description: "Real-time data visualisation with uncompromising clarity.",
+    title: "CareerFlow AI",
+    subtitle: "Job Search Platform",
+    description: "An AI-powered platform for job matching, ATS optimization, and interview prep.",
     image: project1Url,
     color: "bg-primary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
-    title: "Threadly",
-    subtitle: "Social Platform",
-    description: "High-concurrency interactions wrapped in brutalist aesthetics.",
+    title: "MediSync",
+    subtitle: "Healthcare Management",
+    description: "A unified healthcare ecosystem for appointments, prescriptions, and health tracking.",
     image: project2Url,
     color: "bg-secondary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
-    title: "Oxide DS",
-    subtitle: "Design System",
-    description: "A component library built for scale and hard impact.",
+    title: "TrackMint",
+    subtitle: "Business Operations SaaS",
+    description: "An all-in-one business management platform for inventory, sales, and analytics.",
     image: project3Url,
     color: "bg-[#B8F0A0]",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
-    title: "Flowmind",
-    subtitle: "AI Productivity",
-    description: "Neural net workflows simplified for human velocity.",
+    title: "EventSphere",
+    subtitle: "Event Management",
+    description: "A centralized platform for event requests, approvals, budgeting, and tracking.",
     image: project4Url,
     color: "bg-[#C8B8FF]",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
@@ -337,6 +345,16 @@ export default function Home() {
                 See Work <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.a
+                href="/HARISH_RESUME.pdf"
+                download
+                data-testid="button-hero-resume"
+                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-white px-7 py-4 brutal-shadow"
+              >
+                Resume <FileDown className="w-5 h-5" />
+              </motion.a>
+              <motion.a
                 href="#contact"
                 data-testid="button-hero-contact"
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
@@ -439,22 +457,66 @@ export default function Home() {
               Tools I use to bend pixels and bytes to my will. Always learning, always building.
             </motion.p>
           </div>
-          <div className="flex flex-wrap gap-4 content-start">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.85 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                whileHover={{ y: -4, x: -4, boxShadow: "6px 6px 0px #000" }}
-                whileTap={{ y: 1, x: 1, boxShadow: "2px 2px 0px #000" }}
-                className="border-[3px] border-black px-6 py-3 text-xl font-bold bg-white brutal-shadow hover:bg-primary transition-colors cursor-default"
-                data-testid={`skill-tag-${skill}`}
-              >
-                {skill}
-              </motion.div>
-            ))}
+          <div className="flex flex-col gap-10">
+            {/* Frontend Skills */}
+            <div>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Frontend Development</h3>
+              <div className="flex flex-wrap gap-3">
+                {frontendSkills.map((skill, i) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-white brutal-shadow hover:bg-primary transition-colors cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Design Tools */}
+            <div>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Tools</h3>
+              <div className="flex flex-wrap gap-3">
+                {designTools.map((skill, i) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-[#B8F0A0] brutal-shadow hover:bg-white transition-colors cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Design Expertise */}
+            <div>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Expertise</h3>
+              <div className="flex flex-wrap gap-3">
+                {designExpertise.map((skill, i) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-secondary brutal-shadow hover:bg-white transition-colors cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

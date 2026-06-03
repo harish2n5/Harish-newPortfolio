@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
-import { Home, Briefcase, Mail, MoreHorizontal, Layers, User, X } from "lucide-react";
+import { Home, Briefcase, Mail, MoreHorizontal, Layers, User, X, FileDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const desktopLinks = [
@@ -18,8 +18,9 @@ const mobileMainLinks = [
 ];
 
 const moreLinks = [
-  { label: "About",    href: "/about",    icon: User },
-  { label: "Services", href: "/services", icon: Layers },
+  { label: "About",    href: "/about",    icon: User, external: false },
+  { label: "Services", href: "/services", icon: Layers, external: false },
+  { label: "Resume",   href: "/HARISH_RESUME.pdf", icon: FileDown, external: true, download: true },
 ];
 
 export default function Navbar() {
@@ -61,16 +62,25 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Hire Me — desktop only */}
-        <Link href="/contact" data-testid="link-nav-hire">
-          <motion.span
-            whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-            whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-            className="hidden md:inline-block bg-primary border-[3px] border-black px-6 py-2 font-bold uppercase cursor-pointer brutal-shadow"
+        {/* Hire Me / Resume — desktop only */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="/HARISH_RESUME.pdf"
+            download
+            className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary"
           >
-            Hire Me
-          </motion.span>
-        </Link>
+            <FileDown className="w-4 h-4" /> Resume
+          </a>
+          <Link href="/contact" data-testid="link-nav-hire">
+            <motion.span
+              whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+              whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+              className="inline-block bg-primary border-[3px] border-black px-6 py-2 font-bold uppercase cursor-pointer brutal-shadow"
+            >
+              Hire Me
+            </motion.span>
+          </Link>
+        </div>
       </nav>
 
       {/* ── Mobile Floating Bottom Navbar ───────────────────────── */}
@@ -108,8 +118,7 @@ export default function Navbar() {
 
                 {moreLinks.map((link) => {
                   const isActive = location === link.href;
-                  return (
-                    <Link key={link.href} href={link.href} data-testid={`link-mobile-more-${link.label.toLowerCase()}`}>
+                  const inner = (
                       <motion.div
                         whileTap={{ scale: 0.97 }}
                         className={`flex items-center gap-3 px-4 py-3 cursor-pointer border-b-[2px] border-white/10 last:border-b-0 transition-colors ${
@@ -122,6 +131,14 @@ export default function Navbar() {
                           <span className="ml-auto w-1.5 h-1.5 bg-black rounded-full" />
                         )}
                       </motion.div>
+                  );
+                  return link.external ? (
+                    <a key={link.href} href={link.href} download={link.download} data-testid={`link-mobile-more-${link.label.toLowerCase()}`}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link key={link.href} href={link.href} data-testid={`link-mobile-more-${link.label.toLowerCase()}`}>
+                      {inner}
                     </Link>
                   );
                 })}
