@@ -154,6 +154,7 @@ const projects = [
     role: "Full Stack + UI Design",
     duration: "3 months",
     shortDesc: "Real-time financial data visualisation with uncompromising clarity.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
     longDesc:
       "Fintrack is a B2B fintech dashboard built for investment analysts who need to monitor portfolios, track transactions, and surface anomalies in real time. The challenge was making dense data feel instantly readable without hiding complexity behind oversimplification.",
     highlights: [
@@ -174,6 +175,7 @@ const projects = [
     role: "Full Stack + Product Design",
     duration: "4 months",
     shortDesc: "High-concurrency real-time interactions wrapped in brutalist aesthetics.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
     longDesc:
       "Threadly is a discussion platform designed for professional communities. It supports nested threads, real-time notifications, and rich media posts. The design challenge was achieving the warmth of an engaged community while scaling to 10k+ concurrent users.",
     highlights: [
@@ -194,6 +196,7 @@ const projects = [
     role: "Design + Engineering",
     duration: "6 months",
     shortDesc: "A component library built for scale and hard, consistent impact.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
     longDesc:
       "Oxide is a design system built for a SaaS startup scaling from 3 to 30 engineers. The goal was to eliminate inconsistency across the product while enabling rapid feature development. Every component is typed, accessible, and documented with Storybook.",
     highlights: [
@@ -214,6 +217,7 @@ const projects = [
     role: "Full Stack + UX Design",
     duration: "2 months",
     shortDesc: "Neural net workflows simplified for human velocity.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
     longDesc:
       "Flowmind is an AI-powered task management tool that uses GPT-4 to break down goals into actionable steps, prioritise by impact, and auto-schedule into the user's week. The UX challenge was making AI suggestions feel like assistance, not interference.",
     highlights: [
@@ -675,15 +679,26 @@ export default function Work() {
                       </div>
                     </div>
                   </div>
-                  <motion.button
-                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                    onClick={() => setActiveProject(project)}
-                    data-testid={`button-project-detail-${project.id}`}
-                    className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors"
-                  >
-                    View Case Study <ArrowUpRight className="w-5 h-5" />
-                  </motion.button>
+                  <div className="flex gap-4">
+                    <motion.button
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      onClick={() => setActiveProject(project)}
+                      data-testid={`button-project-detail-${project.id}`}
+                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors"
+                    >
+                      View Case Study <ArrowUpRight className="w-5 h-5" />
+                    </motion.button>
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-white px-6 py-3 brutal-shadow hover:bg-secondary transition-colors"
+                    >
+                      Live <ExternalLink className="w-5 h-5" />
+                    </motion.a>
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send, ExternalLink } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import project1Url from "../assets/project-1.png";
 import project2Url from "../assets/project-2.png";
@@ -26,28 +26,32 @@ const projects = [
     subtitle: "Fintech Dashboard",
     description: "Real-time data visualisation with uncompromising clarity.",
     image: project1Url,
-    color: "bg-primary"
+    color: "bg-primary",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
     title: "Threadly",
     subtitle: "Social Platform",
     description: "High-concurrency interactions wrapped in brutalist aesthetics.",
     image: project2Url,
-    color: "bg-secondary"
+    color: "bg-secondary",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
     title: "Oxide DS",
     subtitle: "Design System",
     description: "A component library built for scale and hard impact.",
     image: project3Url,
-    color: "bg-[#B8F0A0]"
+    color: "bg-[#B8F0A0]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
     title: "Flowmind",
     subtitle: "AI Productivity",
     description: "Neural net workflows simplified for human velocity.",
     image: project4Url,
-    color: "bg-[#C8B8FF]"
+    color: "bg-[#C8B8FF]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
   }
 ];
 
@@ -174,14 +178,25 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">{project.subtitle}</span>
         <h3 className="text-3xl font-black uppercase tracking-tight mb-4">{project.title}</h3>
         <p className="font-mono text-base flex-grow mb-8">{project.description}</p>
-        <motion.a
-          href="/work"
-          className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
-          whileHover={{ x: 4 }}
-        >
-          View Project
-          <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
-        </motion.a>
+        <div className="flex gap-6 mt-auto">
+          <motion.a
+            href="/work"
+            className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
+            whileHover={{ x: 4 }}
+          >
+            Case Study
+            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
+          </motion.a>
+          <motion.a
+            href={project.link}
+            target="_blank"
+            className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
+            whileHover={{ x: 4 }}
+          >
+            Live Site
+            <ExternalLink className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+          </motion.a>
+        </div>
       </div>
     </motion.div>
   );
