@@ -36,14 +36,16 @@ export default function Navbar() {
     <>
       {/* ── Desktop / Tablet Top Navbar ─────────────────────────── */}
       <nav className="border-b-[3px] border-black px-4 sm:px-6 py-4 flex justify-between items-center bg-white sticky top-0 z-50">
-        <Link href="/" data-testid="link-logo">
-          <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase cursor-pointer hover:text-secondary transition-colors">
-            HARISH.
-          </span>
-        </Link>
+        <div className="flex-1 flex justify-start">
+          <Link href="/" data-testid="link-logo">
+            <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase cursor-pointer hover:text-secondary transition-colors">
+              HARISH.
+            </span>
+          </Link>
+        </div>
 
         {/* Nav links — hidden on mobile */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center justify-center gap-1 shrink-0">
           {desktopLinks.map((link) => {
             const isActive = location === link.href;
             return (
@@ -63,7 +65,7 @@ export default function Navbar() {
         </div>
 
         {/* Hire Me / Resume — desktop only */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="flex-1 hidden md:flex items-center justify-end gap-4">
           <a
             href="/HARISH_RESUME.pdf"
             download
