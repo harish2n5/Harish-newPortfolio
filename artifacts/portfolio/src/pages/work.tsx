@@ -5,6 +5,14 @@ import project1Url from "../assets/project-1.png";
 import project2Url from "../assets/project-2.png";
 import project3Url from "../assets/project-3.png";
 import project4Url from "../assets/project-4.png";
+import snippet1Url from "../assets/snippet-1.png";
+import snippet2Url from "../assets/snippet-2.png";
+import snippet3Url from "../assets/snippet-3.png";
+import snippet4Url from "../assets/snippet-4.png";
+import snippet5Url from "../assets/snippet-5.png";
+import snippet6Url from "../assets/snippet-6.png";
+import snippet7Url from "../assets/snippet-7.png";
+import snippet8Url from "../assets/snippet-8.png";
 import Navbar from "@/components/Navbar";
 
 const fadeUp = {
@@ -24,6 +32,7 @@ const designSnippets = [
     title: "Onboarding Flow",
     tag: "UX",
     color: "bg-primary",
+    image: snippet1Url,
     year: "2024",
     description:
       "A 5-step onboarding sequence that reduced drop-off by 40%. Each screen does exactly one job — no cognitive overload, no surprise asks.",
@@ -39,6 +48,7 @@ const designSnippets = [
     title: "Data Dashboard",
     tag: "UI",
     color: "bg-secondary",
+    image: snippet2Url,
     year: "2024",
     description:
       "A dense analytics UI for investment analysts. The goal: maximum information at a glance without triggering cognitive fatigue.",
@@ -54,6 +64,7 @@ const designSnippets = [
     title: "Mobile Nav Pattern",
     tag: "UX",
     color: "bg-[#B8F0A0]",
+    image: snippet3Url,
     year: "2023",
     description:
       "Redesigned a tab bar into a floating gesture-aware navigation that adapts to thumb reach zones on all screen sizes.",
@@ -69,6 +80,7 @@ const designSnippets = [
     title: "Empty States",
     tag: "UI",
     color: "bg-[#C8B8FF]",
+    image: snippet4Url,
     year: "2024",
     description:
       "A system of illustrated empty states that turn zero-data moments into action prompts — not dead ends.",
@@ -84,6 +96,7 @@ const designSnippets = [
     title: "Toast System",
     tag: "Component",
     color: "bg-primary",
+    image: snippet5Url,
     year: "2023",
     description:
       "A composable, accessible toast/notification system with smart stacking, queuing, and action-button support.",
@@ -99,6 +112,7 @@ const designSnippets = [
     title: "Auth Screens",
     tag: "UX",
     color: "bg-[#FFD6A0]",
+    image: snippet6Url,
     year: "2024",
     description:
       "A low-friction auth flow that prioritised social login and magic links. Password is always the last resort.",
@@ -114,6 +128,7 @@ const designSnippets = [
     title: "Icon Set",
     tag: "Visual",
     color: "bg-secondary",
+    image: snippet7Url,
     year: "2023",
     description:
       "60+ custom icons built on a consistent 24px grid with two weight variants — designed for web and native.",
@@ -129,6 +144,7 @@ const designSnippets = [
     title: "Pricing Page",
     tag: "Conversion",
     color: "bg-[#A0E4FF]",
+    image: snippet8Url,
     year: "2024",
     description:
       "A conversion-optimised pricing page that increased paid plan sign-ups by 28% through anchoring and trust signals.",
@@ -829,10 +845,8 @@ export default function Work() {
                 className="border-[3px] border-black brutal-shadow cursor-pointer group"
                 data-testid={`snippet-card-${i}`}
               >
-                <div className={`${snippet.color} border-b-[3px] border-black h-28 flex flex-col items-center justify-center relative overflow-hidden`}>
-                  <span className="text-3xl font-black opacity-30 group-hover:opacity-0 transition-opacity duration-200">
-                    {snippet.tag[0]}
-                  </span>
+                <div className={`${snippet.color} border-b-[3px] border-black h-28 flex flex-col items-center justify-center relative overflow-hidden group-hover:bg-black transition-colors`}>
+                  <img src={snippet.image} alt={snippet.title} className="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500" />
                   {/* Hover reveal */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     <span className="font-black text-xs uppercase tracking-widest border-[2px] border-black bg-white px-2 py-1">
