@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "ZeMd9HMvEfwRIots_8gMf"
+uri = "file://artifacts/portfolio/src/assets/project-1.png"
+type = "image"
+title = "Fintech dashboard abstract tech graphic"
+
+[[generated]]
+id = "OzGcG-qSNO839cWr27WT1"
+uri = "file://artifacts/portfolio/src/assets/project-2.png"
+type = "image"
+title = "Social platform abstract tech graphic"
+
+[[generated]]
+id = "CZlF0vWJUCXL2nOy0_dHf"
+uri = "file://artifacts/portfolio/src/assets/project-3.png"
+type = "image"
+title = "Design system abstract graphic"
+
+[[generated]]
+id = "jwHzascVAsFpy0Vuw_FyH"
+uri = "file://artifacts/portfolio/src/assets/project-4.png"
+type = "image"
+title = "AI tool abstract tech graphic"
