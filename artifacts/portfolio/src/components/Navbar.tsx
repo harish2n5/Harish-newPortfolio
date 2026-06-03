@@ -69,7 +69,7 @@ export default function Navbar() {
           <a
             href="/HARISH_RESUME.pdf"
             download
-            className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-primary transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary"
+            className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-black transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary"
           >
             <FileDown className="w-4 h-4" /> Resume
           </a>

@@ -345,16 +345,6 @@ export default function Home() {
                 See Work <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="/HARISH_RESUME.pdf"
-                download
-                data-testid="button-hero-resume"
-                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-white px-7 py-4 brutal-shadow"
-              >
-                Resume <FileDown className="w-5 h-5" />
-              </motion.a>
-              <motion.a
                 href="#contact"
                 data-testid="button-hero-contact"
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
