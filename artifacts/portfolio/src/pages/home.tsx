@@ -17,11 +17,11 @@ const HERO_IMAGE = "https://i.postimg.cc/XqvfT30M/Whats-App-Image-2026-04-27-at-
 const MARQUEE_TEXT = "UI/UX DESIGNER • FULL STACK DEVELOPER • DESIGN THAT SHIPS • PIXEL-PERFECT • ";
 
 const uxMethods = [
-  "User research", "Wireframing", "Prototyping", "Usability testing", "Information architecture"
+  "User research", "Wireframing", "Prototyping", "Usability testing", "Information architecture", "Motion design"
 ];
 
 const designTools = [
-  "Figma (Auto Layout, Components, Design Systems)", "Photoshop", "Illustrator", "Canva"
+  "Figma (Auto Layout, Components, Design Systems)", "Photoshop", "Illustrator", "Canva", "Adobe After Effects", "FigJam"
 ];
 
 const frontendSkills = [
@@ -33,6 +33,22 @@ const accessibilitySkills = [
 ];
 
 const projects = [
+  {
+    title: "Enterprise Event Management System",
+    subtitle: "UI/UX Case Study",
+    description: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards and workflows.",
+    image: project1Url,
+    color: "bg-[#FFD6A0]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
+  },
+  {
+    title: "Paytm Mobile App",
+    subtitle: "UX Redesign for Improved Usability",
+    description: "Redesigned an existing mobile application to enhance usability and user engagement by identifying UX issues through heuristic evaluation.",
+    image: project2Url,
+    color: "bg-[#A0E4FF]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
+  },
   {
     title: "CareerFlow AI",
     subtitle: "Job Search Platform",
@@ -63,22 +79,6 @@ const projects = [
     description: "A centralized platform for event requests, approvals, budgeting, and tracking.",
     image: project4Url,
     color: "bg-[#C8B8FF]",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "Enterprise Event Management System",
-    subtitle: "UI/UX Case Study",
-    description: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards and workflows.",
-    image: project1Url,
-    color: "bg-[#FFD6A0]",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "Paytm Mobile App",
-    subtitle: "UX Redesign for Improved Usability",
-    description: "Redesigned an existing mobile application to enhance usability and user engagement by identifying UX issues through heuristic evaluation.",
-    image: project2Url,
-    color: "bg-[#A0E4FF]",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
@@ -580,7 +580,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {projects.map((project, i) => (
+            {projects.slice(0, 2).map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} />
             ))}
           </div>
