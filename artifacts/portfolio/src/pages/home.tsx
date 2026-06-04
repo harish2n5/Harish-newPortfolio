@@ -16,16 +16,20 @@ const HERO_IMAGE = "https://i.postimg.cc/XqvfT30M/Whats-App-Image-2026-04-27-at-
 
 const MARQUEE_TEXT = "UI/UX DESIGNER • FULL STACK DEVELOPER • DESIGN THAT SHIPS • PIXEL-PERFECT • ";
 
-const frontendSkills = [
-  "React", "JavaScript / TypeScript", "HTML5", "CSS / Tailwind", "Framer Motion"
+const uxMethods = [
+  "User research", "Wireframing", "Prototyping", "Usability testing", "Information architecture"
 ];
 
 const designTools = [
-  "Figma", "Photoshop", "Illustrator", "Canva", "Sketch"
+  "Figma (Auto Layout, Components, Design Systems)", "Photoshop", "Illustrator", "Canva"
 ];
 
-const designExpertise = [
-  "User-Centered Design", "Wireframing", "Prototyping", "Design Systems", "Responsive Design", "Accessibility (WCAG)", "Interaction Design", "UX Research & Usability Testing"
+const frontendSkills = [
+  "React", "JavaScript", "HTML", "CSS"
+];
+
+const accessibilitySkills = [
+  "WCAG guidelines", "component documentation"
 ];
 
 const projects = [
@@ -59,6 +63,30 @@ const projects = [
     description: "A centralized platform for event requests, approvals, budgeting, and tracking.",
     image: project4Url,
     color: "bg-[#C8B8FF]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
+  },
+  {
+    title: "Enterprise Event Management System",
+    subtitle: "UI/UX Case Study",
+    description: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards and workflows.",
+    image: project1Url,
+    color: "bg-[#FFD6A0]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
+  },
+  {
+    title: "Paytm Mobile App",
+    subtitle: "UX Redesign for Improved Usability",
+    description: "Redesigned an existing mobile application to enhance usability and user engagement by identifying UX issues through heuristic evaluation.",
+    image: project2Url,
+    color: "bg-[#A0E4FF]",
+    link: "https://github.com/harish2n5/Harish-newPortfolio"
+  },
+  {
+    title: "Scalable Design System",
+    subtitle: "& Component Library",
+    description: "Created a scalable design system to ensure visual consistency and faster product development across multiple screens and platforms.",
+    image: project3Url,
+    color: "bg-primary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   }
 ];
@@ -448,11 +476,11 @@ export default function Home() {
             </motion.p>
           </div>
           <div className="flex flex-col gap-10">
-            {/* Frontend Skills */}
+            {/* UX Methods */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Frontend Development</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">UX Methods</h3>
               <div className="flex flex-wrap gap-3">
-                {frontendSkills.map((skill, i) => (
+                {uxMethods.map((skill, i) => (
                   <motion.div
                     key={skill}
                     initial={{ opacity: 0, scale: 0.85 }}
@@ -488,11 +516,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Design Expertise */}
+            {/* Frontend */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Expertise</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Frontend</h3>
               <div className="flex flex-wrap gap-3">
-                {designExpertise.map((skill, i) => (
+                {frontendSkills.map((skill, i) => (
                   <motion.div
                     key={skill}
                     initial={{ opacity: 0, scale: 0.85 }}
@@ -501,6 +529,26 @@ export default function Home() {
                     transition={{ delay: i * 0.04 }}
                     whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
                     className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-secondary brutal-shadow hover:bg-white transition-colors cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Accessibility */}
+            <div>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Accessibility</h3>
+              <div className="flex flex-wrap gap-3">
+                {accessibilitySkills.map((skill, i) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-[#C8B8FF] brutal-shadow hover:bg-white transition-colors cursor-default"
                   >
                     {skill}
                   </motion.div>

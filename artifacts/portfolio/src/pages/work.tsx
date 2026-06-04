@@ -402,6 +402,81 @@ const projects = [
         futureEnhancements: "Vendor management and ticketing integration."
       }
     }
+  },
+  {
+    id: 4,
+    title: "Enterprise Event Management",
+    subtitle: "UI/UX Case Study",
+    image: project1Url,
+    accentColor: "bg-[#FFD6A0]",
+    year: "2024",
+    tags: ["Figma", "UX Research", "Design Systems", "Responsive Design"],
+    role: "UI/UX Designer",
+    duration: "4 months",
+    shortDesc: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards, event team workflows, and requester portals.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Needed an end-to-end UI/UX solution for an enterprise-level event management system.", whoFacesIt: "Admin and event team." },
+      research: { userInterviews: "Conducted user research to identify pain points.", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Task efficiency", "Clear information architecture"], painPoints: ["Complex workflows"], motivations: ["Streamlined processing"] },
+      journey: { discovery: "User logs in.", interaction: "User accesses admin dashboards, event team workflows, and requester portals.", painPoints: "N/A" },
+      architecture: { sitemap: "Admin Dashboard, Requester Portal.", navigationFlow: "Intuitive user flows." },
+      wireframes: { lowFidelity: "Created wireframes.", midFidelity: "High-fidelity designs." },
+      designSystem: { colors: "Brand colors.", typography: "System defaults.", components: "Scalable design system with reusable components.", icons: "Standard icons." },
+      finalUI: { mobileScreens: "Responsive layouts.", webScreens: "Web dashboard.", responsiveLayouts: "Yes." },
+      usabilityTesting: { findings: "Improved task efficiency.", iterations: "Refined information architecture." },
+      impact: { metricsImproved: "Improved task efficiency through clear information architecture.", futureEnhancements: "N/A" }
+    }
+  },
+  {
+    id: 5,
+    title: "Paytm Mobile App",
+    subtitle: "UX Redesign for Improved Usability",
+    image: project2Url,
+    accentColor: "bg-[#A0E4FF]",
+    year: "2024",
+    tags: ["Figma", "User Research", "Prototyping", "Usability Testing"],
+    role: "UX Designer",
+    duration: "3 months",
+    shortDesc: "Redesigned an existing mobile application to enhance usability and user engagement.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "UX issues identified through heuristic evaluation and user feedback.", whoFacesIt: "Mobile app users." },
+      research: { userInterviews: "User feedback analysis.", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Better usability", "Improved visual hierarchy"], painPoints: ["Complex navigation"], motivations: ["Engagement"] },
+      journey: { discovery: "User opens app.", interaction: "User navigates through optimized user flows.", painPoints: "N/A" },
+      architecture: { sitemap: "Simplified navigation.", navigationFlow: "Optimized user flows." },
+      wireframes: { lowFidelity: "N/A", midFidelity: "Interactive prototypes demonstrating before-and-after improvements." },
+      designSystem: { colors: "Paytm Brand colors.", typography: "Brand typography.", components: "Redesigned key screens.", icons: "Standard icons." },
+      finalUI: { mobileScreens: "Redesigned key screens with improved visual hierarchy.", webScreens: "N/A", responsiveLayouts: "Mobile optimized." },
+      usabilityTesting: { findings: "Validated solutions through usability testing.", iterations: "Accessibility improvements." },
+      impact: { metricsImproved: "Enhanced usability and user engagement.", futureEnhancements: "N/A" }
+    }
+  },
+  {
+    id: 6,
+    title: "Scalable Design System",
+    subtitle: "Component Library",
+    image: project3Url,
+    accentColor: "bg-primary",
+    year: "2024",
+    tags: ["Figma", "Auto Layout", "Component Variants", "Accessibility"],
+    role: "Product Designer",
+    duration: "5 months",
+    shortDesc: "Created a scalable design system to ensure visual consistency and faster product development.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Inconsistencies and slow product development across multiple screens.", whoFacesIt: "Design and development teams." },
+      research: { userInterviews: "N/A", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Faster product development", "Visual consistency"], painPoints: ["Inefficient handoff"], motivations: ["Scalability"] },
+      journey: { discovery: "Designer uses components.", interaction: "Developed reusable UI components, typography styles, color tokens.", painPoints: "N/A" },
+      architecture: { sitemap: "N/A", navigationFlow: "N/A" },
+      wireframes: { lowFidelity: "N/A", midFidelity: "N/A" },
+      designSystem: { colors: "Color tokens.", typography: "Typography styles.", components: "Auto Layout and component variants.", icons: "N/A" },
+      finalUI: { mobileScreens: "N/A", webScreens: "N/A", responsiveLayouts: "Layout guidelines." },
+      usabilityTesting: { findings: "N/A", iterations: "N/A" },
+      impact: { metricsImproved: "Efficient design-to-development handoff and long-term product scalability.", futureEnhancements: "Accessibility standards documentation." }
+    }
   }
 ];
 
