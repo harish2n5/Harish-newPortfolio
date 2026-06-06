@@ -12,8 +12,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "harish@design.dev",
-    href: "mailto:harish@design.dev",
+    value: "harish2n5@gmail.com",
+    href: "mailto:harish2n5@gmail.com",
     color: "bg-primary",
     testId: "link-contact-email",
   },
@@ -328,7 +328,7 @@ export default function Contact() {
             </h2>
           </div>
           <motion.a
-            href="mailto:harish@design.dev"
+            href="mailto:harish2n5@gmail.com"
             data-testid="link-availability-email"
             whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
             whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}

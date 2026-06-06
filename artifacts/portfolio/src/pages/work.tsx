@@ -162,66 +162,77 @@ const projects = [
   {
     id: 0,
     title: "CareerFlow AI",
-    subtitle: "Job Search Platform",
+    subtitle: "AI-Powered Career Platform",
     image: project1Url,
     accentColor: "bg-primary",
     year: "2024",
     tags: ["React", "TypeScript", "AI Resume Analyzer", "Job Engine"],
     role: "Full Stack + UX Design",
     duration: "4 months",
-    shortDesc: "An AI-powered platform that matches jobs, optimizes resumes, and tracks applications.",
+    shortDesc: "An AI-powered platform that helps users find relevant jobs, optimize resumes for ATS systems, generate cover letters, and track applications.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
-      problem: {
-        statement: "Job seekers spend hours searching, tailoring resumes, and tracking applications across multiple platforms.",
-        whoFacesIt: "Job seekers, recent graduates, and professionals looking for a career change."
-      },
-      research: {
-        userInterviews: "20 job seekers, 5 HR recruiters.",
-        surveys: "Survey: 100 participants to understand job search pain points.",
-        competitorAnalysis: "Analyzed LinkedIn, Indeed, and specialized ATS platforms."
-      },
-      personas: {
-        goals: ["Find jobs matching exact skills", "Pass ATS filters"],
-        painPoints: ["Time-consuming resume tailoring", "Ghosting from recruiters"],
-        motivations: ["Career progression", "Streamlined workflow"]
-      },
-      journey: {
-        discovery: "User signs up and imports their base resume.",
-        interaction: "AI analyzes the resume and recommends matching jobs. User tailors resume for a specific job in one click.",
-        painPoints: "Ensuring the AI does not hallucinate skills."
-      },
-      architecture: {
-        sitemap: "Landing Page, Dashboard, Job Search, Job Details, Resume Builder, Application Tracker, Profile Settings.",
-        navigationFlow: "Dashboard -> Job Search -> Resume Tailor -> Apply -> Tracker."
-      },
-      wireframes: {
-        lowFidelity: "Initial sketches focusing on the Dashboard and Resume Builder.",
-        midFidelity: "Interactive Figma prototypes tested with 5 users."
-      },
-      designSystem: {
-        colors: "Primary Blue, Accent Green for success states.",
-        typography: "Inter for readability, Space Grotesk for headings.",
-        components: "Job Cards, AI Chat Interface, Kanban Tracker.",
-        icons: "Lucide Icons."
-      },
-      finalUI: {
-        mobileScreens: "Fully responsive job search and application tracker.",
-        webScreens: "Dense, informative dashboard for desktop users.",
-        responsiveLayouts: "Fluid grids for side-by-side resume vs job description view."
-      },
-      usabilityTesting: {
-        findings: "Users loved the 1-click ATS optimizer, but wanted manual override options.",
-        iterations: "Added a 'Review AI Changes' diff view before finalizing resume."
-      },
-      impact: {
-        metricsImproved: "Reduced time-to-apply by 60%. 40% increase in interview requests.",
-        futureEnhancements: "Integration with LinkedIn for auto-applying."
-      }
+      customSections: [
+        { title: "Problem", content: "Job seekers often apply to hundreds of jobs manually, use generic resumes, and struggle to track applications." },
+        { title: "Solution", content: "An AI-powered platform that helps users:\n- Find relevant jobs\n- Optimize resumes for ATS systems\n- Generate cover letters\n- Track applications\n- Get interview preparation suggestions" },
+        { title: "Key Features", content: "- AI Job Matching\n- Resume Score Analyzer\n- ATS Compatibility Checker\n- Cover Letter Generator\n- Application Tracker\n- Interview Preparation Dashboard\n- Career Progress Analytics" },
+        { title: "UX Challenges", content: "- Presenting AI recommendations clearly\n- Building trust in AI-generated suggestions\n- Managing complex workflows" },
+        { title: "Screens", content: "- Landing Page\n- Login/Signup\n- Dashboard\n- Job Search\n- Resume Analyzer\n- Cover Letter Generator\n- Application Tracker\n- User Profile" }
+      ]
     }
   },
   {
     id: 1,
+    title: "Scalable Design System",
+    subtitle: "Component Library",
+    image: project3Url,
+    accentColor: "bg-primary",
+    year: "2024",
+    tags: ["Figma", "Auto Layout", "Component Variants", "Accessibility"],
+    role: "Product Designer",
+    duration: "5 months",
+    shortDesc: "Created a scalable design system to ensure visual consistency and faster product development.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Inconsistencies and slow product development across multiple screens.", whoFacesIt: "Design and development teams." },
+      research: { userInterviews: "N/A", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Faster product development", "Visual consistency"], painPoints: ["Inefficient handoff"], motivations: ["Scalability"] },
+      journey: { discovery: "Designer uses components.", interaction: "Developed reusable UI components, typography styles, color tokens.", painPoints: "N/A" },
+      architecture: { sitemap: "N/A", navigationFlow: "N/A" },
+      wireframes: { lowFidelity: "N/A", midFidelity: "N/A" },
+      designSystem: { colors: "Color tokens.", typography: "Typography styles.", components: "Auto Layout and component variants.", icons: "N/A" },
+      finalUI: { mobileScreens: "N/A", webScreens: "N/A", responsiveLayouts: "Layout guidelines." },
+      usabilityTesting: { findings: "N/A", iterations: "N/A" },
+      impact: { metricsImproved: "Efficient design-to-development handoff and long-term product scalability.", futureEnhancements: "Accessibility standards documentation." }
+    }
+  },
+  {
+    id: 2,
+    title: "Enterprise Event Management System",
+    subtitle: "UI/UX Case Study",
+    image: project1Url,
+    accentColor: "bg-[#FFD6A0]",
+    year: "2024",
+    tags: ["Figma", "UX Research", "Design Systems", "Responsive Design"],
+    role: "UI/UX Designer",
+    duration: "4 months",
+    shortDesc: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards, event team workflows, and requester portals.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Needed an end-to-end UI/UX solution for an enterprise-level event management system.", whoFacesIt: "Admin and event team." },
+      research: { userInterviews: "Conducted user research to identify pain points.", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Task efficiency", "Clear information architecture"], painPoints: ["Complex workflows"], motivations: ["Streamlined processing"] },
+      journey: { discovery: "User logs in.", interaction: "User accesses admin dashboards, event team workflows, and requester portals.", painPoints: "N/A" },
+      architecture: { sitemap: "Admin Dashboard, Requester Portal.", navigationFlow: "Intuitive user flows." },
+      wireframes: { lowFidelity: "Created wireframes.", midFidelity: "High-fidelity designs." },
+      designSystem: { colors: "Brand colors.", typography: "System defaults.", components: "Scalable design system with reusable components.", icons: "Standard icons." },
+      finalUI: { mobileScreens: "Responsive layouts.", webScreens: "Web dashboard.", responsiveLayouts: "Yes." },
+      usabilityTesting: { findings: "Improved task efficiency.", iterations: "Refined information architecture." },
+      impact: { metricsImproved: "Improved task efficiency through clear information architecture.", futureEnhancements: "N/A" }
+    }
+  },
+  {
+    id: 3,
     title: "MediSync",
     subtitle: "Smart Healthcare Management",
     image: project2Url,
@@ -280,205 +291,9 @@ const projects = [
         futureEnhancements: "Wearable device integration for live vitals monitoring."
       }
     }
-  },
-  {
-    id: 2,
-    title: "TrackMint",
-    subtitle: "Business Operations SaaS",
-    image: project3Url,
-    accentColor: "bg-[#B8F0A0]",
-    year: "2023",
-    tags: ["Next.js", "SaaS", "Dashboard Design", "Data Visualization"],
-    role: "Lead Product Designer",
-    duration: "6 months",
-    shortDesc: "An all-in-one business management platform for inventory, sales, and analytics.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: {
-        statement: "Small businesses use multiple disconnected tools for inventory, sales, and financial tracking.",
-        whoFacesIt: "Small business owners, inventory managers, and accountants."
-      },
-      research: {
-        userInterviews: "12 small business owners across retail and wholesale.",
-        surveys: "Survey of 80 retail shop managers.",
-        competitorAnalysis: "Evaluated QuickBooks, Zoho Inventory, and Shopify POS."
-      },
-      personas: {
-        goals: ["Centralized view of operations", "Automated low-stock alerts"],
-        painPoints: ["Manual data entry across apps", "Inaccurate inventory counts"],
-        motivations: ["Business growth", "Time savings"]
-      },
-      journey: {
-        discovery: "Owner reviews daily sales and inventory alerts on dashboard.",
-        interaction: "Approves purchase orders, generates GST reports, and tracks vendor payments.",
-        painPoints: "Information overload on the main dashboard."
-      },
-      architecture: {
-        sitemap: "Login, Dashboard, Products, Orders, Vendors, Reports, Settings.",
-        navigationFlow: "Left sidebar navigation with collapsible nested menus."
-      },
-      wireframes: {
-        lowFidelity: "Layout explorations for data-dense tables.",
-        midFidelity: "Dashboard layout emphasizing key metrics (Revenue Cards, Insights)."
-      },
-      designSystem: {
-        colors: "Dark sidebar, light workspace, status colors (Red/Yellow/Green).",
-        typography: "Inter for data tables, monospaced fonts for numerical data.",
-        components: "Data Grids, Complex Filters, Chart Widgets.",
-        icons: "Phosphor Icons for enterprise feel."
-      },
-      finalUI: {
-        mobileScreens: "Companion app for quick stock checks and alerts.",
-        webScreens: "Dense, scannable data tables and interactive charts on desktop.",
-        responsiveLayouts: "Collapsible sidebars and fluid charts."
-      },
-      usabilityTesting: {
-        findings: "Users had trouble finding specific vendor invoices.",
-        iterations: "Introduced a global command palette (Cmd+K) for quick search."
-      },
-      impact: {
-        metricsImproved: "Reduced time spent on accounting by 15 hours/week. 99% inventory accuracy.",
-        futureEnhancements: "AI-based sales forecasting."
-      }
-    }
-  },
-  {
-    id: 3,
-    title: "EventSphere",
-    subtitle: "Event Management & Approvals",
-    image: project4Url,
-    accentColor: "bg-[#C8B8FF]",
-    year: "2024",
-    tags: ["React", "Workflow Design", "Role-Based UX", "Enterprise"],
-    role: "UX/UI Designer",
-    duration: "3 months",
-    shortDesc: "A centralized platform resolving delays and poor visibility in event management.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: {
-        statement: "Colleges and organizations manage events through emails and spreadsheets, causing delays and poor visibility.",
-        whoFacesIt: "Faculty, Event Teams, and Administrators."
-      },
-      research: {
-        userInterviews: "Interviews with 10 faculty heads and 5 student coordinators.",
-        surveys: "Feedback from 40 event organizers on approval bottlenecks.",
-        competitorAnalysis: "Looked at internal university portals and generic workflow tools like Jira."
-      },
-      personas: {
-        goals: ["Fast event approvals", "Clear budget tracking"],
-        painPoints: ["Lost email requests", "Unclear approval status"],
-        motivations: ["Successful events", "Accountability"]
-      },
-      journey: {
-        discovery: "Organizer submits an event request with budget details.",
-        interaction: "Request enters a multi-level approval workflow. Admins review, allocate resources, and approve.",
-        painPoints: "Tracking where a request is stuck."
-      },
-      architecture: {
-        sitemap: "Request Submission, Event Tracking, Approval Workflow, Dashboard, Reports.",
-        navigationFlow: "Role-based dashboards displaying relevant pending actions."
-      },
-      wireframes: {
-        lowFidelity: "Workflow mapping and form structuring.",
-        midFidelity: "Approval pipeline visualization and detailed request view."
-      },
-      designSystem: {
-        colors: "Clean corporate palette with clear status indicators.",
-        typography: "System fonts for fast rendering and native feel.",
-        components: "Multi-step Forms, Timeline / Progress Trackers, Status Badges.",
-        icons: "Minimalist outline icons."
-      },
-      finalUI: {
-        mobileScreens: "Mobile view for quick admin approvals on the go.",
-        webScreens: "Detailed form submission and budget allocation tables.",
-        responsiveLayouts: "Side-by-side request details and approval chat."
-      },
-      usabilityTesting: {
-        findings: "Organizers found the budget form too rigid.",
-        iterations: "Added dynamic line items and standard templates for common events."
-      },
-      impact: {
-        metricsImproved: "Approval time reduced from 2 weeks to 3 days. 100% visibility on event budgets.",
-        futureEnhancements: "Vendor management and ticketing integration."
-      }
-    }
-  },
-  {
-    id: 4,
-    title: "Enterprise Event Management",
-    subtitle: "UI/UX Case Study",
-    image: project1Url,
-    accentColor: "bg-[#FFD6A0]",
-    year: "2024",
-    tags: ["Figma", "UX Research", "Design Systems", "Responsive Design"],
-    role: "UI/UX Designer",
-    duration: "4 months",
-    shortDesc: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards, event team workflows, and requester portals.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: { statement: "Needed an end-to-end UI/UX solution for an enterprise-level event management system.", whoFacesIt: "Admin and event team." },
-      research: { userInterviews: "Conducted user research to identify pain points.", surveys: "N/A", competitorAnalysis: "N/A" },
-      personas: { goals: ["Task efficiency", "Clear information architecture"], painPoints: ["Complex workflows"], motivations: ["Streamlined processing"] },
-      journey: { discovery: "User logs in.", interaction: "User accesses admin dashboards, event team workflows, and requester portals.", painPoints: "N/A" },
-      architecture: { sitemap: "Admin Dashboard, Requester Portal.", navigationFlow: "Intuitive user flows." },
-      wireframes: { lowFidelity: "Created wireframes.", midFidelity: "High-fidelity designs." },
-      designSystem: { colors: "Brand colors.", typography: "System defaults.", components: "Scalable design system with reusable components.", icons: "Standard icons." },
-      finalUI: { mobileScreens: "Responsive layouts.", webScreens: "Web dashboard.", responsiveLayouts: "Yes." },
-      usabilityTesting: { findings: "Improved task efficiency.", iterations: "Refined information architecture." },
-      impact: { metricsImproved: "Improved task efficiency through clear information architecture.", futureEnhancements: "N/A" }
-    }
-  },
-  {
-    id: 5,
-    title: "Paytm Mobile App",
-    subtitle: "UX Redesign for Improved Usability",
-    image: project2Url,
-    accentColor: "bg-[#A0E4FF]",
-    year: "2024",
-    tags: ["Figma", "User Research", "Prototyping", "Usability Testing"],
-    role: "UX Designer",
-    duration: "3 months",
-    shortDesc: "Redesigned an existing mobile application to enhance usability and user engagement.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: { statement: "UX issues identified through heuristic evaluation and user feedback.", whoFacesIt: "Mobile app users." },
-      research: { userInterviews: "User feedback analysis.", surveys: "N/A", competitorAnalysis: "N/A" },
-      personas: { goals: ["Better usability", "Improved visual hierarchy"], painPoints: ["Complex navigation"], motivations: ["Engagement"] },
-      journey: { discovery: "User opens app.", interaction: "User navigates through optimized user flows.", painPoints: "N/A" },
-      architecture: { sitemap: "Simplified navigation.", navigationFlow: "Optimized user flows." },
-      wireframes: { lowFidelity: "N/A", midFidelity: "Interactive prototypes demonstrating before-and-after improvements." },
-      designSystem: { colors: "Paytm Brand colors.", typography: "Brand typography.", components: "Redesigned key screens.", icons: "Standard icons." },
-      finalUI: { mobileScreens: "Redesigned key screens with improved visual hierarchy.", webScreens: "N/A", responsiveLayouts: "Mobile optimized." },
-      usabilityTesting: { findings: "Validated solutions through usability testing.", iterations: "Accessibility improvements." },
-      impact: { metricsImproved: "Enhanced usability and user engagement.", futureEnhancements: "N/A" }
-    }
-  },
-  {
-    id: 6,
-    title: "Scalable Design System",
-    subtitle: "Component Library",
-    image: project3Url,
-    accentColor: "bg-primary",
-    year: "2024",
-    tags: ["Figma", "Auto Layout", "Component Variants", "Accessibility"],
-    role: "Product Designer",
-    duration: "5 months",
-    shortDesc: "Created a scalable design system to ensure visual consistency and faster product development.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: { statement: "Inconsistencies and slow product development across multiple screens.", whoFacesIt: "Design and development teams." },
-      research: { userInterviews: "N/A", surveys: "N/A", competitorAnalysis: "N/A" },
-      personas: { goals: ["Faster product development", "Visual consistency"], painPoints: ["Inefficient handoff"], motivations: ["Scalability"] },
-      journey: { discovery: "Designer uses components.", interaction: "Developed reusable UI components, typography styles, color tokens.", painPoints: "N/A" },
-      architecture: { sitemap: "N/A", navigationFlow: "N/A" },
-      wireframes: { lowFidelity: "N/A", midFidelity: "N/A" },
-      designSystem: { colors: "Color tokens.", typography: "Typography styles.", components: "Auto Layout and component variants.", icons: "N/A" },
-      finalUI: { mobileScreens: "N/A", webScreens: "N/A", responsiveLayouts: "Layout guidelines." },
-      usabilityTesting: { findings: "N/A", iterations: "N/A" },
-      impact: { metricsImproved: "Efficient design-to-development handoff and long-term product scalability.", futureEnhancements: "Accessibility standards documentation." }
-    }
   }
 ];
+
 
 const workflowSteps = [
   {
@@ -641,7 +456,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
             ))}
           </div>
 
-                    <div className="space-y-12 mb-12 mt-8">
+                              <div className="space-y-12 mb-12 mt-8">
             {/* 1. Overview */}
             <section>
               <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">1. Overview</h3>
@@ -651,94 +466,134 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
               </div>
             </section>
 
-            {/* 2. Problem Statement */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Problem Statement</h3>
-              <p className="font-mono text-base"><strong>The Problem:</strong> {project.caseStudy.problem.statement}</p>
-              <p className="font-mono text-base mt-2"><strong>Who faces it:</strong> {project.caseStudy.problem.whoFacesIt}</p>
-            </section>
+            {/* @ts-ignore */}
+            {project.caseStudy.customSections ? (
+              // @ts-ignore
+              project.caseStudy.customSections.map((sec: any, idx: number) => (
+                <section key={sec.title}>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">{idx + 2}. {sec.title}</h3>
+                  <div className="font-mono text-base whitespace-pre-line">{sec.content}</div>
+                </section>
+              ))
+            ) : (
+              <>
+                {/* 2. Problem Statement */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Problem Statement</h3>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base"><strong>The Problem:</strong> {project.caseStudy.problem?.statement}</p>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base mt-2"><strong>Who faces it:</strong> {project.caseStudy.problem?.whoFacesIt}</p>
+                </section>
 
-            {/* 3. Research */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research</h3>
-              <ul className="space-y-2 font-mono text-base">
-                <li><strong className="bg-primary/20 px-1">Interviews:</strong> {project.caseStudy.research.userInterviews}</li>
-                <li><strong className="bg-secondary/20 px-1">Surveys:</strong> {project.caseStudy.research.surveys}</li>
-                {project.caseStudy.research.competitorAnalysis && <li><strong className="bg-[#B8F0A0]/30 px-1">Competitor Analysis:</strong> {project.caseStudy.research.competitorAnalysis}</li>}
-              </ul>
-            </section>
+                {/* 3. Research */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research</h3>
+                  <ul className="space-y-2 font-mono text-base">
+                    {/* @ts-ignore */}
+                    <li><strong className="bg-primary/20 px-1">Interviews:</strong> {project.caseStudy.research?.userInterviews}</li>
+                    {/* @ts-ignore */}
+                    <li><strong className="bg-secondary/20 px-1">Surveys:</strong> {project.caseStudy.research?.surveys}</li>
+                    {/* @ts-ignore */}
+                    {project.caseStudy.research?.competitorAnalysis && <li><strong className="bg-[#B8F0A0]/30 px-1">Competitor Analysis:</strong> {project.caseStudy.research?.competitorAnalysis}</li>}
+                  </ul>
+                </section>
 
-            {/* 4. Personas */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Personas</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
-                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Goals</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.goals.map(g => <li key={g}>{g}</li>)}</ul></div>
-                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Pain Points</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.painPoints.map(p => <li key={p}>{p}</li>)}</ul></div>
-                <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Motivations</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas.motivations.map(m => <li key={m}>{m}</li>)}</ul></div>
-              </div>
-            </section>
+                {/* 4. Personas */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Personas</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
+                    {/* @ts-ignore */}
+                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Goals</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.goals?.map((g: string) => <li key={g}>{g}</li>)}</ul></div>
+                    {/* @ts-ignore */}
+                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Pain Points</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.painPoints?.map((p: string) => <li key={p}>{p}</li>)}</ul></div>
+                    {/* @ts-ignore */}
+                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Motivations</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.motivations?.map((m: string) => <li key={m}>{m}</li>)}</ul></div>
+                  </div>
+                </section>
 
-            {/* 5. User Journey Map */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. User Journey Map</h3>
-              <div className="space-y-4 font-mono text-base border-[2px] border-black p-5 bg-white">
-                <div className="border-l-[4px] border-primary pl-4"><strong className="block mb-1 uppercase text-xs">Discovery</strong> {project.caseStudy.journey.discovery}</div>
-                <div className="border-l-[4px] border-secondary pl-4"><strong className="block mb-1 uppercase text-xs">Interaction</strong> {project.caseStudy.journey.interaction}</div>
-                <div className="border-l-[4px] border-[#B8F0A0] pl-4"><strong className="block mb-1 uppercase text-xs">Pain Points</strong> {project.caseStudy.journey.painPoints}</div>
-              </div>
-            </section>
+                {/* 5. User Journey Map */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. User Journey Map</h3>
+                  <div className="space-y-4 font-mono text-base border-[2px] border-black p-5 bg-white">
+                    {/* @ts-ignore */}
+                    <div className="border-l-[4px] border-primary pl-4"><strong className="block mb-1 uppercase text-xs">Discovery</strong> {project.caseStudy.journey?.discovery}</div>
+                    {/* @ts-ignore */}
+                    <div className="border-l-[4px] border-secondary pl-4"><strong className="block mb-1 uppercase text-xs">Interaction</strong> {project.caseStudy.journey?.interaction}</div>
+                    {/* @ts-ignore */}
+                    <div className="border-l-[4px] border-[#B8F0A0] pl-4"><strong className="block mb-1 uppercase text-xs">Pain Points</strong> {project.caseStudy.journey?.painPoints}</div>
+                  </div>
+                </section>
 
-            {/* 6. Information Architecture */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Information Architecture</h3>
-              <p className="font-mono text-base mb-2"><strong>Sitemap:</strong> {project.caseStudy.architecture.sitemap}</p>
-              <p className="font-mono text-base"><strong>Navigation Flow:</strong> {project.caseStudy.architecture.navigationFlow}</p>
-            </section>
+                {/* 6. Information Architecture */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Information Architecture</h3>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base mb-2"><strong>Sitemap:</strong> {project.caseStudy.architecture?.sitemap}</p>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base"><strong>Navigation Flow:</strong> {project.caseStudy.architecture?.navigationFlow}</p>
+                </section>
 
-            {/* 7. Wireframes */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Wireframes</h3>
-              <p className="font-mono text-base mb-2"><strong>Low Fidelity:</strong> {project.caseStudy.wireframes.lowFidelity}</p>
-              <p className="font-mono text-base"><strong>Mid Fidelity:</strong> {project.caseStudy.wireframes.midFidelity}</p>
-            </section>
+                {/* 7. Wireframes */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Wireframes</h3>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base mb-2"><strong>Low Fidelity:</strong> {project.caseStudy.wireframes?.lowFidelity}</p>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base"><strong>Mid Fidelity:</strong> {project.caseStudy.wireframes?.midFidelity}</p>
+                </section>
 
-            {/* 8. Design System */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Design System</h3>
-              <ul className="space-y-2 font-mono text-base">
-                <li><strong>Colors:</strong> {project.caseStudy.designSystem.colors}</li>
-                <li><strong>Typography:</strong> {project.caseStudy.designSystem.typography}</li>
-                <li><strong>Components:</strong> {project.caseStudy.designSystem.components}</li>
-                <li><strong>Icons:</strong> {project.caseStudy.designSystem.icons}</li>
-              </ul>
-            </section>
+                {/* 8. Design System */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Design System</h3>
+                  <ul className="space-y-2 font-mono text-base">
+                    {/* @ts-ignore */}
+                    <li><strong>Colors:</strong> {project.caseStudy.designSystem?.colors}</li>
+                    {/* @ts-ignore */}
+                    <li><strong>Typography:</strong> {project.caseStudy.designSystem?.typography}</li>
+                    {/* @ts-ignore */}
+                    <li><strong>Components:</strong> {project.caseStudy.designSystem?.components}</li>
+                    {/* @ts-ignore */}
+                    <li><strong>Icons:</strong> {project.caseStudy.designSystem?.icons}</li>
+                  </ul>
+                </section>
 
-            {/* 9. Final UI */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">9. Final UI</h3>
-              <ul className="space-y-2 font-mono text-base bg-[#C8B8FF]/20 p-4 border-[2px] border-black">
-                <li><strong>Mobile Screens:</strong> {project.caseStudy.finalUI.mobileScreens}</li>
-                <li><strong>Web Screens:</strong> {project.caseStudy.finalUI.webScreens}</li>
-                <li><strong>Responsive Layouts:</strong> {project.caseStudy.finalUI.responsiveLayouts}</li>
-              </ul>
-            </section>
+                {/* 9. Final UI */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">9. Final UI</h3>
+                  <ul className="space-y-2 font-mono text-base bg-[#C8B8FF]/20 p-4 border-[2px] border-black">
+                    {/* @ts-ignore */}
+                    <li><strong>Mobile Screens:</strong> {project.caseStudy.finalUI?.mobileScreens}</li>
+                    {/* @ts-ignore */}
+                    <li><strong>Web Screens:</strong> {project.caseStudy.finalUI?.webScreens}</li>
+                    {/* @ts-ignore */}
+                    <li><strong>Responsive Layouts:</strong> {project.caseStudy.finalUI?.responsiveLayouts}</li>
+                  </ul>
+                </section>
 
-            {/* 10. Usability Testing */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">10. Usability Testing</h3>
-              <p className="font-mono text-base mb-2"><strong>Findings:</strong> {project.caseStudy.usabilityTesting.findings}</p>
-              <p className="font-mono text-base border-l-[4px] border-black pl-3 ml-2 bg-gray-50 py-2"><strong>Iterations:</strong> {project.caseStudy.usabilityTesting.iterations}</p>
-            </section>
+                {/* 10. Usability Testing */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">10. Usability Testing</h3>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base mb-2"><strong>Findings:</strong> {project.caseStudy.usabilityTesting?.findings}</p>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base border-l-[4px] border-black pl-3 ml-2 bg-gray-50 py-2"><strong>Iterations:</strong> {project.caseStudy.usabilityTesting?.iterations}</p>
+                </section>
 
-            {/* 11. Impact & Learnings */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">11. Impact & Learnings</h3>
-              <div className="bg-primary border-[3px] border-black p-5">
-                <p className="font-mono text-base mb-2"><strong className="text-black uppercase text-sm">Metrics Improved:</strong><br/>{project.caseStudy.impact.metricsImproved}</p>
-                <p className="font-mono text-base"><strong className="text-black uppercase text-sm">Future Enhancements:</strong><br/>{project.caseStudy.impact.futureEnhancements}</p>
-              </div>
-            </section>
+                {/* 11. Impact & Learnings */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">11. Impact & Learnings</h3>
+                  <div className="bg-primary border-[3px] border-black p-5">
+                    {/* @ts-ignore */}
+                    <p className="font-mono text-base mb-2"><strong className="text-black uppercase text-sm">Metrics Improved:</strong><br/>{project.caseStudy.impact?.metricsImproved}</p>
+                    {/* @ts-ignore */}
+                    <p className="font-mono text-base"><strong className="text-black uppercase text-sm">Future Enhancements:</strong><br/>{project.caseStudy.impact?.futureEnhancements}</p>
+                  </div>
+                </section>
+              </>
+            )}
           </div>
+
         </div>
       </motion.div>
     </motion.div>

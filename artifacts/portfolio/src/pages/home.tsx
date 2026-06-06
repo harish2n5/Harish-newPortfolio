@@ -42,14 +42,6 @@ const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
-    title: "Paytm Mobile App",
-    subtitle: "UX Redesign for Improved Usability",
-    description: "Redesigned an existing mobile application to enhance usability and user engagement by identifying UX issues through heuristic evaluation.",
-    image: project2Url,
-    color: "bg-[#A0E4FF]",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
     title: "CareerFlow AI",
     subtitle: "Job Search Platform",
     description: "An AI-powered platform for job matching, ATS optimization, and interview prep.",
@@ -63,22 +55,6 @@ const projects = [
     description: "A unified healthcare ecosystem for appointments, prescriptions, and health tracking.",
     image: project2Url,
     color: "bg-secondary",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "TrackMint",
-    subtitle: "Business Operations SaaS",
-    description: "An all-in-one business management platform for inventory, sales, and analytics.",
-    image: project3Url,
-    color: "bg-[#B8F0A0]",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "EventSphere",
-    subtitle: "Event Management",
-    description: "A centralized platform for event requests, approvals, budgeting, and tracking.",
-    image: project4Url,
-    color: "bg-[#C8B8FF]",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
@@ -141,28 +117,6 @@ function FloatBox({ className, delay = 0 }: { className: string; delay?: number 
   );
 }
 
-function CursorFollower() {
-  const cursorX = useMotionValue(-200);
-  const cursorY = useMotionValue(-200);
-  const springX = useSpring(cursorX, { stiffness: 120, damping: 18 });
-  const springY = useSpring(cursorY, { stiffness: 120, damping: 18 });
-
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, [cursorX, cursorY]);
-
-  return (
-    <motion.div
-      className="pointer-events-none fixed top-0 left-0 w-8 h-8 border-[3px] border-black bg-primary z-[9999] mix-blend-multiply"
-      style={{ x: springX, y: springY }}
-    />
-  );
-}
 
 function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -303,7 +257,6 @@ function ContactForm() {
 export default function Home() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-black">
-      <CursorFollower />
       <Navbar />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
