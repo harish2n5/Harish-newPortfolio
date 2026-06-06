@@ -383,8 +383,8 @@ export default function Home() {
       <section className="border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
           {[
-            { value: 4, suffix: "+", label: "Years Experience" },
-            { value: 30, suffix: "+", label: "Projects Shipped" },
+            { value: 2, suffix: "+", label: "Years Experience" },
+            { value: 10, suffix: "+", label: "Projects Shipped" },
             { value: 15, suffix: "+", label: "Happy Clients" },
             { value: 100, suffix: "%", label: "Passion Driven" },
           ].map((stat, i) => (
@@ -585,8 +585,8 @@ export default function Home() {
               {[
                 {
                   icon: Mail,
-                  label: "harish@design.dev",
-                  href: "mailto:harish@design.dev",
+                  label: "harish2n5@gmail.com",
+                  href: "mailto:harish2n5@gmail.com",
                   testId: "link-contact-email",
                   color: "hover:bg-primary",
                 },

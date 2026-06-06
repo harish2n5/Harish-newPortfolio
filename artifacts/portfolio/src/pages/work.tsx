@@ -978,7 +978,7 @@ export default function Work() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            href="mailto:harish@design.dev"
+            href="mailto:harish2n5@gmail.com"
             data-testid="link-work-email"
             className="inline-flex items-center gap-3 font-bold uppercase text-xl border-[4px] border-black bg-white px-10 py-5 brutal-shadow hover:bg-primary transition-colors"
           >

@@ -16,8 +16,8 @@ const stagger = {
 };
 
 const stats = [
-  { value: "4+", label: "Years of Experience" },
-  { value: "15+", label: "Projects Delivered" },
+  { value: "2+", label: "Years of Experience" },
+  { value: "10+", label: "Projects Delivered" },
   { value: "15+", label: "Happy Clients" },
   { value: "2-in-1", label: "Designer & Developer" },
 ];
@@ -136,7 +136,7 @@ export default function About() {
             </motion.p>
             <motion.a
               variants={fadeUp}
-              href="mailto:harish@design.dev"
+              href="mailto:harish2n5@gmail.com"
               data-testid="button-about-contact"
               className="inline-flex items-center gap-3 font-bold uppercase tracking-wider bg-background border-[3px] border-black px-8 py-4 brutal-shadow hover:bg-primary transition-colors"
             >
@@ -249,7 +249,7 @@ export default function About() {
             className="flex flex-col gap-4 min-w-[260px]"
           >
             {[
-              { icon: Mail, label: "harish@design.dev", href: "mailto:harish@design.dev", testId: "link-about-email" },
+              { icon: Mail, label: "harish2n5@gmail.com", href: "mailto:harish2n5@gmail.com", testId: "link-about-email" },
               { icon: Phone, label: "+91 98433 27279", href: "tel:+919843327279", testId: "link-about-phone" },
               { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/9843327279", testId: "link-about-whatsapp" },
               { icon: Github, label: "github.com/harish2n5", href: "https://github.com/harish2n5", testId: "link-about-github" },
