@@ -157,12 +157,21 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       className="group border-[4px] border-black bg-background brutal-shadow overflow-hidden flex flex-col"
       data-testid={`project-card-${index}`}
     >
-      <div className={`h-64 border-b-[4px] border-black ${project.color} relative overflow-hidden`}>
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover border-[3px] border-black transform group-hover:scale-105 transition-transform duration-500"
-        />
+      <div className={`h-72 border-b-[4px] border-black ${project.color} relative overflow-hidden p-6 flex items-center justify-center`}>
+        <div className="w-full h-full rounded-lg border-[3px] border-black bg-white overflow-hidden flex flex-col brutal-shadow">
+          <div className="w-full h-6 bg-gray-200 border-b-[3px] border-black flex items-center px-2 gap-1.5 shrink-0">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] border-[2px] border-black"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] border-[2px] border-black"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f] border-[2px] border-black"></div>
+          </div>
+          <div className="relative flex-1 overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
       </div>
       <div className="p-8 flex flex-col flex-grow bg-white">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">{project.subtitle}</span>
