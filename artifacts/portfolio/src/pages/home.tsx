@@ -7,7 +7,7 @@ import project2Url from "../assets/project-2.png";
 import project3Url from "../assets/project-3.png";
 import project4Url from "../assets/project-4.png";
 import Navbar from "@/components/Navbar";
-import { LaptopMockup, IsometricMockup } from "@/components/ui/Mockup";
+import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
 
 const EMAILJS_SERVICE_ID = "service_ij7iwe7";
 const EMAILJS_TEMPLATE_ID = "template_u7yhrx9";
@@ -143,13 +143,23 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       data-testid={`project-card-${index}`}
     >
       <div className={`border-b-[4px] border-black ${project.color} relative overflow-hidden p-6 md:p-10 flex items-center justify-center`}>
-        <IsometricMockup>
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
-          />
-        </IsometricMockup>
+        {index % 2 === 0 ? (
+          <LaptopMockup>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </LaptopMockup>
+        ) : (
+          <PhoneMockup>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </PhoneMockup>
+        )}
       </div>
       <div className="p-8 flex flex-col flex-grow bg-white">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">{project.subtitle}</span>
