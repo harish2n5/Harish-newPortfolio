@@ -14,6 +14,7 @@ import snippet6Url from "../assets/snippet-6.png";
 import snippet7Url from "../assets/snippet-7.png";
 import snippet8Url from "../assets/snippet-8.png";
 import Navbar from "@/components/Navbar";
+import { LaptopMockup, IsometricMockup } from "@/components/ui/Mockup";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
