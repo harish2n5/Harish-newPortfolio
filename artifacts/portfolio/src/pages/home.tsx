@@ -34,11 +34,11 @@ const accessibilitySkills = [
 
 const projects = [
   {
-    title: "Enterprise Event Management System",
-    subtitle: "UI/UX Case Study",
-    description: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards and workflows.",
-    image: project1Url,
-    color: "bg-[#FFD6A0]",
+    title: "WORKSPHERE",
+    subtitle: "Enterprise Employee Experience Platform",
+    description: "A unified HR platform that consolidated 6+ disconnected employee tools into a single system for attendance, performance, learning, and analytics management.",
+    image: project2Url,
+    color: "bg-secondary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
@@ -46,22 +46,6 @@ const projects = [
     subtitle: "Job Search Platform",
     description: "An AI-powered platform for job matching, ATS optimization, and interview prep.",
     image: project1Url,
-    color: "bg-primary",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "MediSync",
-    subtitle: "Healthcare Management",
-    description: "A unified healthcare ecosystem for appointments, prescriptions, and health tracking.",
-    image: project2Url,
-    color: "bg-secondary",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "Scalable Design System",
-    subtitle: "& Component Library",
-    description: "Created a scalable design system to ensure visual consistency and faster product development across multiple screens and platforms.",
-    image: project3Url,
     color: "bg-primary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   }
