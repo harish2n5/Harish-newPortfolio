@@ -20,7 +20,7 @@ const mobileMainLinks = [
 const moreLinks = [
   { label: "About",    href: "/about",    icon: User, external: false },
   { label: "Services", href: "/services", icon: Layers, external: false },
-  { label: "Resume",   href: "/HARISH_RESUME.pdf", icon: FileDown, external: true, download: true },
+  { label: "Resume",   href: "/Harish_DResume.pdf", icon: FileDown, external: true, download: true },
 ];
 
 export default function Navbar() {
@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Hire Me / Resume — desktop only */}
         <div className="flex-1 hidden md:flex items-center justify-end gap-4">
           <a
-            href="/HARISH_RESUME.pdf"
+            href="/Harish_DResume.pdf"
             download
             className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-black transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary"
           >

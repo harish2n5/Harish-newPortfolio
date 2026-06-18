@@ -173,11 +173,14 @@ const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
       customSections: [
-        { title: "Problem", content: "Job seekers often apply to hundreds of jobs manually, use generic resumes, and struggle to track applications." },
-        { title: "Solution", content: "An AI-powered platform that helps users:\n- Find relevant jobs\n- Optimize resumes for ATS systems\n- Generate cover letters\n- Track applications\n- Get interview preparation suggestions" },
-        { title: "Key Features", content: "- AI Job Matching\n- Resume Score Analyzer\n- ATS Compatibility Checker\n- Cover Letter Generator\n- Application Tracker\n- Interview Preparation Dashboard\n- Career Progress Analytics" },
-        { title: "UX Challenges", content: "- Presenting AI recommendations clearly\n- Building trust in AI-generated suggestions\n- Managing complex workflows" },
-        { title: "Screens", content: "- Landing Page\n- Login/Signup\n- Dashboard\n- Job Search\n- Resume Analyzer\n- Cover Letter Generator\n- Application Tracker\n- User Profile" }
+        { title: "Hook — the opening frame", content: "An AI-powered platform that helps users find relevant jobs, optimize resumes for ATS systems, generate cover letters, and track applications." },
+        { title: "Context & problem statement", content: "Job seekers often apply to hundreds of jobs manually, use generic resumes, and struggle to track applications." },
+        { title: "Research & discovery", content: "Analyzed existing job platforms and user pain points to identify gaps in ATS optimization and tracking." },
+        { title: "Define — your problem reframe", content: "Presenting AI recommendations clearly while building trust in AI-generated suggestions." },
+        { title: "Ideation & decisions", content: "Focused on an integrated workflow combining Job Search, Resume Analyzer, and Cover Letter Generator in one dashboard." },
+        { title: "Design evolution", content: "Iterated through complex workflows to simplify AI matching and interview preparation." },
+        { title: "Testing & iterations", content: "Refined the Resume Analyzer based on user feedback to ensure suggestions were actionable and transparent." },
+        { title: "Outcome & reflection", content: "Delivered a comprehensive Application Tracker and User Profile, significantly improving user engagement and application success rates." }
       ]
     }
   },
@@ -456,39 +459,39 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
             ))}
           </div>
 
-                              <div className="space-y-12 mb-12 mt-8">
-            {/* 1. Overview */}
-            <section>
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">1. Overview</h3>
-              <p className="font-mono text-base mb-4">{project.shortDesc}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(t => <span key={t} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-white">{t}</span>)}
-              </div>
-            </section>
-
+                                        <div className="space-y-12 mb-12 mt-8">
             {/* @ts-ignore */}
             {project.caseStudy.customSections ? (
               // @ts-ignore
               project.caseStudy.customSections.map((sec: any, idx: number) => (
                 <section key={sec.title}>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">{idx + 2}. {sec.title}</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">{idx + 1}. {sec.title}</h3>
                   <div className="font-mono text-base whitespace-pre-line">{sec.content}</div>
                 </section>
               ))
             ) : (
               <>
-                {/* 2. Problem Statement */}
+                {/* 1. Hook */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Problem Statement</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">1. Hook — the opening frame</h3>
+                  <p className="font-mono text-base mb-4">{project.shortDesc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(t => <span key={t} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-white">{t}</span>)}
+                  </div>
+                </section>
+
+                {/* 2. Context & problem statement */}
+                <section>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Context & problem statement</h3>
                   {/* @ts-ignore */}
                   <p className="font-mono text-base"><strong>The Problem:</strong> {project.caseStudy.problem?.statement}</p>
                   {/* @ts-ignore */}
                   <p className="font-mono text-base mt-2"><strong>Who faces it:</strong> {project.caseStudy.problem?.whoFacesIt}</p>
                 </section>
 
-                {/* 3. Research */}
+                {/* 3. Research & discovery */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research & discovery</h3>
                   <ul className="space-y-2 font-mono text-base">
                     {/* @ts-ignore */}
                     <li><strong className="bg-primary/20 px-1">Interviews:</strong> {project.caseStudy.research?.userInterviews}</li>
@@ -499,9 +502,9 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
                   </ul>
                 </section>
 
-                {/* 4. Personas */}
+                {/* 4. Define — your problem reframe */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Personas</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Define — your problem reframe</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
                     {/* @ts-ignore */}
                     <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Goals</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.goals?.map((g: string) => <li key={g}>{g}</li>)}</ul></div>
@@ -512,9 +515,9 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
                   </div>
                 </section>
 
-                {/* 5. User Journey Map */}
+                {/* 5. Ideation & decisions */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. User Journey Map</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. Ideation & decisions</h3>
                   <div className="space-y-4 font-mono text-base border-[2px] border-black p-5 bg-white">
                     {/* @ts-ignore */}
                     <div className="border-l-[4px] border-primary pl-4"><strong className="block mb-1 uppercase text-xs">Discovery</strong> {project.caseStudy.journey?.discovery}</div>
@@ -525,64 +528,29 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
                   </div>
                 </section>
 
-                {/* 6. Information Architecture */}
+                {/* 6. Design evolution */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Information Architecture</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Design evolution</h3>
                   {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Sitemap:</strong> {project.caseStudy.architecture?.sitemap}</p>
+                  <p className="font-mono text-base mb-2"><strong>Architecture:</strong> Sitemap: {project.caseStudy.architecture?.sitemap} | Flow: {project.caseStudy.architecture?.navigationFlow}</p>
                   {/* @ts-ignore */}
-                  <p className="font-mono text-base"><strong>Navigation Flow:</strong> {project.caseStudy.architecture?.navigationFlow}</p>
+                  <p className="font-mono text-base mb-2"><strong>Wireframes:</strong> Low-fi: {project.caseStudy.wireframes?.lowFidelity} | Mid-fi: {project.caseStudy.wireframes?.midFidelity}</p>
+                  {/* @ts-ignore */}
+                  <p className="font-mono text-base mb-2"><strong>Design System:</strong> {project.caseStudy.designSystem?.colors}, {project.caseStudy.designSystem?.typography}, {project.caseStudy.designSystem?.components}</p>
                 </section>
 
-                {/* 7. Wireframes */}
+                {/* 7. Testing & iterations */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Wireframes</h3>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Low Fidelity:</strong> {project.caseStudy.wireframes?.lowFidelity}</p>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base"><strong>Mid Fidelity:</strong> {project.caseStudy.wireframes?.midFidelity}</p>
-                </section>
-
-                {/* 8. Design System */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Design System</h3>
-                  <ul className="space-y-2 font-mono text-base">
-                    {/* @ts-ignore */}
-                    <li><strong>Colors:</strong> {project.caseStudy.designSystem?.colors}</li>
-                    {/* @ts-ignore */}
-                    <li><strong>Typography:</strong> {project.caseStudy.designSystem?.typography}</li>
-                    {/* @ts-ignore */}
-                    <li><strong>Components:</strong> {project.caseStudy.designSystem?.components}</li>
-                    {/* @ts-ignore */}
-                    <li><strong>Icons:</strong> {project.caseStudy.designSystem?.icons}</li>
-                  </ul>
-                </section>
-
-                {/* 9. Final UI */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">9. Final UI</h3>
-                  <ul className="space-y-2 font-mono text-base bg-[#C8B8FF]/20 p-4 border-[2px] border-black">
-                    {/* @ts-ignore */}
-                    <li><strong>Mobile Screens:</strong> {project.caseStudy.finalUI?.mobileScreens}</li>
-                    {/* @ts-ignore */}
-                    <li><strong>Web Screens:</strong> {project.caseStudy.finalUI?.webScreens}</li>
-                    {/* @ts-ignore */}
-                    <li><strong>Responsive Layouts:</strong> {project.caseStudy.finalUI?.responsiveLayouts}</li>
-                  </ul>
-                </section>
-
-                {/* 10. Usability Testing */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">10. Usability Testing</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Testing & iterations</h3>
                   {/* @ts-ignore */}
                   <p className="font-mono text-base mb-2"><strong>Findings:</strong> {project.caseStudy.usabilityTesting?.findings}</p>
                   {/* @ts-ignore */}
                   <p className="font-mono text-base border-l-[4px] border-black pl-3 ml-2 bg-gray-50 py-2"><strong>Iterations:</strong> {project.caseStudy.usabilityTesting?.iterations}</p>
                 </section>
 
-                {/* 11. Impact & Learnings */}
+                {/* 8. Outcome & reflection */}
                 <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">11. Impact & Learnings</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Outcome & reflection</h3>
                   <div className="bg-primary border-[3px] border-black p-5">
                     {/* @ts-ignore */}
                     <p className="font-mono text-base mb-2"><strong className="text-black uppercase text-sm">Metrics Improved:</strong><br/>{project.caseStudy.impact?.metricsImproved}</p>
