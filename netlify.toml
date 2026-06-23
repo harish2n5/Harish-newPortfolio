@@ -1,6 +1,7 @@
 [build]
+  base = "artifacts/portfolio"
   command = "pnpm run build"
-  publish = "artifacts/portfolio/dist/public"
+  publish = "dist/public"
 
 [[redirects]]
   from = "/*"
