@@ -893,29 +893,31 @@ export default function Work() {
             </motion.h2>
           </SectionWrapper>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 items-start sm:items-center">
-            <Select value={activeFilter} onValueChange={setActiveFilter}>
-              <SelectTrigger className="w-[200px] border-[3px] border-black brutal-shadow bg-white rounded-none font-mono font-bold uppercase tracking-widest outline-none focus:ring-0 focus:ring-offset-0">
-                <SelectValue placeholder="Select Filter" />
-              </SelectTrigger>
-              <SelectContent className="border-[3px] border-black rounded-none shadow-[4px_4px_0px_#000]">
-                {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
-                  <SelectItem key={filter} value={filter} className="font-mono font-bold uppercase tracking-widest cursor-pointer focus:bg-primary rounded-none data-[state=checked]:bg-primary">
-                    {filter}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          <div className="flex flex-col sm:flex-row mb-12 items-start sm:items-center">
+            <div className="flex">
+              <Select value={activeFilter} onValueChange={setActiveFilter}>
+                <SelectTrigger className={`w-[200px] border-[3px] border-black brutal-shadow bg-white rounded-none font-mono font-bold uppercase tracking-widest outline-none focus:ring-0 focus:ring-offset-0 ${activeFilter !== "All" ? "border-r-0 shadow-none" : ""}`}>
+                  <SelectValue placeholder="Select Filter" />
+                </SelectTrigger>
+                <SelectContent className="border-[3px] border-black rounded-none shadow-[4px_4px_0px_#000]">
+                  {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
+                    <SelectItem key={filter} value={filter} className="font-mono font-bold uppercase tracking-widest cursor-pointer focus:bg-primary rounded-none data-[state=checked]:bg-primary">
+                      {filter}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
 
-            {activeFilter !== "All" && (
-              <button
-                onClick={() => setActiveFilter("All")}
-                className="w-10 h-10 flex justify-center items-center border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
-                title="Clear Filter"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            )}
+              {activeFilter !== "All" && (
+                <button
+                  onClick={() => setActiveFilter("All")}
+                  className="w-10 h-10 flex justify-center items-center border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
+                  title="Clear Filter"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
           </div>
 
           <div className="space-y-16">
