@@ -910,9 +910,10 @@ export default function Work() {
             {activeFilter !== "All" && (
               <button
                 onClick={() => setActiveFilter("All")}
-                className="px-6 py-2 h-10 flex items-center font-mono text-sm uppercase tracking-widest font-bold border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
+                className="w-10 h-10 flex justify-center items-center border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
+                title="Clear Filter"
               >
-                Back to All
+                <X className="w-6 h-6" />
               </button>
             )}
           </div>
