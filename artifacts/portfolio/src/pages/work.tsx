@@ -15,6 +15,7 @@ import snippet7Url from "../assets/snippet-7.png";
 import snippet8Url from "../assets/snippet-8.png";
 import Navbar from "@/components/Navbar";
 import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -892,18 +893,28 @@ export default function Work() {
             </motion.h2>
           </SectionWrapper>
 
-          <div className="flex flex-wrap gap-4 mb-12">
-            {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 items-start sm:items-center">
+            <Select value={activeFilter} onValueChange={setActiveFilter}>
+              <SelectTrigger className="w-[200px] border-[3px] border-black brutal-shadow bg-white rounded-none font-mono font-bold uppercase tracking-widest outline-none focus:ring-0 focus:ring-offset-0">
+                <SelectValue placeholder="Select Filter" />
+              </SelectTrigger>
+              <SelectContent className="border-[3px] border-black rounded-none shadow-[4px_4px_0px_#000]">
+                {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
+                  <SelectItem key={filter} value={filter} className="font-mono font-bold uppercase tracking-widest cursor-pointer focus:bg-primary rounded-none data-[state=checked]:bg-primary">
+                    {filter}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            {activeFilter !== "All" && (
               <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 font-mono text-sm uppercase tracking-widest font-bold border-[3px] border-black brutal-shadow transition-colors ${
-                  activeFilter === filter ? "bg-primary" : "bg-white hover:bg-gray-100"
-                }`}
+                onClick={() => setActiveFilter("All")}
+                className="px-6 py-2 h-10 flex items-center font-mono text-sm uppercase tracking-widest font-bold border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
               >
-                {filter}
+                Back to All
               </button>
-            ))}
+            )}
           </div>
 
           <div className="space-y-16">
