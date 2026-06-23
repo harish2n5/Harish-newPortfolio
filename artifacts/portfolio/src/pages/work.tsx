@@ -162,6 +162,7 @@ const designSnippets = [
 const projects = [
   {
     id: 0,
+    category: "AI",
     title: "CareerFlow AI",
     subtitle: "AI-Powered Career Platform",
     image: project1Url,
@@ -187,6 +188,7 @@ const projects = [
   },
   {
     id: 1,
+    category: "Design",
     title: "Scalable Design System",
     subtitle: "Component Library",
     image: project3Url,
@@ -212,6 +214,7 @@ const projects = [
   },
   {
     id: 2,
+    category: "Enterprise",
     title: "Enterprise Event Management System",
     subtitle: "UI/UX Case Study",
     image: project1Url,
@@ -237,6 +240,7 @@ const projects = [
   },
   {
     id: 3,
+    category: "Mobile",
     title: "MediSync",
     subtitle: "Smart Healthcare Management",
     image: project2Url,
@@ -299,6 +303,7 @@ const projects = [
 ,
   {
     id: 4,
+    category: "SaaS",
     title: "WORKSPHERE",
     subtitle: "Enterprise Employee Experience Platform",
     image: project2Url,
@@ -324,6 +329,7 @@ const projects = [
   },
   {
     id: 5,
+    category: "Enterprise",
     title: "SUPPLYCHAIN NEXUS",
     subtitle: "Procurement & Vendor Management System",
     image: project3Url,
@@ -349,6 +355,7 @@ const projects = [
   },
   {
     id: 6,
+    category: "SaaS",
     title: "INSIGHTHUB",
     subtitle: "Business Intelligence & Analytics Platform",
     image: project4Url,
@@ -374,6 +381,7 @@ const projects = [
   },
   {
     id: 7,
+    category: "Design",
     title: "BRANDSYNC",
     subtitle: "Brand Identity & Marketing Asset Platform",
     image: project1Url,
@@ -769,6 +777,12 @@ function SnippetModal({
 export default function Work() {
   const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
   const [activeSnippet, setActiveSnippet] = useState<typeof designSnippets[0] | null>(null);
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filteredProjects = activeFilter === "All" 
+    ? projects 
+    : projects.filter(p => p.category === activeFilter);
+
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -873,13 +887,27 @@ export default function Work() {
             <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
               — Deep Dives
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16">
+      <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16">
               Featured Projects.
             </motion.h2>
           </SectionWrapper>
 
+          <div className="flex flex-wrap gap-4 mb-12">
+            {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-6 py-2 font-mono text-sm uppercase tracking-widest font-bold border-[3px] border-black brutal-shadow transition-colors ${
+                  activeFilter === filter ? "bg-primary" : "bg-white hover:bg-gray-100"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
           <div className="space-y-16">
-            {projects.map((project, i) => (
+            {filteredProjects.map((project: any, i: number) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 60 }}
