@@ -1,5 +1,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "wouter";
+import { projects, designSnippets } from "@/lib/data";
 import { ArrowRight, ExternalLink, X, ArrowUpRight } from "lucide-react";
 import project1Url from "../assets/project-1.png";
 import project2Url from "../assets/project-2.png";
@@ -28,385 +30,6 @@ const stagger = {
 };
 
 const MARQUEE_TEXT = "DESIGN • DEVELOP • DELIVER • ITERATE • ";
-
-const designSnippets = [
-  {
-    title: "Onboarding Flow",
-    tag: "UX",
-    color: "bg-primary",
-    image: snippet1Url,
-    year: "2024",
-    description:
-      "A 5-step onboarding sequence that reduced drop-off by 40%. Each screen does exactly one job — no cognitive overload, no surprise asks.",
-    tools: ["Figma", "FigJam", "Hotjar", "Maze", "Lottie"],
-    trends: [
-      "Progressive disclosure — reveal complexity only when needed",
-      "Celebratory micro-moments at each milestone to maintain momentum",
-      "Skip-friendly steps with persistent progress indicator",
-      "Skeleton screens to mask async data loads on first render",
-    ],
-  },
-  {
-    title: "Data Dashboard",
-    tag: "UI",
-    color: "bg-secondary",
-    image: snippet2Url,
-    year: "2024",
-    description:
-      "A dense analytics UI for investment analysts. The goal: maximum information at a glance without triggering cognitive fatigue.",
-    tools: ["Figma", "D3.js", "Recharts", "Storybook", "Radix UI"],
-    trends: [
-      "Dark-mode-first — reduces eye strain during marathon sessions",
-      "Sparklines and inline charts for at-a-glance trend reading",
-      "Contextual tooltips instead of a separate legend",
-      "Controlled data density — scannable rows, not walls of text",
-    ],
-  },
-  {
-    title: "Mobile Nav Pattern",
-    tag: "UX",
-    color: "bg-[#B8F0A0]",
-    image: snippet3Url,
-    year: "2023",
-    description:
-      "Redesigned a tab bar into a floating gesture-aware navigation that adapts to thumb reach zones on all screen sizes.",
-    tools: ["Figma", "Framer", "ProtoPie", "Expo"],
-    trends: [
-      "Thumb-friendly zones — primary actions always within 75% reachability",
-      "Gesture-first navigation with swipe-to-switch tabs",
-      "Adaptive bottom sheet for secondary items (the 'More' pattern)",
-      "Haptic feedback mapped to destructive vs. confirmatory actions",
-    ],
-  },
-  {
-    title: "Empty States",
-    tag: "UI",
-    color: "bg-[#C8B8FF]",
-    image: snippet4Url,
-    year: "2024",
-    description:
-      "A system of illustrated empty states that turn zero-data moments into action prompts — not dead ends.",
-    tools: ["Figma", "Lottie", "Principle", "Phosphor Icons"],
-    trends: [
-      "Contextual CTAs — every empty state offers the exact next action",
-      "Illustrated characters to inject personality without stock photos",
-      "Looping micro-animations to signal 'live' pages vs. error states",
-      "Friendly copy over generic 'No results found' fallbacks",
-    ],
-  },
-  {
-    title: "Toast System",
-    tag: "Component",
-    color: "bg-primary",
-    image: snippet5Url,
-    year: "2023",
-    description:
-      "A composable, accessible toast/notification system with smart stacking, queuing, and action-button support.",
-    tools: ["Figma", "Radix UI", "Framer Motion", "Storybook", "Zod"],
-    trends: [
-      "Stacked toasts with collapse-on-hover to reduce visual noise",
-      "Inline action buttons (Undo, Retry) directly in the notification",
-      "Auto-dismiss with pause-on-hover using a progress arc",
-      "ARIA live regions so screen readers announce every message",
-    ],
-  },
-  {
-    title: "Auth Screens",
-    tag: "UX",
-    color: "bg-[#FFD6A0]",
-    image: snippet6Url,
-    year: "2024",
-    description:
-      "A low-friction auth flow that prioritised social login and magic links. Password is always the last resort.",
-    tools: ["Figma", "Clerk", "Maze", "Optimal Workshop"],
-    trends: [
-      "Social-first layout — OAuth buttons above the fold, password buried",
-      "Magic link flow for returning users who forget passwords",
-      "Real-time validation feedback without premature error states",
-      "Biometric auth fallback pattern on mobile web",
-    ],
-  },
-  {
-    title: "Icon Set",
-    tag: "Visual",
-    color: "bg-secondary",
-    image: snippet7Url,
-    year: "2023",
-    description:
-      "60+ custom icons built on a consistent 24px grid with two weight variants — designed for web and native.",
-    tools: ["Figma", "Adobe Illustrator", "SVGO", "Iconoir"],
-    trends: [
-      "Variable stroke weight for UI icons (regular) vs. marketing (bold)",
-      "Optical sizing — icons recorrected at 16px to feel equal weight",
-      "Monoline style for maximum clarity at small sizes",
-      "Exported as optimised SVG + React component via SVGO pipeline",
-    ],
-  },
-  {
-    title: "Pricing Page",
-    tag: "Conversion",
-    color: "bg-[#A0E4FF]",
-    image: snippet8Url,
-    year: "2024",
-    description:
-      "A conversion-optimised pricing page that increased paid plan sign-ups by 28% through anchoring and trust signals.",
-    tools: ["Figma", "Hotjar", "Webflow", "Optimizely"],
-    trends: [
-      "Decoy pricing — mid-tier anchors the eye toward the target plan",
-      "Annual/monthly toggle with instant savings visualisation",
-      "Feature comparison table with sticky header on scroll",
-      "Social proof clusters (logos + testimonials) adjacent to the CTA",
-    ],
-  },
-];
-
-const projects = [
-  {
-    id: 0,
-    category: "AI",
-    title: "CareerFlow AI",
-    subtitle: "AI-Powered Career Platform",
-    image: project1Url,
-    accentColor: "bg-primary",
-    year: "2024",
-    tags: ["React", "TypeScript", "AI Resume Analyzer", "Job Engine"],
-    role: "Full Stack + UX Design",
-    duration: "4 months",
-    shortDesc: "An AI-powered platform that helps users find relevant jobs, optimize resumes for ATS systems, generate cover letters, and track applications.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      customSections: [
-        { title: "Hook — the opening frame", content: "An AI-powered platform that helps users find relevant jobs, optimize resumes for ATS systems, generate cover letters, and track applications." },
-        { title: "Context & problem statement", content: "Job seekers often apply to hundreds of jobs manually, use generic resumes, and struggle to track applications." },
-        { title: "Research & discovery", content: "Analyzed existing job platforms and user pain points to identify gaps in ATS optimization and tracking." },
-        { title: "Define — your problem reframe", content: "Presenting AI recommendations clearly while building trust in AI-generated suggestions." },
-        { title: "Ideation & decisions", content: "Focused on an integrated workflow combining Job Search, Resume Analyzer, and Cover Letter Generator in one dashboard." },
-        { title: "Design evolution", content: "Iterated through complex workflows to simplify AI matching and interview preparation." },
-        { title: "Testing & iterations", content: "Refined the Resume Analyzer based on user feedback to ensure suggestions were actionable and transparent." },
-        { title: "Outcome & reflection", content: "Delivered a comprehensive Application Tracker and User Profile, significantly improving user engagement and application success rates." }
-      ]
-    }
-  },
-  {
-    id: 1,
-    category: "Design",
-    title: "Scalable Design System",
-    subtitle: "Component Library",
-    image: project3Url,
-    accentColor: "bg-primary",
-    year: "2024",
-    tags: ["Figma", "Auto Layout", "Component Variants", "Accessibility"],
-    role: "Product Designer",
-    duration: "5 months",
-    shortDesc: "Created a scalable design system to ensure visual consistency and faster product development.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: { statement: "Inconsistencies and slow product development across multiple screens.", whoFacesIt: "Design and development teams." },
-      research: { userInterviews: "N/A", surveys: "N/A", competitorAnalysis: "N/A" },
-      personas: { goals: ["Faster product development", "Visual consistency"], painPoints: ["Inefficient handoff"], motivations: ["Scalability"] },
-      journey: { discovery: "Designer uses components.", interaction: "Developed reusable UI components, typography styles, color tokens.", painPoints: "N/A" },
-      architecture: { sitemap: "N/A", navigationFlow: "N/A" },
-      wireframes: { lowFidelity: "N/A", midFidelity: "N/A" },
-      designSystem: { colors: "Color tokens.", typography: "Typography styles.", components: "Auto Layout and component variants.", icons: "N/A" },
-      finalUI: { mobileScreens: "N/A", webScreens: "N/A", responsiveLayouts: "Layout guidelines." },
-      usabilityTesting: { findings: "N/A", iterations: "N/A" },
-      impact: { metricsImproved: "Efficient design-to-development handoff and long-term product scalability.", futureEnhancements: "Accessibility standards documentation." }
-    }
-  },
-  {
-    id: 2,
-    category: "Enterprise",
-    title: "Enterprise Event Management System",
-    subtitle: "UI/UX Case Study",
-    image: project1Url,
-    accentColor: "bg-[#FFD6A0]",
-    year: "2024",
-    tags: ["Figma", "UX Research", "Design Systems", "Responsive Design"],
-    role: "UI/UX Designer",
-    duration: "4 months",
-    shortDesc: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards, event team workflows, and requester portals.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: { statement: "Needed an end-to-end UI/UX solution for an enterprise-level event management system.", whoFacesIt: "Admin and event team." },
-      research: { userInterviews: "Conducted user research to identify pain points.", surveys: "N/A", competitorAnalysis: "N/A" },
-      personas: { goals: ["Task efficiency", "Clear information architecture"], painPoints: ["Complex workflows"], motivations: ["Streamlined processing"] },
-      journey: { discovery: "User logs in.", interaction: "User accesses admin dashboards, event team workflows, and requester portals.", painPoints: "N/A" },
-      architecture: { sitemap: "Admin Dashboard, Requester Portal.", navigationFlow: "Intuitive user flows." },
-      wireframes: { lowFidelity: "Created wireframes.", midFidelity: "High-fidelity designs." },
-      designSystem: { colors: "Brand colors.", typography: "System defaults.", components: "Scalable design system with reusable components.", icons: "Standard icons." },
-      finalUI: { mobileScreens: "Responsive layouts.", webScreens: "Web dashboard.", responsiveLayouts: "Yes." },
-      usabilityTesting: { findings: "Improved task efficiency.", iterations: "Refined information architecture." },
-      impact: { metricsImproved: "Improved task efficiency through clear information architecture.", futureEnhancements: "N/A" }
-    }
-  },
-  {
-    id: 3,
-    category: "Mobile",
-    title: "MediSync",
-    subtitle: "Smart Healthcare Management",
-    image: project2Url,
-    accentColor: "bg-secondary",
-    year: "2024",
-    tags: ["React Native", "Node.js", "Healthcare UX", "Accessibility"],
-    role: "Product Design + Frontend",
-    duration: "5 months",
-    shortDesc: "A unified healthcare ecosystem for patients and doctors.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      problem: {
-        statement: "Patients struggle with appointment booking, prescription management, and health tracking.",
-        whoFacesIt: "Patients (especially elderly), Doctors, and Hospital Staff."
-      },
-      research: {
-        userInterviews: "Interviews with 15 patients and 8 healthcare providers.",
-        surveys: "Surveyed 50 clinic administrators on operational bottlenecks.",
-        competitorAnalysis: "Reviewed existing portals (Epic MyChart, Zocdoc)."
-      },
-      personas: {
-        goals: ["Easy appointment booking", "Access to digital prescriptions"],
-        painPoints: ["Long wait times on phone", "Losing paper prescriptions"],
-        motivations: ["Better health management", "Reduced anxiety"]
-      },
-      journey: {
-        discovery: "Patient feels unwell, opens app to find a specialist.",
-        interaction: "Books slot, attends online consultation, receives digital prescription, sets medicine reminders.",
-        painPoints: "Digital literacy barriers for older users."
-      },
-      architecture: {
-        sitemap: "Onboarding, Dashboard, Doctor Search, Consultation, Reports, Settings.",
-        navigationFlow: "Bottom tab navigation for core functions: Home, Appointments, Records, Profile."
-      },
-      wireframes: {
-        lowFidelity: "Paper prototyping for the consultation flow.",
-        midFidelity: "Wireframes emphasizing large touch targets and high contrast."
-      },
-      designSystem: {
-        colors: "Calming Teal and clean White backgrounds.",
-        typography: "Roboto for clarity and cross-platform consistency.",
-        components: "Doctor Profile Cards, Calendar Picker, Notification Toasts.",
-        icons: "Medical-specific custom icon set."
-      },
-      finalUI: {
-        mobileScreens: "Patient App optimized for accessibility (large text, voice search).",
-        webScreens: "Doctor Dashboard and Admin Portal for clinic management.",
-        responsiveLayouts: "Tablet-optimized views for doctors during consultations."
-      },
-      usabilityTesting: {
-        findings: "Elderly users struggled with the calendar interface.",
-        iterations: "Simplified date picker and added a 'Quick Rebook' feature."
-      },
-      impact: {
-        metricsImproved: "No-show rate dropped by 25%. Prescription adherence improved by 40%.",
-        futureEnhancements: "Wearable device integration for live vitals monitoring."
-      }
-    }
-  }
-,
-  {
-    id: 4,
-    category: "SaaS",
-    title: "WORKSPHERE",
-    subtitle: "Enterprise Employee Experience Platform",
-    image: project2Url,
-    accentColor: "bg-secondary",
-    year: "2024",
-    tags: ["Figma", "Design Systems", "WCAG 2.1", "Responsive Design"],
-    role: "Product Designer",
-    duration: "6 months",
-    shortDesc: "A unified HR platform that consolidated 6+ disconnected employee tools into a single system for attendance, performance, learning, and analytics management.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      customSections: [
-        { title: "Hook — the opening frame", content: "A unified HR platform that consolidated 6+ disconnected employee tools into a single system for attendance, performance, learning, and analytics management." },
-        { title: "Context & problem statement", content: "Employees and HR admins had to navigate across 6+ disconnected platforms to manage attendance, OKRs, tasks, and reviews, causing extreme friction." },
-        { title: "Research & discovery", content: "Identified key pain points across employees, managers, and HR admins to define a unified role-based experience." },
-        { title: "Define — your problem reframe", content: "How might we create an intuitive, single-pane-of-glass experience for all HR and employee lifecycle activities without overwhelming the user?" },
-        { title: "Ideation & decisions", content: "Architected an 8-module platform prioritizing Dashboard, Attendance, Tasks, OKRs, Performance Reviews, Learning Portal, Announcements, and HR Analytics." },
-        { title: "Design evolution", content: "Created a scalable Design System with reusable components, typography tokens, and standardized UI patterns, accelerating developer handoff." },
-        { title: "Testing & iterations", content: "Ensured WCAG 2.1 AA accessibility compliance across desktop, tablet, and mobile devices." },
-        { title: "Outcome & reflection", content: "Successfully delivered interactive HR Analytics dashboards visualizing headcount trends, attrition rates, and leave utilization in a responsive interface." }
-      ]
-    }
-  },
-  {
-    id: 5,
-    category: "Enterprise",
-    title: "SUPPLYCHAIN NEXUS",
-    subtitle: "Procurement & Vendor Management System",
-    image: project3Url,
-    accentColor: "bg-[#FFD6A0]",
-    year: "2024",
-    tags: ["Figma", "Data Visualization", "RBAC", "Prototyping"],
-    role: "UI/UX Designer",
-    duration: "5 months",
-    shortDesc: "An enterprise procurement platform that digitized the complete purchasing lifecycle from request creation to vendor payment approval.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      customSections: [
-        { title: "Hook — the opening frame", content: "An enterprise procurement platform that digitized the complete purchasing lifecycle from request creation to vendor payment approval." },
-        { title: "Context & problem statement", content: "Manual, paper-based workflows led to approval bottlenecks and lack of visibility into vendor performance and spending." },
-        { title: "Research & discovery", content: "Analyzed existing workflows for Requesters, Procurement Managers, and Finance Approvers." },
-        { title: "Define — your problem reframe", content: "How might we build multi-role workflows that reduce approval bottlenecks and streamline purchasing journeys?" },
-        { title: "Ideation & decisions", content: "Developed Purchase Request and Vendor Management modules featuring budget validation, performance scorecards, and contract tracking." },
-        { title: "Design evolution", content: "Created high-fidelity data visualizations and vendor comparison tools integrating role-based access controls." },
-        { title: "Testing & iterations", content: "Refined dashboards to ensure seamless monitoring of spending, vendor performance, and purchase order cycle times." },
-        { title: "Outcome & reflection", content: "Successfully digitized the procurement lifecycle, leading to significantly faster approvals and enhanced budget utilization tracking." }
-      ]
-    }
-  },
-  {
-    id: 6,
-    category: "SaaS",
-    title: "INSIGHTHUB",
-    subtitle: "Business Intelligence & Analytics Platform",
-    image: project4Url,
-    accentColor: "bg-primary",
-    year: "2024",
-    tags: ["Figma", "Framer", "AI-Assisted Design", "Data Visualization"],
-    role: "UX Architect",
-    duration: "4 months",
-    shortDesc: "An executive analytics platform that centralized fragmented business reports into a unified decision-making dashboard with AI-generated insights.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      customSections: [
-        { title: "Hook — the opening frame", content: "An executive analytics platform that centralized fragmented business reports into a unified decision-making dashboard with AI-generated insights." },
-        { title: "Context & problem statement", content: "Executives struggled to make quick decisions due to fragmented data sources and overly technical reports." },
-        { title: "Research & discovery", content: "Explored how non-technical stakeholders interpret data and identified the need for plain-language narratives." },
-        { title: "Define — your problem reframe", content: "How might we translate complex metric changes into actionable, easily understandable insights?" },
-        { title: "Ideation & decisions", content: "Designed customizable KPI dashboards displaying Revenue, Gross Margin, NPS, and Headcount alongside a custom report builder." },
-        { title: "Design evolution", content: "Implemented drag-and-drop widgets and accessible data visualizations optimized for color-blind users and screen readers." },
-        { title: "Testing & iterations", content: "Refined the AI-generated insight summaries to ensure they accurately reflected metric changes in plain English." },
-        { title: "Outcome & reflection", content: "Delivered a centralized platform featuring scheduled report delivery and intuitive drill-down analytics capabilities." }
-      ]
-    }
-  },
-  {
-    id: 7,
-    category: "Design",
-    title: "BRANDSYNC",
-    subtitle: "Brand Identity & Marketing Asset Platform",
-    image: project1Url,
-    accentColor: "bg-[#B8F0A0]",
-    year: "2024",
-    tags: ["Adobe CC", "Figma", "Brand Systems", "Typography"],
-    role: "Visual Designer",
-    duration: "3 months",
-    shortDesc: "A centralized brand management system standardizing visual assets and marketing materials across digital and print channels.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      customSections: [
-        { title: "Hook — the opening frame", content: "A centralized brand management system standardizing visual assets and marketing materials across digital and print channels." },
-        { title: "Context & problem statement", content: "Multiple departments were creating inconsistent marketing materials, leading to brand fragmentation and diluted messaging." },
-        { title: "Research & discovery", content: "Audited existing collateral and identified major inconsistencies in typography, color usage, and iconography." },
-        { title: "Define — your problem reframe", content: "How might we create a comprehensive, accessible brand identity system that non-designers can easily adopt?" },
-        { title: "Ideation & decisions", content: "Developed a comprehensive system including logo variations, color palettes, typography guidelines, and illustration styles." },
-        { title: "Design evolution", content: "Established accessibility-focused visual standards with clear typography hierarchies and color contrast guidelines." },
-        { title: "Testing & iterations", content: "Tested reusable design templates across social media campaigns, presentation decks, and print brochures." },
-        { title: "Outcome & reflection", content: "Maintained a cohesive user experience across all touchpoints while scaling marketing output efficiently." }
-      ]
-    }
-  }
-];
 
 const workflowSteps = [
   {
@@ -517,167 +140,6 @@ function SectionWrapper({ children, className = "" }: { children: React.ReactNod
   );
 }
 
-function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 md:p-8"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 60, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-background border-[4px] border-black max-w-3xl w-full max-h-[90vh] overflow-y-auto"
-        style={{ boxShadow: "12px 12px 0px #000" }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className={`${project.accentColor} border-b-[4px] border-black p-6 flex items-start justify-between`}>
-          <div>
-            <span className="font-mono text-xs uppercase tracking-widest border-[2px] border-black bg-white px-3 py-1 inline-block mb-3">
-              {project.subtitle}
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">{project.title}</h2>
-          </div>
-          <button
-            onClick={onClose}
-            data-testid="button-modal-close"
-            className="border-[3px] border-black bg-white p-2 brutal-shadow hover:bg-secondary transition-colors shrink-0 ml-4"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <div className="p-8">
-          <div className="aspect-video border-[3px] border-black overflow-hidden mb-8">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-[3px] border-black mb-8">
-            {[
-              { label: "Role", value: project.role },
-              { label: "Year", value: project.year },
-              { label: "Duration", value: project.duration },
-            ].map((meta, i) => (
-              <div key={meta.label} className={`p-4 sm:p-5 ${i < 2 ? "border-b-[3px] sm:border-b-0 sm:border-r-[3px] border-black" : ""}`}>
-                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-1">{meta.label}</div>
-                <div className="font-black text-lg uppercase">{meta.value}</div>
-              </div>
-            ))}
-          </div>
-
-                                        <div className="space-y-12 mb-12 mt-8">
-            {/* @ts-ignore */}
-            {project.caseStudy.customSections ? (
-              // @ts-ignore
-              project.caseStudy.customSections.map((sec: any, idx: number) => (
-                <section key={sec.title}>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">{idx + 1}. {sec.title}</h3>
-                  <div className="font-mono text-base whitespace-pre-line">{sec.content}</div>
-                </section>
-              ))
-            ) : (
-              <>
-                {/* 1. Hook */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">1. Hook — the opening frame</h3>
-                  <p className="font-mono text-base mb-4">{project.shortDesc}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(t => <span key={t} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-white">{t}</span>)}
-                  </div>
-                </section>
-
-                {/* 2. Context & problem statement */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">2. Context & problem statement</h3>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base"><strong>The Problem:</strong> {project.caseStudy.problem?.statement}</p>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mt-2"><strong>Who faces it:</strong> {project.caseStudy.problem?.whoFacesIt}</p>
-                </section>
-
-                {/* 3. Research & discovery */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">3. Research & discovery</h3>
-                  <ul className="space-y-2 font-mono text-base">
-                    {/* @ts-ignore */}
-                    <li><strong className="bg-primary/20 px-1">Interviews:</strong> {project.caseStudy.research?.userInterviews}</li>
-                    {/* @ts-ignore */}
-                    <li><strong className="bg-secondary/20 px-1">Surveys:</strong> {project.caseStudy.research?.surveys}</li>
-                    {/* @ts-ignore */}
-                    {project.caseStudy.research?.competitorAnalysis && <li><strong className="bg-[#B8F0A0]/30 px-1">Competitor Analysis:</strong> {project.caseStudy.research?.competitorAnalysis}</li>}
-                  </ul>
-                </section>
-
-                {/* 4. Define — your problem reframe */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">4. Define — your problem reframe</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
-                    {/* @ts-ignore */}
-                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Goals</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.goals?.map((g: string) => <li key={g}>{g}</li>)}</ul></div>
-                    {/* @ts-ignore */}
-                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Pain Points</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.painPoints?.map((p: string) => <li key={p}>{p}</li>)}</ul></div>
-                    {/* @ts-ignore */}
-                    <div className="border-[2px] border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"><strong className="uppercase border-b-[2px] border-black block pb-1">Motivations</strong><ul className="list-disc pl-4 mt-3 space-y-1">{project.caseStudy.personas?.motivations?.map((m: string) => <li key={m}>{m}</li>)}</ul></div>
-                  </div>
-                </section>
-
-                {/* 5. Ideation & decisions */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">5. Ideation & decisions</h3>
-                  <div className="space-y-4 font-mono text-base border-[2px] border-black p-5 bg-white">
-                    {/* @ts-ignore */}
-                    <div className="border-l-[4px] border-primary pl-4"><strong className="block mb-1 uppercase text-xs">Discovery</strong> {project.caseStudy.journey?.discovery}</div>
-                    {/* @ts-ignore */}
-                    <div className="border-l-[4px] border-secondary pl-4"><strong className="block mb-1 uppercase text-xs">Interaction</strong> {project.caseStudy.journey?.interaction}</div>
-                    {/* @ts-ignore */}
-                    <div className="border-l-[4px] border-[#B8F0A0] pl-4"><strong className="block mb-1 uppercase text-xs">Pain Points</strong> {project.caseStudy.journey?.painPoints}</div>
-                  </div>
-                </section>
-
-                {/* 6. Design evolution */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">6. Design evolution</h3>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Architecture:</strong> Sitemap: {project.caseStudy.architecture?.sitemap} | Flow: {project.caseStudy.architecture?.navigationFlow}</p>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Wireframes:</strong> Low-fi: {project.caseStudy.wireframes?.lowFidelity} | Mid-fi: {project.caseStudy.wireframes?.midFidelity}</p>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Design System:</strong> {project.caseStudy.designSystem?.colors}, {project.caseStudy.designSystem?.typography}, {project.caseStudy.designSystem?.components}</p>
-                </section>
-
-                {/* 7. Testing & iterations */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">7. Testing & iterations</h3>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base mb-2"><strong>Findings:</strong> {project.caseStudy.usabilityTesting?.findings}</p>
-                  {/* @ts-ignore */}
-                  <p className="font-mono text-base border-l-[4px] border-black pl-3 ml-2 bg-gray-50 py-2"><strong>Iterations:</strong> {project.caseStudy.usabilityTesting?.iterations}</p>
-                </section>
-
-                {/* 8. Outcome & reflection */}
-                <section>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-2">8. Outcome & reflection</h3>
-                  <div className="bg-primary border-[3px] border-black p-5">
-                    {/* @ts-ignore */}
-                    <p className="font-mono text-base mb-2"><strong className="text-black uppercase text-sm">Metrics Improved:</strong><br/>{project.caseStudy.impact?.metricsImproved}</p>
-                    {/* @ts-ignore */}
-                    <p className="font-mono text-base"><strong className="text-black uppercase text-sm">Future Enhancements:</strong><br/>{project.caseStudy.impact?.futureEnhancements}</p>
-                  </div>
-                </section>
-              </>
-            )}
-          </div>
-
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 function SnippetModal({
   snippet,
   onClose,
@@ -776,7 +238,7 @@ function SnippetModal({
 }
 
 export default function Work() {
-  const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
+  
   const [activeSnippet, setActiveSnippet] = useState<typeof designSnippets[0] | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -954,7 +416,7 @@ export default function Work() {
                     <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">{project.title}</h3>
                     <p className="font-mono text-base leading-relaxed mb-6">{project.shortDesc}</p>
                     <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tags.slice(0, 4).map((tag) => (
+                      {project.tags.slice(0, 4).map((tag: string) => (
                         <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-background">
                           {tag}
                         </span>
@@ -972,15 +434,16 @@ export default function Work() {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <motion.button
-                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                      onClick={() => setActiveProject(project)}
-                      data-testid={`button-project-detail-${project.id}`}
-                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors"
-                    >
-                      View Case Study <ArrowUpRight className="w-5 h-5" />
-                    </motion.button>
+                    <Link href={"/work/" + project.slug}>
+                      <motion.a
+                        whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                        whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                        data-testid={`button-project-detail-${project.id}`}
+                        className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
+                      >
+                        View Case Study <ArrowUpRight className="w-5 h-5" />
+                      </motion.a>
+                    </Link>
                     <motion.a
                       href={project.link}
                       target="_blank"
@@ -1099,7 +562,7 @@ export default function Work() {
       </section>
 
       <AnimatePresence>
-        {activeProject && <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />}
+        
       </AnimatePresence>
 
       <AnimatePresence>
