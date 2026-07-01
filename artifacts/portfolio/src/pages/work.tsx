@@ -240,11 +240,6 @@ function SnippetModal({
 export default function Work() {
   
   const [activeSnippet, setActiveSnippet] = useState<typeof designSnippets[0] | null>(null);
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(p => p.category === activeFilter);
 
 
   return (
@@ -355,35 +350,8 @@ export default function Work() {
             </motion.h2>
           </SectionWrapper>
 
-          <div className="flex flex-col sm:flex-row mb-12 items-start sm:items-center">
-            <div className="flex">
-              <Select value={activeFilter} onValueChange={setActiveFilter}>
-                <SelectTrigger className={`w-[200px] border-[3px] border-black brutal-shadow bg-white rounded-none font-mono font-bold uppercase tracking-widest outline-none focus:ring-0 focus:ring-offset-0 ${activeFilter !== "All" ? "border-r-0 shadow-none" : ""}`}>
-                  <SelectValue placeholder="Select Filter" />
-                </SelectTrigger>
-                <SelectContent className="border-[3px] border-black rounded-none shadow-[4px_4px_0px_#000]">
-                  {["All", "SaaS", "Enterprise", "Mobile", "Design", "AI"].map((filter) => (
-                    <SelectItem key={filter} value={filter} className="font-mono font-bold uppercase tracking-widest cursor-pointer focus:bg-primary rounded-none data-[state=checked]:bg-primary">
-                      {filter}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              {activeFilter !== "All" && (
-                <button
-                  onClick={() => setActiveFilter("All")}
-                  className="w-10 h-10 flex justify-center items-center border-[3px] border-black brutal-shadow bg-[#FFD6A0] hover:bg-white transition-colors"
-                  title="Clear Filter"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              )}
-            </div>
-          </div>
-
           <div className="space-y-16">
-            {filteredProjects.map((project: any, i: number) => (
+            {projects.map((project: any, i: number) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 60 }}
@@ -434,16 +402,17 @@ export default function Work() {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <Link href={"/work/" + project.slug}>
-                      <motion.a
-                        whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                        whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                        data-testid={`button-project-detail-${project.id}`}
-                        className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
-                      >
-                        View Case Study <ArrowUpRight className="w-5 h-5" />
-                      </motion.a>
-                    </Link>
+                    <motion.a
+                      href={"/work/" + project.slug}
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      data-testid={`button-project-detail-${project.id}`}
+                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
+                    >
+                      View Case Study <ArrowUpRight className="w-5 h-5" />
+                    </motion.a>
                     <motion.a
                       href={project.link}
                       target="_blank"
