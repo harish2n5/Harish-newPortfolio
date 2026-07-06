@@ -164,7 +164,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl sm:text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-8 sm:mb-10"
+            className="text-5xl  md:text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-8 sm:mb-10"
           >
             Services<br />
             <span className="text-secondary">That Ship.</span>
@@ -181,7 +181,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-white">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <motion.h2 variants={fadeUp} className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-16">
@@ -227,10 +227,10 @@ export default function Services() {
       </section>
 
       {/* Why Me */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-background">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-16">
               Why Hire Me?
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -283,7 +283,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-8"
           >
             Ready to Start?
           </motion.h2>

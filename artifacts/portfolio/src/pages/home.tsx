@@ -284,7 +284,7 @@ export default function Home() {
                   initial="hidden"
                   animate="visible"
                   transition={{ delayChildren: li * 0.25 }}
-                  className={`flex overflow-hidden text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] ${line.color}`}
+                  className={`flex overflow-hidden text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] ${line.color}`}
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   {line.text.split("").map((char, ci) => (
@@ -403,14 +403,14 @@ export default function Home() {
       </section>
 
       {/* ── Skills ───────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-background">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-6"
             >
               The Stack.
             </motion.h2>
@@ -509,7 +509,7 @@ export default function Home() {
       </section>
 
       {/* ── Selected Work ─────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-white">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -517,7 +517,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-16"
           >
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">Selected Work.</h2>
+            <h2 className="text-4xl  md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">Selected Work.</h2>
             <motion.a
               href="/work"
               data-testid="link-home-all-work"
@@ -537,7 +537,7 @@ export default function Home() {
       </section>
 
       {/* ── Contact ───────────────────────────────────────────────── */}
-      <section id="contact" className="px-4 sm:px-6 py-16 sm:py-32 border-t-[3px] border-black bg-background">
+      <section id="contact" className="px-4 sm:px-6 py-12 md:py-24 border-t-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
 
           {/* Left: Info */}
@@ -555,7 +555,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8"
+              className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-8"
             >
               Let's Build<br />
               <span className="text-secondary">Something.</span>

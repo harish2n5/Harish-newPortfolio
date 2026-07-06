@@ -50,7 +50,7 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
             <span className="font-mono text-sm uppercase tracking-widest border-[3px] border-black bg-white px-4 py-2 inline-block mb-6 brutal-shadow-sm">
               {project.category} • {project.year}
             </span>
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
               {project.title}
             </h1>
             <p className="text-xl md:text-3xl font-mono max-w-3xl leading-relaxed border-l-[6px] border-black pl-6 bg-white/50 py-2">
@@ -250,11 +250,11 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
 
       {/* Next Project Footer */}
       <button onClick={() => onNext(nextProject)} className="w-full text-left block border-t-[4px] border-black bg-primary hover:bg-black hover:text-white transition-colors duration-300 group cursor-pointer">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 flex flex-col items-center justify-center text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center">
           <span className="font-mono text-sm font-bold uppercase tracking-widest border-2 border-current px-4 py-2 mb-8 group-hover:bg-white group-hover:text-black transition-colors">
             Next Project
           </span>
-          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 group-hover:scale-105 transition-transform duration-500">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-4 group-hover:scale-105 transition-transform duration-500">
             {nextProject.title}
           </h2>
           <div className="w-16 h-16 border-[3px] border-current flex items-center justify-center rounded-full mt-8 group-hover:translate-x-4 transition-transform duration-300">

@@ -187,7 +187,7 @@ export default function Contact() {
       <Navbar />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 md:py-32 border-b-[3px] border-black relative overflow-hidden">
+      <section className="px-4 sm:px-6 py-16 sm:py-16 md:py-24 border-b-[3px] border-black relative overflow-hidden">
         <div className="absolute top-6 right-6 w-24 h-24 sm:w-40 sm:h-40 border-[3px] border-black bg-primary opacity-30 rotate-12" />
         <div className="absolute bottom-8 left-1/3 w-16 h-16 border-[3px] border-black bg-secondary opacity-20 -rotate-6" />
         <div className="max-w-6xl mx-auto">
@@ -220,7 +220,7 @@ export default function Contact() {
       </section>
 
       {/* ── Main Content ──────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 md:py-32 border-b-[3px] border-black bg-white">
+      <section className="px-4 sm:px-6 py-16 sm:py-16 md:py-24 border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
           {/* Left: Contact Info */}
@@ -229,7 +229,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 sm:mb-10"
+              className="text-3xl  md:text-5xl font-black uppercase tracking-tighter mb-8 sm:mb-10"
             >
               Reach Me Directly.
             </motion.h2>
@@ -323,7 +323,7 @@ export default function Contact() {
               <div className="w-3 h-3 bg-[#00C851] border-[2px] border-black rounded-full animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-widest font-bold">Currently Available</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight">
+            <h2 className="text-2xl  md:text-5xl font-black uppercase tracking-tighter leading-tight">
               Open to new projects<br className="sm:hidden" /> & collaborations.
             </h2>
           </div>

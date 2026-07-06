@@ -82,7 +82,7 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl sm:text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-8 sm:mb-10"
+            className="text-5xl  md:text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-8 sm:mb-10"
           >
             I Build<br />
             <span className="text-secondary">Experiences.</span>
@@ -119,10 +119,10 @@ export default function About() {
       </section>
 
       {/* Bio */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-white">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           <Section>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-8">
               The Story.
             </motion.h2>
             <motion.p variants={fadeUp} className="font-mono text-lg leading-relaxed mb-6">
@@ -175,7 +175,7 @@ export default function About() {
       <section className="px-6 py-32 border-b-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto">
           <Section>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-16">
               What I Stand For.
             </motion.h2>
           </Section>
@@ -206,7 +206,7 @@ export default function About() {
       <section className="px-6 py-32 bg-white border-b-[3px] border-black">
         <div className="max-w-6xl mx-auto">
           <Section>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-12">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-12">
               My Toolkit.
             </motion.h2>
             <div className="flex flex-wrap gap-4">
@@ -235,7 +235,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4"
+              className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4"
             >
               Let's Connect.
             </motion.h2>

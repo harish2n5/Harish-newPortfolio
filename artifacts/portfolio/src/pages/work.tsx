@@ -265,7 +265,7 @@ export default function Work() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-10"
+            className="text-4xl md:text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-10"
           >
             The Work<br />
             <span className="text-secondary">Speaks.</span>
@@ -301,7 +301,7 @@ export default function Work() {
             <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
               — Quick Shots
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-12">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-12">
               Design Snippets.
             </motion.h2>
           </SectionWrapper>
@@ -341,13 +341,13 @@ export default function Work() {
       </section>
 
       {/* Featured Projects */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 border-b-[3px] border-black bg-background">
+      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
               — Deep Dives
             </motion.p>
-      <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16">
+      <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-16">
               Featured Projects.
             </motion.h2>
           </SectionWrapper>
@@ -430,13 +430,13 @@ export default function Work() {
       </section>
 
       {/* How I Work */}
-      <section className="px-4 sm:px-6 py-16 sm:py-32 bg-white border-b-[3px] border-black">
+      <section className="px-4 sm:px-6 py-12 md:py-24 bg-white border-b-[3px] border-black">
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
               — My Process
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
               How I Work.
             </motion.h2>
             <motion.p variants={fadeUp} className="font-mono text-base sm:text-lg max-w-2xl mb-10 sm:mb-20 text-muted-foreground">
@@ -511,7 +511,7 @@ export default function Work() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-8"
           >
             Your Project<br />Is Next.
           </motion.h2>
