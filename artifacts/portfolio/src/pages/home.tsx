@@ -143,7 +143,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       data-testid={`project-card-${index}`}
     >
       <div className={`border-b-[4px] border-black ${project.color} relative overflow-hidden p-6 md:p-10 flex items-center justify-center`}>
-        {index % 2 === 0 ? (
           <LaptopMockup>
             <img
               src={project.image}
@@ -151,15 +150,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
             />
           </LaptopMockup>
-        ) : (
-          <PhoneMockup>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
-            />
-          </PhoneMockup>
-        )}
       </div>
       <div className="p-8 flex flex-col flex-grow bg-white">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">{project.subtitle}</span>
