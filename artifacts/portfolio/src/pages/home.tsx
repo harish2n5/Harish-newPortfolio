@@ -43,10 +43,10 @@ const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   },
   {
-    title: "CareerFlow AI",
-    subtitle: "Job Search Platform",
-    description: "An AI-powered platform for job matching, ATS optimization, and interview prep.",
-    image: project1Url,
+    title: "INSIGHTHUB",
+    subtitle: "Business Intelligence Platform",
+    description: "An executive analytics platform that centralized fragmented business reports into a unified decision-making dashboard with AI-generated insights.",
+    image: project4Url,
     color: "bg-primary",
     link: "https://github.com/harish2n5/Harish-newPortfolio"
   }
@@ -175,8 +175,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
           </motion.a>
           <motion.a
-            href={project.link}
-            target="_blank"
+            href="/not-found"
             className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
             whileHover={{ x: 4 }}
           >

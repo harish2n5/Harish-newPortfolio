@@ -1,0 +1,135 @@
+const projects = [
+  {
+    id: 0,
+    title: "CareerFlow AI",
+    subtitle: "AI-Powered Career Platform",
+    image: project1Url,
+    accentColor: "bg-primary",
+    year: "2024",
+    tags: ["React", "TypeScript", "AI Resume Analyzer", "Job Engine"],
+    role: "Full Stack + UX Design",
+    duration: "4 months",
+    shortDesc: "An AI-powered platform that helps users find relevant jobs, optimize resumes for ATS systems, generate cover letters, and track applications.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      customSections: [
+        { title: "Problem", content: "Job seekers often apply to hundreds of jobs manually, use generic resumes, and struggle to track applications." },
+        { title: "Solution", content: "An AI-powered platform that helps users:\n- Find relevant jobs\n- Optimize resumes for ATS systems\n- Generate cover letters\n- Track applications\n- Get interview preparation suggestions" },
+        { title: "Key Features", content: "- AI Job Matching\n- Resume Score Analyzer\n- ATS Compatibility Checker\n- Cover Letter Generator\n- Application Tracker\n- Interview Preparation Dashboard\n- Career Progress Analytics" },
+        { title: "UX Challenges", content: "- Presenting AI recommendations clearly\n- Building trust in AI-generated suggestions\n- Managing complex workflows" },
+        { title: "Screens", content: "- Landing Page\n- Login/Signup\n- Dashboard\n- Job Search\n- Resume Analyzer\n- Cover Letter Generator\n- Application Tracker\n- User Profile" }
+      ]
+    }
+  },
+  {
+    id: 1,
+    title: "Scalable Design System",
+    subtitle: "Component Library",
+    image: project3Url,
+    accentColor: "bg-primary",
+    year: "2024",
+    tags: ["Figma", "Auto Layout", "Component Variants", "Accessibility"],
+    role: "Product Designer",
+    duration: "5 months",
+    shortDesc: "Created a scalable design system to ensure visual consistency and faster product development.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Inconsistencies and slow product development across multiple screens.", whoFacesIt: "Design and development teams." },
+      research: { userInterviews: "N/A", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Faster product development", "Visual consistency"], painPoints: ["Inefficient handoff"], motivations: ["Scalability"] },
+      journey: { discovery: "Designer uses components.", interaction: "Developed reusable UI components, typography styles, color tokens.", painPoints: "N/A" },
+      architecture: { sitemap: "N/A", navigationFlow: "N/A" },
+      wireframes: { lowFidelity: "N/A", midFidelity: "N/A" },
+      designSystem: { colors: "Color tokens.", typography: "Typography styles.", components: "Auto Layout and component variants.", icons: "N/A" },
+      finalUI: { mobileScreens: "N/A", webScreens: "N/A", responsiveLayouts: "Layout guidelines." },
+      usabilityTesting: { findings: "N/A", iterations: "N/A" },
+      impact: { metricsImproved: "Efficient design-to-development handoff and long-term product scalability.", futureEnhancements: "Accessibility standards documentation." }
+    }
+  },
+  {
+    id: 2,
+    title: "Enterprise Event Management System",
+    subtitle: "UI/UX Case Study",
+    image: project1Url,
+    accentColor: "bg-[#FFD6A0]",
+    year: "2024",
+    tags: ["Figma", "UX Research", "Design Systems", "Responsive Design"],
+    role: "UI/UX Designer",
+    duration: "4 months",
+    shortDesc: "Designed an end-to-end UI/UX solution for an enterprise-level event management system, including admin dashboards, event team workflows, and requester portals.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: { statement: "Needed an end-to-end UI/UX solution for an enterprise-level event management system.", whoFacesIt: "Admin and event team." },
+      research: { userInterviews: "Conducted user research to identify pain points.", surveys: "N/A", competitorAnalysis: "N/A" },
+      personas: { goals: ["Task efficiency", "Clear information architecture"], painPoints: ["Complex workflows"], motivations: ["Streamlined processing"] },
+      journey: { discovery: "User logs in.", interaction: "User accesses admin dashboards, event team workflows, and requester portals.", painPoints: "N/A" },
+      architecture: { sitemap: "Admin Dashboard, Requester Portal.", navigationFlow: "Intuitive user flows." },
+      wireframes: { lowFidelity: "Created wireframes.", midFidelity: "High-fidelity designs." },
+      designSystem: { colors: "Brand colors.", typography: "System defaults.", components: "Scalable design system with reusable components.", icons: "Standard icons." },
+      finalUI: { mobileScreens: "Responsive layouts.", webScreens: "Web dashboard.", responsiveLayouts: "Yes." },
+      usabilityTesting: { findings: "Improved task efficiency.", iterations: "Refined information architecture." },
+      impact: { metricsImproved: "Improved task efficiency through clear information architecture.", futureEnhancements: "N/A" }
+    }
+  },
+  {
+    id: 3,
+    title: "MediSync",
+    subtitle: "Smart Healthcare Management",
+    image: project2Url,
+    accentColor: "bg-secondary",
+    year: "2024",
+    tags: ["React Native", "Node.js", "Healthcare UX", "Accessibility"],
+    role: "Product Design + Frontend",
+    duration: "5 months",
+    shortDesc: "A unified healthcare ecosystem for patients and doctors.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      problem: {
+        statement: "Patients struggle with appointment booking, prescription management, and health tracking.",
+        whoFacesIt: "Patients (especially elderly), Doctors, and Hospital Staff."
+      },
+      research: {
+        userInterviews: "Interviews with 15 patients and 8 healthcare providers.",
+        surveys: "Surveyed 50 clinic administrators on operational bottlenecks.",
+        competitorAnalysis: "Reviewed existing portals (Epic MyChart, Zocdoc)."
+      },
+      personas: {
+        goals: ["Easy appointment booking", "Access to digital prescriptions"],
+        painPoints: ["Long wait times on phone", "Losing paper prescriptions"],
+        motivations: ["Better health management", "Reduced anxiety"]
+      },
+      journey: {
+        discovery: "Patient feels unwell, opens app to find a specialist.",
+        interaction: "Books slot, attends online consultation, receives digital prescription, sets medicine reminders.",
+        painPoints: "Digital literacy barriers for older users."
+      },
+      architecture: {
+        sitemap: "Onboarding, Dashboard, Doctor Search, Consultation, Reports, Settings.",
+        navigationFlow: "Bottom tab navigation for core functions: Home, Appointments, Records, Profile."
+      },
+      wireframes: {
+        lowFidelity: "Paper prototyping for the consultation flow.",
+        midFidelity: "Wireframes emphasizing large touch targets and high contrast."
+      },
+      designSystem: {
+        colors: "Calming Teal and clean White backgrounds.",
+        typography: "Roboto for clarity and cross-platform consistency.",
+        components: "Doctor Profile Cards, Calendar Picker, Notification Toasts.",
+        icons: "Medical-specific custom icon set."
+      },
+      finalUI: {
+        mobileScreens: "Patient App optimized for accessibility (large text, voice search).",
+        webScreens: "Doctor Dashboard and Admin Portal for clinic management.",
+        responsiveLayouts: "Tablet-optimized views for doctors during consultations."
+      },
+      usabilityTesting: {
+        findings: "Elderly users struggled with the calendar interface.",
+        iterations: "Simplified date picker and added a 'Quick Rebook' feature."
+      },
+      impact: {
+        metricsImproved: "No-show rate dropped by 25%. Prescription adherence improved by 40%.",
+        futureEnhancements: "Wearable device integration for live vitals monitoring."
+      }
+    }
+  }
+];
