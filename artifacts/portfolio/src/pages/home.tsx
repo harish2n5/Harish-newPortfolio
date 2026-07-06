@@ -508,34 +508,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Selected Work ─────────────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-white">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-16"
-          >
-            <h2 className="text-4xl  md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">Selected Work.</h2>
-            <motion.a
-              href="/work"
-              data-testid="link-home-all-work"
-              whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-              className="hidden md:inline-flex items-center gap-2 font-bold uppercase border-[3px] border-black px-6 py-3 brutal-shadow hover:bg-primary transition-colors"
-            >
-              All Work <ArrowRight className="w-5 h-5" />
-            </motion.a>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {projects.slice(0, 2).map((project, i) => (
-              <ProjectCard key={project.title} project={project} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Contact ───────────────────────────────────────────────── */}
       <section id="contact" className="px-4 sm:px-6 py-12 md:py-24 border-t-[3px] border-black bg-background">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
