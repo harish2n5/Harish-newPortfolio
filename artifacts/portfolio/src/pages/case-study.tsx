@@ -1,8 +1,6 @@
-import { useParams, Link } from "wouter";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import { projects } from "@/lib/data";
 
 const fadeUp = {
@@ -20,39 +18,33 @@ function SectionWrapper({ children, className = "" }: { children: React.ReactNod
   );
 }
 
-export default function CaseStudy() {
-  const { slug } = useParams<{ slug: string }>();
-  const projectIndex = projects.findIndex(p => p.slug === slug);
-  const project = projects[projectIndex];
-  
-  if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center font-mono">
-        <div className="text-center">
-          <h1 className="text-4xl font-black mb-4">404 - Project Not Found</h1>
-          <Link href="/work">
-            <a className="border-2 border-black px-4 py-2 hover:bg-primary transition-colors">Go Back to Work</a>
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
+export default function CaseStudyModal({ project, onClose, onNext }: { project: typeof projects[0], onClose: () => void, onNext: (p: typeof projects[0]) => void }) {
+  const projectIndex = projects.findIndex(p => p.slug === project.slug);
   const nextProject = projects[(projectIndex + 1) % projects.length];
   const cs = project.caseStudy as any;
 
-  return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black">
-      <Navbar />
+  // Prevent background scrolling
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
+  return (
+    <motion.div
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "100%" }}
+      transition={{ type: "spring", damping: 25, stiffness: 200 }}
+      className="fixed inset-0 z-50 overflow-y-auto bg-background text-foreground font-sans selection:bg-primary selection:text-black"
+    >
       {/* Hero Header */}
-      <section className={`${project.accentColor} border-b-[4px] border-black pt-32 pb-16 px-4 sm:px-6`}>
+      <section className={`${project.accentColor} border-b-[4px] border-black pt-16 pb-16 px-4 sm:px-6`}>
         <div className="max-w-6xl mx-auto">
-          <Link href="/work">
-            <a className="inline-flex items-center gap-2 font-mono text-sm uppercase font-bold border-2 border-black bg-white px-3 py-1 mb-12 hover:bg-black hover:text-white transition-colors brutal-shadow-sm">
-              <ArrowLeft className="w-4 h-4" /> Back to Work
-            </a>
-          </Link>
+          <button onClick={onClose} className="inline-flex items-center gap-2 font-mono text-sm uppercase font-bold border-2 border-black bg-white px-3 py-1 mb-12 hover:bg-black hover:text-white transition-colors brutal-shadow-sm">
+            <ArrowLeft className="w-4 h-4" /> Back to Work
+          </button>
 
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="font-mono text-sm uppercase tracking-widest border-[3px] border-black bg-white px-4 py-2 inline-block mb-6 brutal-shadow-sm">
@@ -257,21 +249,19 @@ export default function CaseStudy() {
       </div>
 
       {/* Next Project Footer */}
-      <Link href={`/work/${nextProject.slug}`}>
-        <a className="block border-t-[4px] border-black bg-primary hover:bg-black hover:text-white transition-colors duration-300 group cursor-pointer">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 flex flex-col items-center justify-center text-center">
-            <span className="font-mono text-sm font-bold uppercase tracking-widest border-2 border-current px-4 py-2 mb-8 group-hover:bg-white group-hover:text-black transition-colors">
-              Next Project
-            </span>
-            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 group-hover:scale-105 transition-transform duration-500">
-              {nextProject.title}
-            </h2>
-            <div className="w-16 h-16 border-[3px] border-current flex items-center justify-center rounded-full mt-8 group-hover:translate-x-4 transition-transform duration-300">
-              <ArrowRight className="w-8 h-8" />
-            </div>
+      <button onClick={() => onNext(nextProject)} className="w-full text-left block border-t-[4px] border-black bg-primary hover:bg-black hover:text-white transition-colors duration-300 group cursor-pointer">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-32 flex flex-col items-center justify-center text-center">
+          <span className="font-mono text-sm font-bold uppercase tracking-widest border-2 border-current px-4 py-2 mb-8 group-hover:bg-white group-hover:text-black transition-colors">
+            Next Project
+          </span>
+          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 group-hover:scale-105 transition-transform duration-500">
+            {nextProject.title}
+          </h2>
+          <div className="w-16 h-16 border-[3px] border-current flex items-center justify-center rounded-full mt-8 group-hover:translate-x-4 transition-transform duration-300">
+            <ArrowRight className="w-8 h-8" />
           </div>
-        </a>
-      </Link>
-    </div>
+        </div>
+      </button>
+    </motion.div>
   );
 }

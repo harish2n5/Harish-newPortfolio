@@ -18,6 +18,7 @@ import snippet8Url from "../assets/snippet-8.png";
 import Navbar from "@/components/Navbar";
 import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import CaseStudyModal from "./case-study";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -240,6 +241,7 @@ function SnippetModal({
 export default function Work() {
   
   const [activeSnippet, setActiveSnippet] = useState<typeof designSnippets[0] | null>(null);
+  const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
 
 
   return (
@@ -402,20 +404,17 @@ export default function Work() {
                     </div>
                   </div>
                   <div className="flex gap-4">
-                    <motion.a
-                      href={"/work/" + project.slug}
-                      target="_blank"
-                      rel="noreferrer"
+                    <motion.button
+                      onClick={() => setActiveProject(project)}
                       whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                       whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
                       data-testid={`button-project-detail-${project.id}`}
                       className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
                     >
                       View Case Study <ArrowUpRight className="w-5 h-5" />
-                    </motion.a>
+                    </motion.button>
                     <motion.a
-                      href={project.link}
-                      target="_blank"
+                      href="/not-found"
                       whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                       whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
                       className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-white px-6 py-3 brutal-shadow hover:bg-secondary transition-colors"
@@ -531,7 +530,7 @@ export default function Work() {
       </section>
 
       <AnimatePresence>
-        
+        {activeProject && <CaseStudyModal project={activeProject} onClose={() => setActiveProject(null)} onNext={(p) => setActiveProject(p)} />}
       </AnimatePresence>
 
       <AnimatePresence>
