@@ -313,26 +313,36 @@ export default function Work() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: i * 0.06 }}
-                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                whileHover={{ y: -8 }}
                 onClick={() => setActiveSnippet(snippet)}
-                className="border-[3px] border-black brutal-shadow cursor-pointer group"
+                className="relative h-[420px] rounded-[2rem] overflow-hidden cursor-pointer group shadow-xl"
                 data-testid={`snippet-card-${i}`}
               >
-                <div className={`${snippet.color} border-b-[3px] border-black h-28 flex flex-col items-center justify-center relative overflow-hidden group-hover:bg-black transition-colors`}>
-                  <img src={snippet.image} alt={snippet.title} className="w-full h-full object-cover mix-blend-multiply opacity-80 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500" />
-                  {/* Hover reveal */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <span className="font-black text-xs uppercase tracking-widest border-[2px] border-black bg-white px-2 py-1">
-                      View Details
+                <img 
+                  src={snippet.image} 
+                  alt={snippet.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5 text-white transition-opacity duration-300">
+                  <h3 className="text-xl font-semibold mb-2">{snippet.title}</h3>
+                  
+                  <p className="text-sm text-gray-200 line-clamp-3 mb-4">
+                    {snippet.description}
+                  </p>
+                  
+                  <div className="flex items-center gap-2 mb-5">
+                    <span className="bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white">
+                      {snippet.tag}
+                    </span>
+                    <span className="bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white">
+                      {snippet.year}
                     </span>
                   </div>
-                </div>
-                <div className="bg-background p-4">
-                  <div className="text-sm font-bold uppercase tracking-tight mb-1 leading-tight">{snippet.title}</div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs border-[2px] border-black px-2 py-0.5 bg-white">{snippet.tag}</span>
-                    <span className="font-mono text-xs text-muted-foreground">{snippet.year}</span>
-                  </div>
+                  
+                  <button className="w-full bg-white text-black py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">
+                    View Details
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -515,17 +525,18 @@ export default function Work() {
           >
             Your Project<br />Is Next.
           </motion.h2>
-          <motion.a
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            href="mailto:harish2n5@gmail.com"
-            data-testid="link-work-email"
-            className="inline-flex items-center gap-3 font-bold uppercase text-xl border-[4px] border-black bg-white px-10 py-5 brutal-shadow hover:bg-primary transition-colors"
-          >
-            Start a Project <ArrowRight className="w-6 h-6" />
-          </motion.a>
+          <Link href="/contact">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              data-testid="link-work-email"
+              className="inline-flex items-center gap-3 font-bold uppercase text-xl border-[4px] border-black bg-white px-10 py-5 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
+            >
+              Start a Project <ArrowRight className="w-6 h-6" />
+            </motion.span>
+          </Link>
         </div>
       </section>
 
