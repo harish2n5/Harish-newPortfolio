@@ -340,9 +340,13 @@ export default function Work() {
                     </span>
                   </div>
                   
-                  <button className="w-full bg-white text-black py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">
+                  <motion.button 
+                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                    className="w-full bg-white text-black py-3 border-[3px] border-black brutal-shadow font-black text-sm uppercase tracking-widest hover:bg-primary transition-colors cursor-pointer mt-2"
+                  >
                     View Details
-                  </button>
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
