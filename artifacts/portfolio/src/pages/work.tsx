@@ -184,6 +184,15 @@ function SnippetModal({
           </button>
         </div>
 
+        {/* Design Image */}
+        <div className="border-b-[4px] border-black bg-white">
+          <img 
+            src={snippet.image} 
+            alt={snippet.title} 
+            className="w-full h-auto max-h-[500px] object-cover" 
+          />
+        </div>
+
         <div className="p-5 sm:p-8 flex flex-col gap-8">
           {/* Description */}
           <p className="font-mono text-base leading-relaxed border-l-[6px] border-black pl-5">
