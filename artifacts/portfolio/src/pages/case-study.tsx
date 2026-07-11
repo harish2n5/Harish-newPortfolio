@@ -108,17 +108,23 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </section>
 
-      {/* Main Cover Image */}
+      {/* 2. Problem Statement & Hook (Moved to top - Mistake 1 & 7) */}
+      <SectionWrapper className="bg-primary text-black pt-12 md:pt-16">
+        <div className="max-w-4xl">
+          <div className="font-mono text-sm uppercase tracking-widest mb-4 font-bold">The Problem</div>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-[1.1] mb-8 bg-white border-[4px] border-black p-6 md:p-8 brutal-shadow">
+            "{cs.problemStatement}"
+          </h2>
+          <p className="text-xl md:text-2xl font-mono leading-relaxed border-l-[8px] border-black pl-6 font-bold bg-white/50 p-4">
+            {cs.hook.paragraph}
+          </p>
+        </div>
+      </SectionWrapper>
+
+      {/* Main Cover Image (Moved down - Mistake 1) */}
       <div className="w-full border-b-[4px] border-black bg-black">
         <img src={project.image} alt={project.title} className="w-full h-auto max-h-[80vh] object-cover mix-blend-screen opacity-90" />
       </div>
-
-      {/* 2. Hook */}
-      <SectionWrapper className="bg-white">
-        <p className="text-2xl md:text-4xl font-mono leading-relaxed border-l-[8px] border-black pl-8 font-bold">
-          {cs.hook.paragraph}
-        </p>
-      </SectionWrapper>
 
       {/* 3. Project Overview */}
       <SectionWrapper>
@@ -181,46 +187,22 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 7. Research & 8. Findings */}
+      {/* 7. Core Insights (Replaced Methods - Mistake 3 & 4) */}
       <SectionWrapper className="bg-black text-white">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
-            <div className="relative mb-12">
-              <div className="absolute -left-6 -top-10 text-[80px] md:text-[120px] font-black text-white/10 select-none -z-10">7</div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter pb-4 border-b-[4px] border-white inline-block">Research</h2>
+        <SectionHeading num={7} title="Core Insights" />
+        <div className="grid md:grid-cols-3 gap-8">
+          {cs.coreInsights?.map((insight: any, i: number) => (
+            <div key={i} className="border-[3px] border-white p-6 bg-white/10 hover:bg-white/20 transition-colors">
+              <h4 className="font-black uppercase text-xl text-primary mb-4 border-b-2 border-white/30 pb-2">{insight.title}</h4>
+              <p className="font-mono text-base leading-relaxed text-gray-300">{insight.description}</p>
             </div>
-            <div className="mb-8">
-              <h4 className="font-black uppercase text-xl mb-4 text-primary">Methods</h4>
-              <div className="flex flex-wrap gap-2">
-                {cs.research.methods.map((m: string) => <span key={m} className="border-2 border-white px-3 py-1 font-mono text-sm">{m}</span>)}
-              </div>
-            </div>
-            <div>
-              <h4 className="font-black uppercase text-xl mb-4 text-primary">Key Questions Asked</h4>
-              <ul className="space-y-2">
-                {cs.research.interviewQuestions.map((q: string) => <li key={q} className="font-mono italic text-gray-300">"{q}"</li>)}
-              </ul>
-            </div>
-          </div>
-          <div>
-             <div className="relative mb-12">
-              <div className="absolute -left-6 -top-10 text-[80px] md:text-[120px] font-black text-white/10 select-none -z-10">8</div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter pb-4 border-b-[4px] border-white inline-block">Findings</h2>
-            </div>
-            <ul className="space-y-6">
-              {cs.researchFindings.points.map((f: string, i: number) => (
-                <li key={i} className="flex gap-4 font-mono text-lg bg-white/10 p-4 border-l-[4px] border-secondary">
-                  <CheckCircle className="w-6 h-6 text-secondary shrink-0" /> {f}
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* 9. Personas */}
+      {/* 8. Personas */}
       <SectionWrapper>
-        <SectionHeading num={9} title="Personas" />
+        <SectionHeading num={8} title="Personas" />
         <div className="grid md:grid-cols-2 gap-10">
           {cs.personas.map((persona: any, i: number) => (
             <div key={i} className="border-[4px] border-black bg-white brutal-shadow flex flex-col">
@@ -253,9 +235,9 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 10. User Journey Map */}
+      {/* 9. User Journey Map */}
       <SectionWrapper className="bg-white">
-        <SectionHeading num={10} title="User Journey Map" />
+        <SectionHeading num={9} title="User Journey Map" />
         <ImagePlaceholder text="User Journey Map Diagram" height="h-64" />
         <div className="grid md:grid-cols-3 gap-6 font-mono">
           <div className="border-[3px] border-black p-4 bg-gray-50">
@@ -273,13 +255,9 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 11 & 12. Problem & HMW */}
-      <SectionWrapper className="bg-primary text-black">
-        <SectionHeading num={11} title="Problem Statement" />
-        <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tight leading-[1.2] mb-16 bg-white border-[4px] border-black p-8 brutal-shadow">
-          "{cs.problemStatement}"
-        </h3>
-        <SectionHeading num={12} title="How Might We" />
+      {/* 10. How Might We */}
+      <SectionWrapper className="bg-primary/20">
+        <SectionHeading num={10} title="How Might We" />
         <div className="grid md:grid-cols-3 gap-6">
           {cs.howMightWe.map((hmw: string, i: number) => (
             <div key={i} className="bg-white border-[3px] border-black p-6 brutal-shadow-sm font-mono text-lg font-bold">
@@ -289,14 +267,14 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 13 & 14. IA & User Flow */}
+      {/* 11 & 12. IA & User Flow */}
       <SectionWrapper>
-        <SectionHeading num={13} title="Information Architecture" />
+        <SectionHeading num={11} title="Information Architecture" />
         <p className="font-mono text-lg mb-8">{cs.informationArchitecture.description}</p>
         <ImagePlaceholder text="Sitemap Diagram" height="h-64" />
         
         <div className="mt-16">
-          <SectionHeading num={14} title="User Flow" />
+          <SectionHeading num={12} title="User Flow" />
           <div className="flex flex-wrap items-center gap-4 mt-8">
             {cs.userFlow.steps.map((step: string, i: number) => (
               <div key={step} className="flex items-center gap-4">
@@ -308,29 +286,34 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 15, 16, 17. Ideation & Wireframes */}
+      {/* 13 & 14. Key Decisions & Turning Points (Replaced generic Wireframes - Mistake 2) */}
       <SectionWrapper className="bg-gray-100">
-        <SectionHeading num={15} title="Ideation & Sketches" />
-        <p className="font-mono text-lg mb-8 bg-white border-[3px] border-black p-6">{cs.ideation.text}</p>
-        <ImagePlaceholder text="Crazy 8s / Sketches" height="h-64" />
-        
-        <div className="grid md:grid-cols-2 gap-12 mt-16">
-          <div>
-            <SectionHeading num={16} title="Low Fidelity" />
-            <p className="font-mono text-base mb-6">{cs.lowFidelity.text}</p>
-            <ImagePlaceholder text="Lo-Fi Wireframes" height="h-64" />
-          </div>
-          <div>
-            <SectionHeading num={17} title="Mid Fidelity" />
-            <p className="font-mono text-base mb-6">{cs.midFidelity.text}</p>
-            <ImagePlaceholder text="Mid-Fi Wireframes" height="h-64" />
-          </div>
+        <SectionHeading num={13} title="Key Decisions" />
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {cs.keyDecisions?.map((dec: any, i: number) => (
+            <div key={i} className="bg-white border-[4px] border-black p-6 brutal-shadow-sm">
+              <div className="font-black uppercase text-xl mb-3 flex items-center gap-3">
+                <PenTool className="w-6 h-6 text-blue-500" /> {dec.title}
+              </div>
+              <p className="font-mono text-base">{dec.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <SectionHeading num={14} title="Turning Points" />
+        <div className="space-y-6">
+          {cs.turningPoints?.map((tp: any, i: number) => (
+            <div key={i} className="bg-primary/20 border-l-[8px] border-primary p-6 md:p-8">
+              <h4 className="font-black uppercase text-2xl mb-3">{tp.title}</h4>
+              <p className="font-mono text-lg">{tp.description}</p>
+            </div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* 18 & 19. Visual Direction & Design System */}
+      {/* 15 & 16. Visual Direction & Design System */}
       <SectionWrapper className="bg-white">
-        <SectionHeading num={18} title="Visual Direction" />
+        <SectionHeading num={15} title="Visual Direction" />
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="border-[3px] border-black p-6 bg-[#F4F4F0] brutal-shadow-sm">
             <h4 className="font-black uppercase mb-4">Typography</h4>
@@ -351,14 +334,14 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
           </div>
         </div>
 
-        <SectionHeading num={19} title="Design System" />
+        <SectionHeading num={16} title="Design System" />
         <p className="font-mono text-lg mb-8">{cs.designSystem.text}</p>
         <ImagePlaceholder text="Design System / Components" height="h-80" />
       </SectionWrapper>
 
-      {/* 20. High Fidelity */}
+      {/* 17. High Fidelity */}
       <SectionWrapper className="bg-secondary/10">
-        <SectionHeading num={20} title="High Fidelity Design" />
+        <SectionHeading num={17} title="High Fidelity Design" />
         <div className="space-y-16 mt-8">
           {cs.highFidelity.screens.map((screen: any, i: number) => (
             <div key={i} className="border-[4px] border-black bg-white brutal-shadow overflow-hidden">
@@ -386,18 +369,18 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 21. Prototype & 22. Usability Testing */}
+      {/* 18 & 19. Prototype & Usability Testing */}
       <SectionWrapper className="bg-black text-white">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <SectionHeading num={21} title="Prototype" />
+            <SectionHeading num={18} title="Prototype" />
             <ImagePlaceholder text="Interactive Prototype GIF" height="h-64" />
             <ul className="mt-6 space-y-2">
               {cs.prototype.features.map((f: string) => <li key={f} className="font-mono text-sm flex gap-2"><span className="text-primary">▸</span> {f}</li>)}
             </ul>
           </div>
           <div>
-            <SectionHeading num={22} title="Usability Testing" />
+            <SectionHeading num={19} title="Usability Testing" />
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="border-[3px] border-white p-4">
                 <div className="font-mono text-xs uppercase text-gray-400 mb-1">Completion Rate</div>
@@ -418,9 +401,9 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 23. Before vs After & 24. Accessibility */}
+      {/* 20 & 21. Before vs After & Accessibility */}
       <SectionWrapper className="bg-white">
-        <SectionHeading num={23} title="Before vs After" />
+        <SectionHeading num={20} title="Before vs After" />
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {cs.beforeAfter.metrics.map((metric: any, i: number) => (
             <div key={i} className="border-[4px] border-black p-6 brutal-shadow-sm text-center bg-gray-50">
@@ -434,7 +417,7 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
           ))}
         </div>
         
-        <SectionHeading num={24} title="Accessibility" />
+        <SectionHeading num={21} title="Accessibility" />
         <div className="flex flex-wrap gap-3">
           {cs.accessibility.points.map((pt: string) => (
             <span key={pt} className="border-[2px] border-black px-4 py-2 bg-blue-100 font-mono text-sm font-bold">{pt}</span>
@@ -442,14 +425,14 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 25. Final Outcome & 26. Impact */}
+      {/* 22 & 23. Final Outcome & Impact */}
       <SectionWrapper className="bg-primary/20">
-        <SectionHeading num={25} title="Final Outcome" />
+        <SectionHeading num={22} title="Final Outcome" />
         <p className="text-2xl md:text-3xl font-mono leading-relaxed bg-white border-[4px] border-black p-8 brutal-shadow mb-16">
           {cs.finalOutcome}
         </p>
 
-        <SectionHeading num={26} title="Impact" />
+        <SectionHeading num={23} title="Impact" />
         <div className="grid md:grid-cols-2 gap-6">
           {cs.impact.benefits.map((benefit: string, i: number) => (
             <div key={i} className="bg-white border-[3px] border-black p-6 brutal-shadow-sm flex items-center gap-4">
@@ -460,32 +443,45 @@ export default function CaseStudyModal({ project, onClose, onNext }: { project: 
         </div>
       </SectionWrapper>
 
-      {/* 27. Reflection, 28. Next Steps, 29. Key Takeaways */}
+      {/* 24. Structured Reflection (Mistake 6) */}
       <SectionWrapper>
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          <div>
-            <SectionHeading num={27} title="Reflection" />
-            <p className="font-mono text-lg leading-relaxed">{cs.reflection.text}</p>
+        <SectionHeading num={24} title="Reflection" />
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="bg-[#B8F0A0] border-[3px] border-black p-6 brutal-shadow-sm">
+            <h4 className="font-black uppercase mb-4 flex items-center gap-2"><CheckCircle className="w-5 h-5"/> What I Learned</h4>
+            <p className="font-mono text-sm leading-relaxed">{cs.reflection?.whatILearned || cs.reflection?.text}</p>
           </div>
+          <div className="bg-[#FFD6A0] border-[3px] border-black p-6 brutal-shadow-sm">
+            <h4 className="font-black uppercase mb-4 flex items-center gap-2"><Frown className="w-5 h-5"/> What Went Wrong</h4>
+            <p className="font-mono text-sm leading-relaxed">{cs.reflection?.whatWentWrong || "No major issues reported during development."}</p>
+          </div>
+          <div className="bg-[#A0E4FF] border-[3px] border-black p-6 brutal-shadow-sm">
+            <h4 className="font-black uppercase mb-4 flex items-center gap-2"><ListTodo className="w-5 h-5"/> What I'd Do Differently</h4>
+            <p className="font-mono text-sm leading-relaxed">{cs.reflection?.whatIdDoDifferently || "I would spend more time in the exploratory phase."}</p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16 mt-16">
           <div>
-            <SectionHeading num={28} title="Next Steps" />
+            <SectionHeading num={25} title="Next Steps" />
             <ul className="space-y-4 font-mono text-lg">
               {cs.nextSteps.map((step: string) => <li key={step} className="flex gap-3"><ArrowRight className="w-5 h-5 mt-1" />{step}</li>)}
             </ul>
           </div>
-        </div>
-
-        <SectionHeading num={29} title="Key Takeaways" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {cs.keyTakeaways.map((takeaway: string) => (
-            <div key={takeaway} className="border-[3px] border-black bg-[#C8B8FF] p-4 font-black uppercase text-sm brutal-shadow-sm flex items-center gap-3">
-              <CheckCircle className="w-5 h-5 shrink-0" /> {takeaway}
+          <div>
+            <SectionHeading num={26} title="Key Takeaways" />
+            <div className="grid gap-4">
+              {cs.keyTakeaways.map((takeaway: string) => (
+                <div key={takeaway} className="border-[3px] border-black bg-[#C8B8FF] p-4 font-black uppercase text-sm brutal-shadow-sm flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 shrink-0" /> {takeaway}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </SectionWrapper>
 
-      {/* 30. Thank You */}
+      {/* 27. Thank You */}
       <SectionWrapper className="bg-black text-white text-center py-32">
         <div className="text-[80px] md:text-[120px] mb-8">🙏</div>
         <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8">Thank You<br/>For Reading.</h2>
