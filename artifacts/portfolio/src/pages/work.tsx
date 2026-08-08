@@ -407,7 +407,7 @@ export default function Work() {
                       {project.subtitle}
                     </span>
                     <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">{project.title}</h3>
-                    <p className="font-mono text-base leading-relaxed mb-6">{project.shortDesc}</p>
+                    <p className="font-mono text-base leading-relaxed text-gray-700 font-medium mb-6 line-clamp-2 min-h-[3rem]">{project.shortDesc}</p>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {project.tags.slice(0, 4).map((tag: string) => (
                         <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-background">

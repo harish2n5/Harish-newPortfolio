@@ -11,6 +11,9 @@ import About from "@/pages/about";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
 
+import CaseStudyModal from "@/pages/case-study";
+import { projects } from "@/lib/data";
+
 const queryClient = new QueryClient();
 
 function ScrollToTop() {
@@ -32,6 +35,20 @@ const pageTransition = {
   ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
 };
 
+function CaseStudyRoute({ params }: { params: { slug: string } }) {
+  const [, setLocation] = useLocation();
+  const project = projects.find((p) => p.slug === params.slug) || projects[0];
+  const nextProject = projects[(projects.findIndex((p) => p.slug === project.slug) + 1) % projects.length];
+
+  return (
+    <CaseStudyModal
+      project={project}
+      onClose={() => setLocation("/work")}
+      onNext={(nextP) => setLocation(`/case-study/${nextP.slug}`)}
+    />
+  );
+}
+
 function AnimatedRoutes() {
   const [location] = useLocation();
 
@@ -49,6 +66,7 @@ function AnimatedRoutes() {
         <Switch>
           <Route path="/"        component={Home} />
           <Route path="/work"    component={Work} />
+          <Route path="/case-study/:slug" component={CaseStudyRoute} />
           <Route path="/about"   component={About} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />

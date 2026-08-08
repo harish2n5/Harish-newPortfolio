@@ -1,13 +1,11 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send, ExternalLink, FileDown } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send, ExternalLink, FileDown, ArrowUpRight } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import project1Url from "../assets/project-1.png";
-import project2Url from "../assets/project-2.png";
-import project3Url from "../assets/project-3.png";
-import project4Url from "../assets/project-4.png";
 import Navbar from "@/components/Navbar";
-import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
+import { LaptopMockup } from "@/components/ui/Mockup";
+import { projects as dataProjects } from "@/lib/data";
+import CaseStudyModal from "./case-study";
 
 const EMAILJS_SERVICE_ID = "service_ij7iwe7";
 const EMAILJS_TEMPLATE_ID = "template_u7yhrx9";
@@ -31,25 +29,6 @@ const frontendSkills = [
 
 const accessibilitySkills = [
   "WCAG guidelines", "component documentation"
-];
-
-const projects = [
-  {
-    title: "WORKSPHERE",
-    subtitle: "Enterprise Employee Experience Platform",
-    description: "A unified HR platform that consolidated 6+ disconnected employee tools into a single system for attendance, performance, learning, and analytics management.",
-    image: project2Url,
-    color: "bg-secondary",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  },
-  {
-    title: "INSIGHTHUB",
-    subtitle: "Business Intelligence Platform",
-    description: "An executive analytics platform that centralized fragmented business reports into a unified decision-making dashboard with AI-generated insights.",
-    image: project4Url,
-    color: "bg-primary",
-    link: "https://github.com/harish2n5/Harish-newPortfolio"
-  }
 ];
 
 const containerVariants = {
@@ -102,7 +81,6 @@ function FloatBox({ className, delay = 0 }: { className: string; delay?: number 
   );
 }
 
-
 function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -128,7 +106,15 @@ function Counter({ target, suffix = "" }: { target: number; suffix?: string }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  onSelectCaseStudy,
+}: {
+  project: typeof dataProjects[0];
+  index: number;
+  onSelectCaseStudy: (p: typeof dataProjects[0]) => void;
+}) {
   const mag = useMagnet(0.15);
   return (
     <motion.div
@@ -139,38 +125,51 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       style={{ x: mag.springX, y: mag.springY }}
       onMouseMove={mag.onMove}
       onMouseLeave={mag.onLeave}
-      className="group border-[4px] border-black bg-background brutal-shadow overflow-hidden flex flex-col"
+      className="group border-[4px] border-black bg-background brutal-shadow overflow-hidden flex flex-col h-full"
       data-testid={`project-card-${index}`}
     >
-      <div className={`border-b-[4px] border-black ${project.color} relative overflow-hidden p-6 md:p-10 flex items-center justify-center`}>
-          <LaptopMockup>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
-            />
-          </LaptopMockup>
+      <div className={`border-b-[4px] border-black ${project.accentColor || "bg-primary"} relative overflow-hidden p-6 md:p-10 flex items-center justify-center`}>
+        <LaptopMockup>
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
+          />
+        </LaptopMockup>
       </div>
-      <div className="p-8 flex flex-col flex-grow bg-white">
-        <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">{project.subtitle}</span>
-        <h3 className="text-3xl font-black uppercase tracking-tight mb-4">{project.title}</h3>
-        <p className="font-mono text-base flex-grow mb-8">{project.description}</p>
-        <div className="flex gap-6 mt-auto">
-          <motion.a
-            href="/work"
-            className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
-            whileHover={{ x: 4 }}
+      <div className="p-6 md:p-8 flex flex-col flex-grow bg-white justify-between">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-mono text-xs uppercase font-bold tracking-widest text-muted-foreground">{project.subtitle}</span>
+            <span className="font-mono text-[11px] font-black uppercase px-2.5 py-0.5 border border-black bg-primary/20">{project.year || "2024"}</span>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">{project.title}</h3>
+          
+          {/* Simple 2-Line Description */}
+          <p className="font-mono text-sm leading-snug text-gray-700 font-medium mb-6 line-clamp-2 min-h-[2.6rem]">
+            {project.shortDesc}
+          </p>
+        </div>
+
+        {/* Clear CTAs */}
+        <div className="flex flex-wrap items-center gap-3 pt-4 border-t-[2px] border-black/10 mt-auto">
+          <motion.button
+            onClick={() => onSelectCaseStudy(project)}
+            whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
+            whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
+            className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-primary px-4 py-2.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
           >
-            Case Study
-            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
-          </motion.a>
+            View Case Study <ArrowRight className="w-4 h-4" />
+          </motion.button>
           <motion.a
-            href="/not-found"
-            className="self-start flex items-center gap-2 font-bold uppercase tracking-wider group/btn"
-            whileHover={{ x: 4 }}
+            href={project.link || "https://github.com/harish2n5/Harish-newPortfolio"}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
+            whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
+            className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-white px-4 py-2.5 brutal-shadow hover:bg-secondary transition-colors"
           >
-            Live Site
-            <ExternalLink className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+            Live Site <ExternalLink className="w-4 h-4" />
           </motion.a>
         </div>
       </div>
@@ -241,6 +240,8 @@ function ContactForm() {
 }
 
 export default function Home() {
+  const [activeProject, setActiveProject] = useState<typeof dataProjects[0] | null>(null);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-black">
       <Navbar />
@@ -519,8 +520,13 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {projects.slice(0, 2).map((project, i) => (
-              <ProjectCard key={project.title} project={project} index={i} />
+            {dataProjects.slice(0, 2).map((project, i) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={i}
+                onSelectCaseStudy={(p) => setActiveProject(p)}
+              />
             ))}
           </div>
         </div>
@@ -654,6 +660,16 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <AnimatePresence>
+        {activeProject && (
+          <CaseStudyModal
+            project={activeProject}
+            onClose={() => setActiveProject(null)}
+            onNext={(p) => setActiveProject(p)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
