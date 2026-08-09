@@ -80,17 +80,22 @@ export default function CaseStudyModal({
   const nextProject = projects[(projectIndex + 1) % projects.length];
   const cs = project.caseStudy as any;
   const [activeStep, setActiveStep] = useState<string>("overview");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Prevent background scrolling while modal is open
   useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = originalStyle;
     };
   }, []);
 
-  // IntersectionObserver to highlight active step in sticky bar on scroll
+  // IntersectionObserver inside the modal's scroll container
   useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -99,7 +104,7 @@ export default function CaseStudyModal({
           }
         });
       },
-      { threshold: 0.2, rootMargin: "-80px 0px -40% 0px" }
+      { root: container, threshold: 0.25, rootMargin: "-70px 0px -40% 0px" }
     );
 
     NAV_ITEMS.forEach((item) => {
@@ -111,9 +116,11 @@ export default function CaseStudyModal({
   }, [cs]);
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const container = scrollContainerRef.current;
+    const target = document.getElementById(id);
+    if (container && target) {
+      const topOffset = target.offsetTop - 70;
+      container.scrollTo({ top: topOffset, behavior: "smooth" });
       setActiveStep(id);
     }
   };
@@ -135,6 +142,7 @@ export default function CaseStudyModal({
 
   return (
     <motion.div
+      ref={scrollContainerRef}
       initial={{ y: "100%" }}
       animate={{ y: 0 }}
       exit={{ y: "100%" }}
@@ -155,8 +163,7 @@ export default function CaseStudyModal({
           <div className="flex items-center gap-3">
             <button
               onClick={() => {
-                const el = document.getElementById("overview");
-                if (el) el.scrollIntoView();
+                scrollToSection("overview");
                 onNext(nextProject);
               }}
               className="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-white px-4 py-2 hover:bg-primary transition-colors brutal-shadow-sm cursor-pointer text-black"
@@ -173,8 +180,8 @@ export default function CaseStudyModal({
         </div>
       </div>
 
-      {/* Floating Vertical Sticky Navigation (Desktop Right Side) */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-end gap-3 pointer-events-auto">
+      {/* Floating Vertical Sticky Navigation (Desktop Right Side - Once inside Case Study Page) */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[70] hidden lg:flex flex-col items-end gap-3 pointer-events-auto">
         {NAV_ITEMS.map((item) => {
           const isActive = activeStep === item.id;
           return (
@@ -185,7 +192,7 @@ export default function CaseStudyModal({
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="group flex items-center gap-2.5 px-3 py-2 rounded-full bg-black/85 backdrop-blur-md border border-white/20 text-white transition-all duration-300 hover:pr-4 shadow-xl cursor-pointer"
+              className="group flex items-center gap-2.5 px-3 py-2 rounded-full bg-black/90 backdrop-blur-md border border-white/20 text-white transition-all duration-300 hover:pr-4 shadow-2xl cursor-pointer"
               title={item.label}
             >
               <span
@@ -686,8 +693,7 @@ export default function CaseStudyModal({
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-2">
             <button
               onClick={() => {
-                const el = document.getElementById("overview");
-                if (el) el.scrollIntoView();
+                scrollToSection("overview");
                 onNext(nextProject);
               }}
               className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-7 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer w-full sm:w-auto justify-center"

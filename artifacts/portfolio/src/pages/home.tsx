@@ -439,20 +439,88 @@ export default function Home() {
             {/* Design Tools */}
             <div>
               <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Tools</h3>
-              <div className="flex flex-wrap gap-3">
-                {designTools.map((skill, i) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.04 }}
-                    whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
-                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-[#B8F0A0] brutal-shadow hover:bg-white transition-colors cursor-default"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
+              <div className="flex flex-wrap gap-3.5 items-center">
+                {/* Figma Brand Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-black px-4 py-2.5 text-sm md:text-base font-bold bg-[#000000] text-white brutal-shadow flex items-center gap-2.5 cursor-default"
+                >
+                  <div className="flex items-center -space-x-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F24E1E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF7262]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#A259FF]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#1ABCFE]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#0ACF83]" />
+                  </div>
+                  <span className="font-sans font-black tracking-tight text-white text-base">Figma</span>
+                  <span className="font-mono text-xs text-gray-300 font-normal hidden sm:inline">(Auto Layout, Systems)</span>
+                </motion.div>
+
+                {/* Adobe Illustrator (Ai) Brand Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.05 }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-[#FF9A00] bg-[#260000] text-[#FF9A00] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                >
+                  <span className="bg-[#FF9A00] text-[#260000] font-black text-xs px-1.5 py-0.5 rounded font-mono">Ai</span>
+                  <span className="font-sans font-black tracking-wider text-[#FF9A00]">Adobe Illustrator</span>
+                </motion.div>
+
+                {/* Adobe Photoshop (Ps) Brand Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-[#31A8FF] bg-[#001E36] text-[#31A8FF] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                >
+                  <span className="bg-[#31A8FF] text-[#001E36] font-black text-xs px-1.5 py-0.5 rounded font-sans">Ps</span>
+                  <span className="font-sans font-black tracking-wider text-[#31A8FF]">Adobe Photoshop</span>
+                </motion.div>
+
+                {/* Adobe After Effects (Ae) Brand Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-[#9999FF] bg-[#000033] text-[#9999FF] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                >
+                  <span className="bg-[#9999FF] text-[#000033] font-black text-xs px-1.5 py-0.5 rounded font-sans">Ae</span>
+                  <span className="font-sans font-black tracking-wider text-[#9999FF]">Adobe After Effects</span>
+                </motion.div>
+
+                {/* FigJam Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-black bg-[#C8B8FF] text-black px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                >
+                  <span className="font-sans font-black tracking-tight">FigJam</span>
+                </motion.div>
+
+                {/* Canva Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                  className="border-[3px] border-black bg-[#00C4CC] text-white px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                >
+                  <span className="font-sans font-black tracking-tight">Canva</span>
+                </motion.div>
               </div>
             </div>
 
