@@ -66,6 +66,7 @@ export default function CaseStudyModal({
 }) {
   const projectIndex = projects.findIndex((p) => p.slug === project.slug);
   const nextProject = projects[(projectIndex + 1) % projects.length];
+  const prevProject = projects[(projectIndex - 1 + projects.length) % projects.length];
   const cs = project.caseStudy as any;
   const [activeStep, setActiveStep] = useState<string>("overview");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -151,15 +152,24 @@ export default function CaseStudyModal({
             <button
               onClick={() => {
                 scrollToSection("overview");
+                onNext(prevProject);
+              }}
+              className="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-white px-3.5 py-2 hover:bg-primary transition-colors brutal-shadow-sm cursor-pointer text-black"
+            >
+              <ArrowLeft className="w-4 h-4" /> Prev Project
+            </button>
+            <button
+              onClick={() => {
+                scrollToSection("overview");
                 onNext(nextProject);
               }}
-              className="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-white px-4 py-2 hover:bg-primary transition-colors brutal-shadow-sm cursor-pointer text-black"
+              className="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-white px-3.5 py-2 hover:bg-primary transition-colors brutal-shadow-sm cursor-pointer text-black"
             >
               Next Project <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-black text-white px-4 py-2 hover:bg-primary hover:text-black transition-colors brutal-shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase font-bold border-[3px] border-black bg-black text-white px-3.5 py-2 hover:bg-primary hover:text-black transition-colors brutal-shadow-sm cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" /> Close
             </button>
@@ -686,15 +696,25 @@ export default function CaseStudyModal({
               <button
                 onClick={() => {
                   scrollToSection("overview");
+                  onNext(prevProject);
+                }}
+                className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-6 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer w-full sm:w-auto justify-center"
+              >
+                <ArrowLeft className="w-5 h-5" /> PREVIOUS PROJECT
+              </button>
+
+              <button
+                onClick={() => {
+                  scrollToSection("overview");
                   onNext(nextProject);
                 }}
-                className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-7 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-6 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer w-full sm:w-auto justify-center"
               >
-                VIEW MORE PROJECTS <ArrowRight className="w-5 h-5" />
+                NEXT PROJECT <ArrowRight className="w-5 h-5" />
               </button>
 
               <Link href="/contact" onClick={onClose}>
-                <span className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-black text-white px-7 py-4 brutal-shadow hover:bg-white hover:text-black transition-colors cursor-pointer w-full sm:w-auto justify-center">
+                <span className="inline-flex items-center gap-2 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-black text-white px-6 py-4 brutal-shadow hover:bg-white hover:text-black transition-colors cursor-pointer w-full sm:w-auto justify-center">
                   GET IN TOUCH <ArrowRight className="w-5 h-5" />
                 </span>
               </Link>
