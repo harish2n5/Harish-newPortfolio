@@ -1,20 +1,12 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "wouter";
-import { projects, designSnippets } from "@/lib/data";
+import { projects } from "@/lib/data";
 import { ArrowRight, ExternalLink, X, ArrowUpRight } from "lucide-react";
 import project1Url from "../assets/project-1.png";
 import project2Url from "../assets/project-2.png";
 import project3Url from "../assets/project-3.png";
 import project4Url from "../assets/project-4.png";
-import snippet1Url from "../assets/snippet-1.png";
-import snippet2Url from "../assets/snippet-2.png";
-import snippet3Url from "../assets/snippet-3.png";
-import snippet4Url from "../assets/snippet-4.png";
-import snippet5Url from "../assets/snippet-5.png";
-import snippet6Url from "../assets/snippet-6.png";
-import snippet7Url from "../assets/snippet-7.png";
-import snippet8Url from "../assets/snippet-8.png";
 import Navbar from "@/components/Navbar";
 import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -141,115 +133,7 @@ function SectionWrapper({ children, className = "" }: { children: React.ReactNod
   );
 }
 
-function SnippetModal({
-  snippet,
-  onClose,
-}: {
-  snippet: typeof designSnippets[0];
-  onClose: () => void;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/80 flex items-end sm:items-center justify-center p-0 sm:p-6"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 60, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 320, damping: 30 }}
-        className="bg-background border-[4px] border-black w-full sm:max-w-2xl max-h-[92vh] sm:max-h-[88vh] overflow-y-auto"
-        style={{ boxShadow: "10px 10px 0px #000" }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className={`${snippet.color} border-b-[4px] border-black p-5 sm:p-8 flex items-start justify-between gap-4`}>
-          <div>
-            <span className="font-mono text-xs uppercase tracking-widest border-[2px] border-black bg-white px-3 py-1 inline-block mb-4">
-              {snippet.tag} · {snippet.year}
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter leading-none">
-              {snippet.title}
-            </h2>
-          </div>
-          <button
-            onClick={onClose}
-            data-testid="button-snippet-modal-close"
-            className="border-[3px] border-black bg-white p-2 brutal-shadow hover:bg-secondary transition-colors shrink-0"
-          >
-            <X className="w-5 h-5 sm:w-6 sm:h-6" />
-          </button>
-        </div>
-
-        {/* Design Image */}
-        <div className="border-b-[4px] border-black bg-white">
-          <img 
-            src={snippet.image} 
-            alt={snippet.title} 
-            className="w-full h-auto max-h-[500px] object-cover" 
-          />
-        </div>
-
-        <div className="p-5 sm:p-8 flex flex-col gap-8">
-          {/* Description */}
-          <p className="font-mono text-base leading-relaxed border-l-[6px] border-black pl-5">
-            {snippet.description}
-          </p>
-
-          {/* Tools Used */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight mb-5 pb-3 border-b-[3px] border-black flex items-center gap-3">
-              <span className="w-7 h-7 sm:w-8 sm:h-8 border-[3px] border-black bg-primary flex items-center justify-center text-xs font-black shrink-0">T</span>
-              Tools Used
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {snippet.tools.map((tool) => (
-                <motion.span
-                  key={tool}
-                  whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
-                  className="border-[3px] border-black bg-white px-4 py-2 font-bold uppercase tracking-wide text-sm brutal-shadow"
-                >
-                  {tool}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-
-          {/* Design Trends */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight mb-5 pb-3 border-b-[3px] border-black flex items-center gap-3">
-              <span className="w-7 h-7 sm:w-8 sm:h-8 border-[3px] border-black bg-secondary flex items-center justify-center text-xs font-black shrink-0">↗</span>
-              Design Trends Applied
-            </h3>
-            <ul className="flex flex-col gap-3">
-              {snippet.trends.map((trend, i) => (
-                <motion.li
-                  key={trend}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
-                  className="flex items-start gap-4 font-mono text-sm leading-relaxed"
-                >
-                  <span className={`w-6 h-6 border-[2px] border-black flex items-center justify-center shrink-0 font-black text-xs mt-0.5 ${i % 2 === 0 ? "bg-primary" : "bg-secondary"}`}>
-                    {i + 1}
-                  </span>
-                  <span>{trend}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export default function Work() {
-  
-  const [activeSnippet, setActiveSnippet] = useState<typeof designSnippets[0] | null>(null);
   const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
 
 
@@ -303,65 +187,7 @@ export default function Work() {
         </motion.div>
       </div>
 
-      {/* Design Snippets */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black bg-white">
-        <div className="max-w-6xl mx-auto">
-          <SectionWrapper>
-            <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
-              — Quick Shots
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-12">
-              Design Snippets.
-            </motion.h2>
-          </SectionWrapper>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {designSnippets.map((snippet, i) => (
-              <motion.div
-                key={snippet.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.06 }}
-                whileHover={{ y: -8 }}
-                onClick={() => setActiveSnippet(snippet)}
-                className="relative h-[420px] rounded-[2rem] overflow-hidden cursor-pointer group shadow-xl"
-                data-testid={`snippet-card-${i}`}
-              >
-                <img 
-                  src={snippet.image} 
-                  alt={snippet.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5 text-white transition-opacity duration-300">
-                  <h3 className="text-xl font-semibold mb-2">{snippet.title}</h3>
-                  
-                  <p className="text-sm text-gray-200 line-clamp-3 mb-4">
-                    {snippet.description}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 mb-5">
-                    <span className="bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white">
-                      {snippet.tag}
-                    </span>
-                    <span className="bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white">
-                      {snippet.year}
-                    </span>
-                  </div>
-                  
-                  <motion.button 
-                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                    className="w-full bg-white text-black py-3 border-[3px] border-black brutal-shadow font-black text-sm uppercase tracking-widest hover:bg-primary transition-colors cursor-pointer mt-2"
-                  >
-                    View Details
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Featured Projects */}
       <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
@@ -555,10 +381,6 @@ export default function Work() {
 
       <AnimatePresence>
         {activeProject && <CaseStudyModal project={activeProject} onClose={() => setActiveProject(null)} onNext={(p) => setActiveProject(p)} />}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {activeSnippet && <SnippetModal snippet={activeSnippet} onClose={() => setActiveSnippet(null)} />}
       </AnimatePresence>
     </div>
   );
