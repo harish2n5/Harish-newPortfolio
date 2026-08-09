@@ -141,21 +141,12 @@ export default function CaseStudyModal({
 
   const titleData = cs.title || {
     headline: `${project.title}: Product Problem-Solving & Case Study`,
-    clientName: project.title,
     mainWin: project.subtitle,
     subtitle: project.subtitle,
     role: project.role,
     timeline: project.duration,
     platform: "Web & Mobile Platform",
     team: "Cross-functional Product Team",
-  };
-
-  const aboutClient = cs.aboutClient || {
-    name: project.title,
-    industry: project.category || "Enterprise SaaS",
-    size: "Enterprise Team",
-    location: "Global",
-    background: project.shortDesc,
   };
 
   const problemData = cs.problem || {};
@@ -244,7 +235,7 @@ export default function CaseStudyModal({
       <div id="top" />
 
       {/* =========================================================================
-          HERO & CLIENT OVERVIEW
+          HERO & PROJECT OVERVIEW
       ========================================================================= */}
       <section className="pt-10 md:pt-14 pb-12 px-4 sm:px-6 border-b-[4px] border-black bg-white">
         <div className="max-w-5xl mx-auto">
@@ -268,8 +259,8 @@ export default function CaseStudyModal({
             {/* Quick Context Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F4F4F0] border-[3px] border-black p-4 font-mono text-xs mt-2 brutal-shadow-sm">
               <div>
-                <span className="text-gray-500 block font-bold uppercase">Client</span>
-                <span className="font-black text-black text-sm">{aboutClient.name}</span>
+                <span className="text-gray-500 block font-bold uppercase">Project Type</span>
+                <span className="font-black text-black text-sm">{project.category}</span>
               </div>
               <div>
                 <span className="text-gray-500 block font-bold uppercase">Timeline</span>
@@ -993,24 +984,7 @@ export default function CaseStudyModal({
             </div>
           )}
 
-          {/* Client Testimonial Quote */}
-          {quoteData.quote && (
-            <div className="bg-black text-white border-[4px] border-black p-8 brutal-shadow relative">
-              <Quote className="w-10 h-10 text-primary opacity-30 absolute top-4 right-4" />
-              <blockquote className="font-mono text-base md:text-xl leading-relaxed mb-6 font-medium text-gray-100">
-                "{quoteData.quote}"
-              </blockquote>
-              <div className="flex items-center gap-4 border-t border-zinc-800 pt-4">
-                {quoteData.avatar && (
-                  <img src={quoteData.avatar} alt={quoteData.author} className="w-12 h-12 rounded-full border-2 border-primary object-cover" />
-                )}
-                <div>
-                  <span className="font-black uppercase text-base text-white block">{quoteData.author}</span>
-                  <span className="font-mono text-xs text-primary block">{quoteData.role} · {quoteData.company}</span>
-                </div>
-              </div>
-            </div>
-          )}
+
 
           {/* Lessons Learned */}
           {resultsData.lessonsLearned && (

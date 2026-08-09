@@ -162,7 +162,6 @@ export const projects = [
     caseStudy: {
       title: {
         headline: "WORKSphere: Consolidating 6 Fragmented HR Portals into 1 Unified Workplace Hub",
-        clientName: "Acme Global Corp",
         mainWin: "Consolidated 6 HR Tools & Reduced HR Support Tickets by 30%",
         subtitle: "Enterprise Employee Experience Platform Redesign",
         role: "Lead UX/UI Designer | Design System Lead",
@@ -171,18 +170,10 @@ export const projects = [
         team: "1 Product Designer, 4 Engineers, 1 Product Manager",
       },
 
-      aboutClient: {
-        name: "Acme Global Corp",
-        industry: "Enterprise Technology & Managed Services",
-        size: "5,000+ Employees across 12 International Offices",
-        location: "San Francisco, CA & Global Hubs",
-        background: "Acme Global Corp is a multinational enterprise tech services firm. As the company scaled rapidly through acquisitions, teams inherited fragmented software stacks—forcing employees to juggle multiple logins and confusing interfaces daily.",
-      },
-
       // 01. PROBLEM
       problem: {
         headline: "Tool Fragmentation, Cognitive Overload & Operational Lag",
-        description: "Acme Global's 5,000+ employees were forced to navigate 6 disconnected legacy platforms daily for attendance, OKR updates, leave requests, and company announcements. This resulted in extreme tool fatigue, lost records, and 4 hours per week of wasted manager overhead.",
+        description: "Over 5,000 enterprise employees were forced to navigate 6 disconnected legacy platforms daily for attendance, OKR updates, leave requests, and company announcements. This resulted in extreme tool fatigue, lost records, and 4 hours per week of wasted manager overhead.",
         painPoints: [
           "Employees logged into 6 different tools daily (HR, Leave, OKRs, Tasks, IT, Payroll).",
           "Daily attendance check-in took 4 minutes of tedious navigation across legacy portals.",
@@ -424,13 +415,7 @@ export const projects = [
         ],
       },
 
-      clientQuote: {
-        quote: "WORKSphere completely transformed how our 5,000+ employees interact with HR. The unified dashboard saved our team leaders over 4 hours a week in reporting and dropped our HR support ticket queue by 30% within the very first month.",
-        author: "Sarah Jenkins",
-        role: "VP of People & Operations",
-        company: "Acme Global Corp",
-        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80",
-      },
+
 
       callToAction: {
         headline: "Ready to Transform Your Enterprise Employee Experience?",
@@ -459,7 +444,6 @@ export const projects = [
     caseStudy: {
       title: {
         headline: "InsightHub: Accelerating Executive Decision Velocity by 85% with AI Plain-Language Summaries",
-        clientName: "Apex Financial Group",
         mainWin: "Accelerated Executive Decision Speed by 85% with AI Plain-Language Summaries",
         subtitle: "Executive Analytics & AI Insight Platform",
         role: "Lead UX Architect | Data Visualization Designer",
@@ -468,18 +452,10 @@ export const projects = [
         team: "1 UX Architect, 1 AI Engineer, 3 Full-Stack Developers",
       },
 
-      aboutClient: {
-        name: "Apex Financial Group",
-        industry: "Wealth Management & Financial Services",
-        size: "$12B+ Assets Under Management | 1,200 Employees",
-        location: "New York, NY",
-        background: "Apex Financial Group provides wealth management and asset advisory services to institutional clients worldwide. Their executive leadership team requires rapid, clear insights into market shifts, fund performance, and daily revenue streams.",
-      },
-
       // 01. PROBLEM
       problem: {
         headline: "Dashboard Overload, Data Blindness & Decision Paralysis",
-        description: "C-suite executives at Apex Financial were drowning in overloaded Tableau dashboards containing 30+ dense charts without visual hierarchy. Executives spent over 15 minutes trying to decipher single reports or were forced to submit manual inquiry tickets to data analysts.",
+        description: "C-suite executives and financial leaders were drowning in overloaded Tableau dashboards containing 30+ dense charts without visual hierarchy. Executives spent over 15 minutes trying to decipher single reports or were forced to submit manual inquiry tickets to data analysts.",
         painPoints: [
           "BI Dashboards were overloaded with dense, un-annotated charts without hierarchy.",
           "Executives couldn't spot underlying metric anomalies without calling data analysts.",
@@ -713,13 +689,7 @@ export const projects = [
         ],
       },
 
-      clientQuote: {
-        quote: "InsightHub turned our overwhelming data streams into plain-English answers. Our C-suite now makes strategic decisions in minutes rather than waiting days for custom analyst reports.",
-        author: "Marcus Vance",
-        role: "Chief Marketing Officer",
-        company: "Apex Financial Group",
-        avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80",
-      },
+
 
       callToAction: {
         headline: "Want to Turn Complex Data into Actionable Intelligence?",
@@ -748,7 +718,6 @@ export const projects = [
     caseStudy: {
       title: {
         headline: "SupplyChain Nexus: Cutting Enterprise Procurement Approval Cycles from 18 Days to 4 Days",
-        clientName: "Global Logistics Inc",
         mainWin: "Slashed Approval Cycle from 18 Days to 4 Days (78% Reduction)",
         subtitle: "Enterprise B2B Procurement Platform",
         role: "Lead UI/UX Designer | Workflow Architect",
@@ -757,18 +726,10 @@ export const projects = [
         team: "1 Lead UX Designer, 5 Backend/Frontend Devs, 1 Domain Expert",
       },
 
-      aboutClient: {
-        name: "Global Logistics Inc",
-        industry: "Global Freight & Supply Chain Management",
-        size: "200+ International Logistics Hubs | 15,000+ Workforce",
-        location: "Chicago, IL",
-        background: "Global Logistics Inc manages end-to-end freight and warehousing operations across North America, Europe, and Asia. Processing over $50M annually in equipment and operational purchases, their legacy paper procurement process was a major bottleneck.",
-      },
-
       // 01. PROBLEM
       problem: {
         headline: "Opaque Approval Chains, Rogue Spend & Paper Bottlenecks",
-        description: "Global Logistics relied on paper requisition forms, untracked email threads, and opaque approval rules across 200 hubs. Purchase requisitions routinely stalled for up to 18 days in approval 'black holes', leading to unapproved rogue spending and audit compliance risks.",
+        description: "Enterprise logistics operations relied on paper requisition forms, untracked email threads, and opaque approval rules across 200 hubs. Purchase requisitions routinely stalled for up to 18 days in approval 'black holes', leading to unapproved rogue spending and audit compliance risks.",
         painPoints: [
           "Purchase requisitions took up to 3 weeks due to lost email chains.",
           "Finance directors lacked real-time budget context when reviewing purchase orders.",
@@ -1002,13 +963,7 @@ export const projects = [
         ],
       },
 
-      clientQuote: {
-        quote: "Before SupplyChain Nexus, purchase requisitions were a 3-week black hole. Now our managers approve orders in seconds, and our finance team has 100% real-time visibility into active spend.",
-        author: "Elena Rostova",
-        role: "VP of Procurement",
-        company: "Global Logistics Inc",
-        avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=256&q=80",
-      },
+
 
       callToAction: {
         headline: "Ready to Streamline Complex Enterprise Operations?",

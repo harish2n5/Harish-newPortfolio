@@ -372,7 +372,7 @@ export default function Home() {
           {[
             { value: 1, suffix: "+", label: "Year Experience" },
             { value: 5, suffix: "+", label: "Projects Delivered" },
-            { value: 7, suffix: "+", label: "Happy Clients" },
+            { value: 10, suffix: "+", label: "UI Prototypes" },
             { value: 100, suffix: "%", label: "Passion Driven" },
           ].map((stat, i) => (
             <motion.div

@@ -18,7 +18,7 @@ const stagger = {
 const stats = [
   { value: "1+", label: "Year of Experience" },
   { value: "5+", label: "Projects Delivered" },
-  { value: "7+", label: "Happy Clients" },
+  { value: "100%", label: "Ownership & Drive" },
   { value: "2-in-1", label: "Designer & Developer" },
 ];
 
