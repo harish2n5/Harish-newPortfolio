@@ -20,7 +20,7 @@ export const designSnippets = [
     year: "2024",
     description:
       "A 5-step onboarding sequence that reduced drop-off by 40%. Each screen does exactly one job — no cognitive overload, no surprise asks.",
-    tools: ["Figma", "FigJam", "Hotjar", "Maze", "Lottie"],
+    tools: ["Figma"],
     trends: [
       "Progressive disclosure — reveal complexity only when needed",
       "Celebratory micro-moments at each milestone to maintain momentum",
@@ -36,7 +36,7 @@ export const designSnippets = [
     year: "2024",
     description:
       "A dense analytics UI for investment analysts. The goal: maximum information at a glance without triggering cognitive fatigue.",
-    tools: ["Figma", "D3.js", "Recharts", "Storybook", "Radix UI"],
+    tools: ["Figma"],
     trends: [
       "Dark-mode-first — reduces eye strain during marathon sessions",
       "Sparklines and inline charts for at-a-glance trend reading",
@@ -52,7 +52,7 @@ export const designSnippets = [
     year: "2023",
     description:
       "Redesigned a tab bar into a floating gesture-aware navigation that adapts to thumb reach zones on all screen sizes.",
-    tools: ["Figma", "Framer", "ProtoPie", "Expo"],
+    tools: ["Figma"],
     trends: [
       "Thumb-friendly zones — primary actions always within 75% reachability",
       "Gesture-first navigation with swipe-to-switch tabs",
@@ -68,7 +68,7 @@ export const designSnippets = [
     year: "2024",
     description:
       "A system of illustrated empty states that turn zero-data moments into action prompts — not dead ends.",
-    tools: ["Figma", "Lottie", "Principle", "Phosphor Icons"],
+    tools: ["Figma"],
     trends: [
       "Contextual CTAs — every empty state offers the exact next action",
       "Illustrated characters to inject personality without stock photos",
@@ -84,7 +84,7 @@ export const designSnippets = [
     year: "2023",
     description:
       "A composable, accessible toast/notification system with smart stacking, queuing, and action-button support.",
-    tools: ["Figma", "Radix UI", "Framer Motion", "Storybook", "Zod"],
+    tools: ["Figma"],
     trends: [
       "Stacked toasts with collapse-on-hover to reduce visual noise",
       "Inline action buttons (Undo, Retry) directly in the notification",
@@ -100,7 +100,7 @@ export const designSnippets = [
     year: "2024",
     description:
       "A low-friction auth flow that prioritised social login and magic links. Password is always the last resort.",
-    tools: ["Figma", "Clerk", "Maze", "Optimal Workshop"],
+    tools: ["Figma"],
     trends: [
       "Social-first layout — OAuth buttons above the fold, password buried",
       "Magic link flow for returning users who forget passwords",
@@ -116,7 +116,7 @@ export const designSnippets = [
     year: "2023",
     description:
       "60+ custom icons built on a consistent 24px grid with two weight variants — designed for web and native.",
-    tools: ["Figma", "Adobe Illustrator", "SVGO", "Iconoir"],
+    tools: ["Figma"],
     trends: [
       "Variable stroke weight for UI icons (regular) vs. marketing (bold)",
       "Optical sizing — icons recorrected at 16px to feel equal weight",
@@ -132,7 +132,7 @@ export const designSnippets = [
     year: "2024",
     description:
       "A conversion-optimised pricing page that increased paid plan sign-ups by 28% through anchoring and trust signals.",
-    tools: ["Figma", "Hotjar", "Webflow", "Optimizely"],
+    tools: ["Figma"],
     trends: [
       "Decoy pricing — mid-tier anchors the eye toward the target plan",
       "Annual/monthly toggle with instant savings visualisation",

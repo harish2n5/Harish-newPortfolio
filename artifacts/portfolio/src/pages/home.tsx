@@ -370,9 +370,9 @@ export default function Home() {
       <section className="border-b-[3px] border-black bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
           {[
-            { value: 2, suffix: "+", label: "Years Experience" },
-            { value: 10, suffix: "+", label: "Projects Shipped" },
-            { value: 15, suffix: "+", label: "Happy Clients" },
+            { value: 1, suffix: "+", label: "Year Experience" },
+            { value: 5, suffix: "+", label: "Projects Delivered" },
+            { value: 7, suffix: "+", label: "Happy Clients" },
             { value: 100, suffix: "%", label: "Passion Driven" },
           ].map((stat, i) => (
             <motion.div
