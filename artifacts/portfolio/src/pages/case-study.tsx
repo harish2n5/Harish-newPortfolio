@@ -20,6 +20,7 @@ const fadeUp = {
 
 const NAV_ITEMS = [
   { id: "overview", label: "Overview" },
+  { id: "target-users", label: "Target Users" },
   { id: "challenge", label: "Challenge" },
   { id: "solution", label: "Solution" },
   { id: "process", label: "Process" },
@@ -354,6 +355,61 @@ export default function CaseStudyModal({
             </div>
           </div>
         </section>
+
+        {/* =========================================================================
+            TARGET USERS
+        ========================================================================= */}
+        {cs.targetUsers && (
+          <SectionWrapper id="target-users" className="bg-white">
+            <div className="space-y-8">
+              <div>
+                <div className="font-mono text-xs font-black uppercase tracking-widest text-primary bg-black px-3.5 py-1.5 inline-block mb-2">
+                  TARGET AUDIENCE & PERSONAS
+                </div>
+                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black">
+                  TARGET USERS
+                </h2>
+              </div>
+
+              <p className="text-2xl md:text-4xl font-black text-black uppercase tracking-tight border-l-[6px] border-primary pl-4 py-1">
+                "{cs.targetUsers.quote}"
+              </p>
+
+              <p className="font-mono text-base md:text-lg text-gray-800 leading-relaxed font-medium">
+                {cs.targetUsers.paragraph}
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6 pt-2">
+                {cs.targetUsers.users.map((user: any, i: number) => (
+                  <div key={i} className="bg-[#F4F4F0] border-[3px] border-black p-6 brutal-shadow flex flex-col justify-between">
+                    <div>
+                      <div className="font-mono font-black text-xs text-black bg-primary border-[2px] border-black px-2.5 py-1 inline-block mb-4">
+                        {user.role}
+                      </div>
+                      <h3 className="font-black uppercase text-xl text-black mb-2">{user.title}</h3>
+                      <p className="font-mono text-xs text-gray-700 leading-relaxed mb-4">{user.desc}</p>
+                    </div>
+                    {user.needs && user.needs.length > 0 && (
+                      <div className="border-t-[2px] border-black/20 pt-4 mt-2">
+                        <span className="font-mono text-[11px] font-black uppercase tracking-wider text-gray-500 block mb-2">
+                          Key User Needs:
+                        </span>
+                        <ul className="space-y-1.5 font-mono text-xs font-bold text-black">
+                          {user.needs.map((need: string, idx: number) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-black font-black">✓</span>
+                              <span>{need}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SectionWrapper>
+        )}
 
         {/* =========================================================================
             04 — THE CHALLENGE

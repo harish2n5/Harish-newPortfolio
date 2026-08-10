@@ -67,6 +67,30 @@ export const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
       heroTagline: "Bringing fragmented employee workflows into one unified experience.",
+      targetUsers: {
+        quote: "Designed for enterprise workforces, HR operations, and team managers.",
+        paragraph: "WORKSPHERE addresses distinct operational friction points across three key organizational tiers to unify daily work.",
+        users: [
+          {
+            role: "PRIMARY USER",
+            title: "Enterprise Employees",
+            desc: "Individual contributors tracking attendance, managing daily tasks, and completing reviews without app switching.",
+            needs: ["One-click attendance & leave requests", "Unified task & OKR view", "Fast employee directory"]
+          },
+          {
+            role: "MANAGEMENT",
+            title: "Team Leads & Managers",
+            desc: "Overseers managing team performance, approving leave requests, monitoring sprint goals, and leading check-ins.",
+            needs: ["Team capacity & workload heatmaps", "1-Click leave & expense approvals", "Automated OKR progress tracking"]
+          },
+          {
+            role: "ADMINISTRATORS",
+            title: "HR & People Operations",
+            desc: "People Ops leaders requiring platform-wide employee analytics, compliance tracking, and onboarding workflows.",
+            needs: ["Centralized lifecycle management", "Custom RBAC permission roles", "Exportable compliance audit reports"]
+          }
+        ]
+      },
       quickGlance: {
         problem: "Employees were switching between multiple disconnected workplace tools.",
         solution: "A centralized employee experience platform combining essential workflows.",
@@ -163,6 +187,30 @@ export const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
       heroTagline: "Turning complex financial data streams into plain-language actionable insights.",
+      targetUsers: {
+        quote: "Built for decision makers who need immediate narrative clarity over dense chart grids.",
+        paragraph: "INSIGHTHUB bridges the gap between complex raw analytics and executive decision-making across three primary personas.",
+        users: [
+          {
+            role: "PRIMARY USER",
+            title: "C-Suite & Executives",
+            desc: "CEOs and VPs who require rapid executive summaries, plain-language trend insights, and instant metric anomaly alerts.",
+            needs: ["Plain-English narrative metrics feed", "Proactive anomaly notifications", "1-Click Slack & PDF report exports"]
+          },
+          {
+            role: "ANALYTICAL USER",
+            title: "Data Analysts & BI Leads",
+            desc: "Data teams configuring analytics pipelines, validating automated narrative rules, and performing deep-dive cohort analysis.",
+            needs: ["Interactive side-drawer deep-dives", "Custom widget & chart builders", "Colorblind-safe visualization palettes"]
+          },
+          {
+            role: "OPERATIONAL USER",
+            title: "Department Directors",
+            desc: "Operational leaders tracking departmental KPIs across sales, marketing, and product on a daily and weekly cadence.",
+            needs: ["Role-filtered dashboard views", "Cohort performance tracking", "Real-time metric threshold alerts"]
+          }
+        ]
+      },
       quickGlance: {
         problem: "Executives were drowning in dense, un-annotated Tableau charts without visual hierarchy.",
         solution: "An AI-powered analytics digest that highlights metric anomalies in plain English.",
@@ -259,6 +307,30 @@ export const projects = [
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
       heroTagline: "Digitizing multi-regional purchasing lifecycles into a 1-click approval workflow.",
+      targetUsers: {
+        quote: "Engineered for international logistics hubs, procurement teams, and finance directors.",
+        paragraph: "SUPPLYCHAIN NEXUS streamlines high-frequency purchasing workflows across 200+ multi-regional logistics hubs.",
+        users: [
+          {
+            role: "PRIMARY USER",
+            title: "Logistics Hub Managers",
+            desc: "Field operators across global logistics hubs submitting requisitions for equipment, spare parts, and local supplies.",
+            needs: ["Mobile-friendly fast requisition forms", "Auto-filled vendor catalog lookup", "Real-time order status tracking"]
+          },
+          {
+            role: "APPROVER",
+            title: "Procurement Officers",
+            desc: "Procurement managers evaluating supplier quotes, verifying contract terms, and clearing purchase order queues.",
+            needs: ["Unified decision command inbox", "Vendor comparative quote viewer", "Keyboard-driven fast verification"]
+          },
+          {
+            role: "FINANCE LEAD",
+            title: "Finance & Audit Directors",
+            desc: "Financial controllers managing department budget allocations, tracking commitments, and verifying compliance.",
+            needs: ["Real-time budget ledger drawer", "Immutable activity audit timeline", "100% paperless audit reporting"]
+          }
+        ]
+      },
       quickGlance: {
         problem: "Logistics hubs relied on paper requisition forms and untracked email chains.",
         solution: "A digitized procurement portal with real-time budget tracking and role-based approval queues.",

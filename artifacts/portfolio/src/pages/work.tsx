@@ -201,76 +201,92 @@ export default function Work() {
             </motion.h2>
           </SectionWrapper>
 
-          <div className="space-y-16">
+          <div className="space-y-12">
             {projects.map((project: any, i: number) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-                className={`grid grid-cols-1 md:grid-cols-2 gap-0 border-[4px] border-black brutal-shadow group ${
-                  i % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="border-[4px] border-black bg-white brutal-shadow p-8 md:p-12 relative overflow-hidden"
                 data-testid={`project-featured-${project.id}`}
               >
-                {/* Image */}
-                <div className={`${project.accentColor} border-b-[4px] md:border-b-0 ${i % 2 === 1 ? "md:border-l-[4px]" : "md:border-r-[4px]"} border-black relative overflow-hidden aspect-video md:aspect-auto`}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 min-h-64"
-                  />
-                  <div className="absolute top-4 left-4 font-mono text-xs font-bold uppercase border-[2px] border-black bg-white px-3 py-1">
+                {/* Header info */}
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b-[3px] border-black pb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs font-black uppercase tracking-widest border-[2px] border-black bg-black text-white px-3 py-1">
+                      {project.category}
+                    </span>
+                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                      {project.subtitle}
+                    </span>
+                  </div>
+                  <div className="font-mono text-xs font-black uppercase border-[2px] border-black bg-primary px-3 py-1 text-black">
                     {project.year}
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="bg-white p-8 md:p-12 flex flex-col justify-between">
-                  <div>
-                    <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground block mb-3">
-                      {project.subtitle}
+                {/* Title & Description */}
+                <div className="mb-6">
+                  <h3 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-black">
+                    {project.title}
+                  </h3>
+                  <p className="font-mono text-base md:text-lg leading-relaxed text-gray-800 font-medium border-l-[4px] border-primary pl-4 py-1">
+                    {project.shortDesc}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag: string) => (
+                    <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-[#F4F4F0] text-black">
+                      {tag}
                     </span>
-                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">{project.title}</h3>
-                    <p className="font-mono text-base leading-relaxed text-gray-700 font-medium mb-6 line-clamp-2 min-h-[3rem]">{project.shortDesc}</p>
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tags.slice(0, 4).map((tag: string) => (
-                        <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-background">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 border-t-[3px] border-black pt-6 mb-8">
-                      <div>
-                        <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-1">Role</div>
-                        <div className="font-bold text-sm uppercase">{project.role}</div>
-                      </div>
-                      <div>
-                        <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-1">Duration</div>
-                        <div className="font-bold text-sm uppercase">{project.duration}</div>
-                      </div>
-                    </div>
+                  ))}
+                </div>
+
+                {/* Required Details Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-y-[3px] border-black py-6 mb-8 bg-[#F4F4F0] px-6 brutal-shadow-sm font-mono text-xs">
+                  <div>
+                    <div className="text-gray-500 font-bold uppercase mb-1">Role</div>
+                    <div className="font-black text-black text-sm uppercase">{project.role}</div>
                   </div>
-                  <div className="flex gap-4">
-                    <motion.button
-                      onClick={() => setActiveProject(project)}
-                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                      data-testid={`button-project-detail-${project.id}`}
-                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-background px-6 py-3 brutal-shadow hover:bg-primary transition-colors cursor-pointer"
-                    >
-                      View Case Study <ArrowUpRight className="w-5 h-5" />
-                    </motion.button>
-                    <motion.a
-                      href="/not-found"
-                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                      className="self-start flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-white px-6 py-3 brutal-shadow hover:bg-secondary transition-colors"
-                    >
-                      Live <ExternalLink className="w-5 h-5" />
-                    </motion.a>
+                  <div>
+                    <div className="text-gray-500 font-bold uppercase mb-1">Duration</div>
+                    <div className="font-black text-black text-sm uppercase">{project.duration}</div>
                   </div>
+                  <div>
+                    <div className="text-gray-500 font-bold uppercase mb-1">Platform</div>
+                    <div className="font-black text-black text-sm uppercase">{project.platform}</div>
+                  </div>
+                  <div>
+                    <div className="text-gray-500 font-bold uppercase mb-1">Tools</div>
+                    <div className="font-black text-black text-sm uppercase">{project.tools.join(", ")}</div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-4">
+                  <motion.button
+                    onClick={() => setActiveProject(project)}
+                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                    data-testid={`button-project-detail-${project.id}`}
+                    className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-primary text-black px-6 py-3.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+                  >
+                    View Case Study <ArrowUpRight className="w-5 h-5" />
+                  </motion.button>
+                  <motion.a
+                    href={project.link || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                    className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-6 py-3.5 brutal-shadow hover:bg-secondary transition-colors"
+                  >
+                    Live <ExternalLink className="w-5 h-5" />
+                  </motion.a>
                 </div>
               </motion.div>
             ))}
