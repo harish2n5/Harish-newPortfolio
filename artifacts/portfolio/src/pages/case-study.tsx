@@ -577,21 +577,6 @@ export default function CaseStudyModal({
               ))}
             </div>
 
-            {/* IMAGE 02 — DESIGN PROCESS BOARD */}
-            <div className="pt-4">
-              <div className="border-[4px] border-black bg-black brutal-shadow overflow-hidden">
-                <div className="bg-black text-white p-4 font-mono text-xs font-black uppercase tracking-widest flex items-center justify-between border-b-[2px] border-zinc-800">
-                  <span>[PROCESS_IMAGE] — DESIGN EXPLORATIONS & ITERATIONS</span>
-                  <span className="text-primary">IMAGE 02 OF 03</span>
-                </div>
-                <img
-                  src={project.processImage || project.image}
-                  alt={`${project.title} Design Process Board`}
-                  className="w-full h-auto max-h-[550px] object-cover"
-                />
-              </div>
-            </div>
-
             {/* Process Explanation 3 Columns */}
             <div className="grid md:grid-cols-3 gap-6 pt-4 font-mono text-xs">
               {cs.process.explanation.map((exp: any, i: number) => (
@@ -605,43 +590,75 @@ export default function CaseStudyModal({
         </SectionWrapper>
 
         {/* =========================================================================
-            09 — FINAL OUTPUT (IMAGE 03)
+            09 — USER FLOW & SOLUTION (NO IMAGE)
         ========================================================================= */}
         <SectionWrapper id="final-output" className="bg-[#F4F4F0]">
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div>
               <div className="font-mono text-xs font-black uppercase tracking-widest text-red-600 mb-2">
-                SECTION 06 / HIGHLIGHT
+                SECTION 06 / USER FLOW & SOLUTION
               </div>
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black">
-                THE FINAL EXPERIENCE
+                USER FLOW & FINAL SOLUTION
               </h2>
               <p className="font-mono text-base md:text-lg font-bold text-gray-700 mt-2">
                 "{cs.finalOutput.subheading}"
               </p>
             </div>
 
-            {/* IMAGE 03 — FINAL OUTPUT COMPOSITION (LARGEST IMAGE ON PAGE) */}
-            <div className="border-[4px] border-black bg-black brutal-shadow overflow-hidden">
-              <div className="bg-black text-white p-4 font-mono text-xs font-black uppercase tracking-widest flex items-center justify-between border-b-[2px] border-zinc-800">
-                <span>[FINAL_OUTPUT_IMAGE] — FULL-WIDTH INTERFACE SHOWCASE</span>
-                <span className="text-primary font-bold">IMAGE 03 OF 03</span>
-              </div>
-              <img
-                src={project.finalOutputImage || project.image}
-                alt={`${project.title} Final Experience UI`}
-                className="w-full h-auto max-h-[750px] object-cover"
-              />
-            </div>
-
-            {/* 3 Small Description Cards Below Image */}
-            <div className="grid md:grid-cols-3 gap-6 pt-2 font-mono text-xs">
-              {cs.finalOutput.cards.map((card: any, i: number) => (
-                <div key={i} className="bg-white border-[3px] border-black p-5 brutal-shadow-sm">
-                  <span className="font-black uppercase text-black text-sm block mb-2">{card.title}</span>
-                  <span className="text-gray-800 font-medium leading-relaxed">{card.desc}</span>
+            {/* USER FLOW STEP-BY-STEP PATHWAY (REPLACES FINAL EXPERIENCE IMAGE) */}
+            {cs.userFlow && cs.userFlow.length > 0 && (
+              <div className="space-y-4">
+                <div className="font-mono text-xs font-black uppercase tracking-widest text-black bg-primary px-3.5 py-1.5 inline-block border-[2px] border-black">
+                  END-TO-END USER EXPERIENCE FLOW
                 </div>
-              ))}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+                  {cs.userFlow.map((flow: any, i: number) => (
+                    <div
+                      key={i}
+                      className="bg-white border-[3px] border-black p-6 brutal-shadow flex flex-col justify-between relative group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="w-9 h-9 bg-black text-primary font-mono text-sm font-black flex items-center justify-center border-[2px] border-black">
+                            {flow.step}
+                          </span>
+                          <span className="font-mono text-[10px] font-black uppercase tracking-wider bg-[#F4F4F0] border border-black px-2 py-0.5 text-black">
+                            {flow.highlight}
+                          </span>
+                        </div>
+                        <h3 className="font-black uppercase text-base text-black mb-3 leading-snug">
+                          {flow.title}
+                        </h3>
+                        <p className="font-mono text-xs text-gray-700 leading-relaxed font-medium">
+                          {flow.desc}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-black/10 mt-4 flex items-center justify-between font-mono text-[11px] font-bold text-gray-500">
+                        <span>PHASE 0{i + 1}</span>
+                        {i < cs.userFlow.length - 1 && (
+                          <span className="hidden lg:inline text-black font-black">→</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SOLUTION DELIVERABLE CARDS */}
+            <div className="space-y-4 pt-2">
+              <div className="font-mono text-xs font-black uppercase tracking-widest text-white bg-black px-3.5 py-1.5 inline-block border-[2px] border-black">
+                CORE SOLUTION DELIVERABLES
+              </div>
+              <div className="grid md:grid-cols-3 gap-6 font-mono text-xs">
+                {cs.finalOutput.cards.map((card: any, i: number) => (
+                  <div key={i} className="bg-white border-[3px] border-black p-6 brutal-shadow">
+                    <span className="font-black uppercase text-black text-base block mb-2">{card.title}</span>
+                    <span className="text-gray-800 font-medium leading-relaxed">{card.desc}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </SectionWrapper>

@@ -143,6 +143,32 @@ export const projects = [
           { title: "REFINE", desc: "Improved hierarchy, navigation and component consistency." },
         ],
       },
+      userFlow: [
+        {
+          step: "01",
+          title: "AUTHENTICATE & CHECK-IN",
+          desc: "Employee logs in via single sign-on (SSO) and registers daily attendance with 1-click biometric check-in.",
+          highlight: "Zero friction start"
+        },
+        {
+          step: "02",
+          title: "UNIFIED DASHBOARD VIEW",
+          desc: "Personalized widget board surfaces today's tasks, pending leave requests, sprint OKRs, and announcements.",
+          highlight: "All-in-one glance"
+        },
+        {
+          step: "03",
+          title: "EXECUTE & REQUEST ACTIONS",
+          desc: "Users submit leave requests, log sprint progress, or update OKR key results directly from the action bar.",
+          highlight: "Instant execution"
+        },
+        {
+          step: "04",
+          title: "MANAGER APPROVAL & HR SYNC",
+          desc: "Automated routing notifies managers for 1-click approval while syncing attendance with HR records.",
+          highlight: "Automated routing"
+        }
+      ],
       finalOutput: {
         subheading: "A unified employee experience designed for clarity, consistency and scale.",
         cards: [
@@ -263,6 +289,32 @@ export const projects = [
           { title: "REFINE", desc: "Tested narrative scan speed and optimized tablet touch target areas." },
         ],
       },
+      userFlow: [
+        {
+          step: "01",
+          title: "EXECUTIVE BRIEFING FEED",
+          desc: "Leadership logs into a clean, narrative-first digest summarizing daily revenue, churn, and metrics in plain English.",
+          highlight: "Narrative clarity"
+        },
+        {
+          step: "02",
+          title: "ANOMALY DETECTION ALERT",
+          desc: "System automatically flags statistical outliers (spikes or drops) with high-contrast alert badges.",
+          highlight: "Instant alerts"
+        },
+        {
+          step: "03",
+          title: "CONTEXTUAL DEEP DIVE",
+          desc: "Clicking any metric opens a side-drawer displaying cohort breakdowns, time-series graphs, and segment filters.",
+          highlight: "Side-drawer workspace"
+        },
+        {
+          step: "04",
+          title: "ANNOTATE & DISTRIBUTE",
+          desc: "Executives add notes to anomalous findings and broadcast automated reports directly to team Slack channels.",
+          highlight: "1-Click Slack export"
+        }
+      ],
       finalOutput: {
         subheading: "An executive analytics experience engineered for speed, clarity and strategic impact.",
         cards: [
@@ -383,6 +435,32 @@ export const projects = [
           { title: "REFINE", desc: "Streamlined keyboard navigation and added optimistic UI approval feedback." },
         ],
       },
+      userFlow: [
+        {
+          step: "01",
+          title: "REQUISITION BUILDER",
+          desc: "Field logistics managers create purchase requests using smart catalog auto-complete and calculated unit costs.",
+          highlight: "Smart catalog lookup"
+        },
+        {
+          step: "02",
+          title: "DYNAMIC RBAC ROUTING",
+          desc: "Order threshold logic automatically routes requests to appropriate local, regional, or executive finance approvers.",
+          highlight: "Rules-based routing"
+        },
+        {
+          step: "03",
+          title: "COMMAND DECISION INBOX",
+          desc: "Approvers review requests with live remaining department budget ledgers displayed directly on the card.",
+          highlight: "Above-the-fold budget context"
+        },
+        {
+          step: "04",
+          title: "PO GENERATION & AUDIT TIMELINE",
+          desc: "Approved requests generate automated purchase orders and log immutable compliance timestamps into the ledger.",
+          highlight: "100% paperless audit trail"
+        }
+      ],
       finalOutput: {
         subheading: "An enterprise procurement system engineered for speed, transparency and compliance.",
         cards: [

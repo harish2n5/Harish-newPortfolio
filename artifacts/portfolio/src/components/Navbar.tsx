@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <>
       {/* ── Desktop / Tablet Top Navbar ─────────────────────────── */}
-      <nav className="border-b-[3px] border-black px-4 sm:px-6 py-4 flex justify-between items-center bg-white sticky top-0 z-50">
+      <nav className="border-b-[3px] border-black px-4 sm:px-6 py-4 flex justify-between items-center bg-white relative z-40">
         <div className="flex-1 flex justify-start">
           <Link href="/" data-testid="link-logo">
             <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase cursor-pointer hover:text-secondary transition-colors">
