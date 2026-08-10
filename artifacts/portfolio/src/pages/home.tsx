@@ -125,53 +125,51 @@ function ProjectCard({
       style={{ x: mag.springX, y: mag.springY }}
       onMouseMove={mag.onMove}
       onMouseLeave={mag.onLeave}
-      className="group border-[4px] border-black bg-background brutal-shadow overflow-hidden flex flex-col h-full"
+      className="group border-[4px] border-black bg-white brutal-shadow p-6 md:p-8 flex flex-col justify-between h-full"
       data-testid={`project-card-${index}`}
     >
-      <div className={`border-b-[4px] border-black ${project.accentColor || "bg-primary"} relative overflow-hidden p-6 md:p-10 flex items-center justify-center`}>
-        <LaptopMockup>
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"
-          />
-        </LaptopMockup>
-      </div>
-      <div className="p-6 md:p-8 flex flex-col flex-grow bg-white justify-between">
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-mono text-xs uppercase font-bold tracking-widest text-muted-foreground">{project.subtitle}</span>
-            <span className="font-mono text-[11px] font-black uppercase px-2.5 py-0.5 border border-black bg-primary/20">{project.year || "2024"}</span>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">{project.title}</h3>
-          
-          {/* Simple 2-Line Description */}
-          <p className="font-mono text-sm leading-snug text-gray-700 font-medium mb-6 line-clamp-2 min-h-[2.6rem]">
-            {project.shortDesc}
-          </p>
+      <div>
+        <div className="flex items-center justify-between mb-3 border-b-[2px] border-black/10 pb-3">
+          <span className="font-mono text-xs uppercase font-bold tracking-widest text-muted-foreground">{project.subtitle}</span>
+          <span className="font-mono text-[11px] font-black uppercase px-2.5 py-0.5 border border-black bg-primary/20">{project.year || "2024"}</span>
         </div>
+        <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3 text-black">{project.title}</h3>
+        
+        <p className="font-mono text-sm leading-relaxed text-gray-700 font-medium mb-6">
+          {project.shortDesc}
+        </p>
 
-        {/* Clear CTAs */}
-        <div className="flex flex-wrap items-center gap-3 pt-4 border-t-[2px] border-black/10 mt-auto">
-          <motion.button
-            onClick={() => onSelectCaseStudy(project)}
-            whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
-            whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
-            className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-primary px-4 py-2.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
-          >
-            View Case Study <ArrowRight className="w-4 h-4" />
-          </motion.button>
-          <motion.a
-            href={project.link || "https://github.com/harish2n5/Harish-newPortfolio"}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
-            whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
-            className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-white px-4 py-2.5 brutal-shadow hover:bg-secondary transition-colors"
-          >
-            Live Site <ExternalLink className="w-4 h-4" />
-          </motion.a>
-        </div>
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.slice(0, 3).map((tag: string) => (
+              <span key={tag} className="border border-black px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase bg-[#F4F4F0] text-black">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Clear CTAs */}
+      <div className="flex flex-wrap items-center gap-3 pt-4 border-t-[2px] border-black/10 mt-auto">
+        <motion.button
+          onClick={() => onSelectCaseStudy(project)}
+          whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
+          whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
+          className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-primary text-black px-4 py-2.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+        >
+          View Case Study <ArrowRight className="w-4 h-4" />
+        </motion.button>
+        <motion.a
+          href={project.link || "https://github.com/harish2n5/Harish-newPortfolio"}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
+          whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
+          className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-white text-black px-4 py-2.5 brutal-shadow hover:bg-secondary transition-colors"
+        >
+          Live Site <ExternalLink className="w-4 h-4" />
+        </motion.a>
       </div>
     </motion.div>
   );
