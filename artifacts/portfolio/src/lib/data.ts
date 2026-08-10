@@ -62,7 +62,7 @@ export const projects = [
     role: "UI/UX Designer",
     duration: "8 Weeks",
     tools: ["Figma"],
-    platform: "Web Application",
+    platform: "Mobile App",
     shortDesc: "Bringing fragmented employee workflows into one unified experience.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
@@ -182,7 +182,7 @@ export const projects = [
     role: "UX Architect",
     duration: "6 Weeks",
     tools: ["Figma"],
-    platform: "Web & Tablet App",
+    platform: "Desktop Platform",
     shortDesc: "Turning complex financial data streams into plain-language actionable insights.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
@@ -302,7 +302,7 @@ export const projects = [
     role: "UI/UX Designer",
     duration: "10 Weeks",
     tools: ["Figma"],
-    platform: "Enterprise Web Portal",
+    platform: "Desktop Platform",
     shortDesc: "Digitizing multi-regional purchasing lifecycles into a 1-click approval workflow.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
