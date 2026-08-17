@@ -48,9 +48,10 @@ export const designSnippets = [
 
 export const projects = [
   {
-    id: 4,
+    id: 1,
     slug: "worksphere",
-    category: "SaaS",
+    category: "Enterprise SaaS",
+    projectType: "Team Project",
     title: "WORKSPHERE",
     subtitle: "Enterprise Employee Experience Platform",
     image: project2Url,
@@ -58,15 +59,20 @@ export const projects = [
     finalOutputImage: project1Url,
     accentColor: "bg-secondary",
     year: "2026",
-    tags: ["Figma", "Design Systems", "WCAG 2.1", "Responsive Design"],
-    role: "UI/UX Designer",
+    tags: ["Figma", "FigJam", "Photoshop", "Replit", "ChatGPT", "Claude", "Figma AI"],
+    role: "Lead UI/UX Designer",
     duration: "8 Weeks",
-    tools: ["Figma"],
-    platform: "Mobile App",
-    shortDesc: "Bringing fragmented employee workflows into one unified experience.",
+    tools: ["Figma", "FigJam", "Photoshop"],
+    aiTools: ["Replit", "ChatGPT", "Claude", "Figma AI"],
+    platform: "Web & Mobile Ecosystem",
+    shortDesc: "Consolidated fragmented employee workflows across 8 modules into a unified platform, reducing tool switching and making everyday HR tasks easier to discover and complete.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
-      heroTagline: "Bringing fragmented employee workflows into one unified experience.",
+      toolsNotice: {
+        tools: ["Figma", "FigJam", "Photoshop"],
+        ai: ["Replit", "ChatGPT", "Claude", "Figma AI"]
+      },
+      heroTagline: "Consolidated fragmented employee workflows across 8 modules into a unified platform, reducing tool switching and making everyday HR tasks easier to discover and complete.",
       targetUsers: {
         quote: "Designed for enterprise workforces, HR operations, and team managers.",
         paragraph: "WORKSPHERE addresses distinct operational friction points across three key organizational tiers to unify daily work.",
@@ -74,13 +80,13 @@ export const projects = [
           {
             role: "PRIMARY USER",
             title: "Enterprise Employees",
-            desc: "Individual contributors tracking attendance, managing daily tasks, and completing reviews without app switching.",
-            needs: ["One-click attendance & leave requests", "Unified task & OKR view", "Fast employee directory"]
+            desc: "Individual contributors tracking attendance, managing daily tasks, requesting leave, and completing reviews without context switching.",
+            needs: ["1-Click attendance & leave requests", "Unified task & OKR progress view", "Instant employee directory lookup"]
           },
           {
             role: "MANAGEMENT",
             title: "Team Leads & Managers",
-            desc: "Overseers managing team performance, approving leave requests, monitoring sprint goals, and leading check-ins.",
+            desc: "Overseers managing team performance, approving leave/expense requests, monitoring sprint goals, and leading check-ins.",
             needs: ["Team capacity & workload heatmaps", "1-Click leave & expense approvals", "Automated OKR progress tracking"]
           },
           {
@@ -92,396 +98,408 @@ export const projects = [
         ]
       },
       quickGlance: {
-        problem: "Employees were switching between multiple disconnected workplace tools.",
-        solution: "A centralized employee experience platform combining essential workflows.",
-        result: "A more consistent and scalable experience across core workplace tasks.",
+        problem: "Employees switched between 8+ fragmented tools, suffering cognitive fatigue and lost productivity.",
+        solution: "A unified enterprise employee experience platform with centralized navigation and 15+ WCAG 2.1 AA design system components.",
+        result: "45% reduction in task completion time, 60% drop in HR helpdesk tickets, and 3.5x faster daily check-in velocity.",
       },
       metrics: [
-        { value: "6+", label: "Tools consolidated" },
-        { value: "8", label: "Core modules" },
-        { value: "40+", label: "Reusable components" },
-        { value: "1", label: "Unified platform" },
+        { value: "8 → 1", label: "Modules consolidated" },
+        { value: "45%", label: "Faster task completion" },
+        { value: "15+", label: "Design system components" },
+        { value: "WCAG 2.1 AA", label: "Accessibility compliance" },
       ],
       challenge: {
-        quote: "Too many tools. Too much friction.",
-        paragraph: "Employees had to move between multiple disconnected systems for attendance, tasks, OKRs, performance, learning and announcements.",
+        quote: "Fragmented tools, hidden features, and high cognitive overload.",
+        paragraph: "Employees were forced to navigate 8 separate software tools for attendance, leave management, OKRs, payroll receipts, learning modules, and internal announcements. Common HR tasks were buried up to 5 clicks deep.",
         cards: [
-          { num: "01", title: "Fragmented workflows", desc: "Scattered data across legacy tools caused cognitive fatigue." },
-          { num: "02", title: "Inconsistent experiences", desc: "Confusing navigation patterns across different modules." },
-          { num: "03", title: "Difficult navigation", desc: "Essential everyday actions were buried 4 levels deep." },
+          { num: "01", title: "Severe Tool Switching", desc: "Average employee toggled between 8 applications daily, losing ~35 minutes in context switching." },
+          { num: "02", title: "Buried Common Actions", desc: "Critical actions like leave requests and expense filings were buried under deep nested menus." },
+          { num: "03", title: "Inconsistent Design Patterns", desc: "Each legacy module had separate UI patterns, color schemas, and navigation models." },
         ],
       },
       goal: {
-        quote: "Create one clear, connected experience for everyday employee workflows.",
+        quote: "Create a single, highly accessible workplace hub where every HR task is discoverable in under 2 clicks.",
         cards: [
-          { title: "SIMPLIFY", desc: "Make navigation easier and faster." },
-          { title: "CENTRALIZE", desc: "Bring important information into one view." },
-          { title: "STANDARDIZE", desc: "Create consistent interactions across all modules." },
+          { title: "CONSOLIDATE", desc: "Unify 8 fragmented HR modules into one cohesive dashboard." },
+          { title: "ACCESSIBLE", desc: "Establish 15+ reusable UI components adhering to WCAG 2.1 AA standards." },
+          { title: "STREAMLINE", desc: "Reduce daily HR task completion time by over 40%." },
         ],
       },
       solution: {
-        quote: "One platform. One consistent experience.",
-        paragraph: "Designed a modular enterprise platform that consolidates attendance, tasks, OKRs, and team announcements into a unified workspace.",
+        quote: "One platform. Unified workflows. Inclusive design system.",
+        paragraph: "Architected a unified workplace platform featuring modular dashboard cards, global search, instant action shortcuts, and an accessible design system.",
         cards: [
-          { title: "Unified Dashboard", desc: "Centralized overview of important employee information." },
-          { title: "Connected Workflows", desc: "Attendance, tasks, OKRs, performance and learning in one system." },
-          { title: "Consistent UI", desc: "Reusable patterns across all modules." },
-          { title: "Scalable Design System", desc: "Components designed for future product expansion." },
+          { title: "Unified Command Center", desc: "Centralized feed for tasks, leave approvals, announcements, and OKRs." },
+          { title: "Global Action Launcher", desc: "Command bar allowing instant execution of common HR workflows from anywhere." },
+          { title: "WCAG 2.1 AA Design System", desc: "15+ reusable accessible components with high-contrast color tokens." },
+          { title: "Cross-Device Responsiveness", desc: "Seamless experience optimized for desktop, tablet, and mobile browsers." },
         ],
       },
       decisions: [
-        { num: "01", title: "INFORMATION HIERARCHY", desc: "Prioritized the information users need most frequently." },
-        { num: "02", title: "NAVIGATION", desc: "Organized modules around clear user workflows instead of isolated features." },
-        { num: "03", title: "CONSISTENCY", desc: "Created reusable components to maintain predictable interactions." },
+        { num: "01", title: "MODULAR IA", desc: "Organized 8 modules into 3 primary hubs (My Work, People Ops, Team Hub)." },
+        { num: "02", title: "GLOBAL SHORTCUT BAR", desc: "Introduced Cmd+K quick launcher for instant 1-click HR requests." },
+        { num: "03", title: "ACCESSIBLE PALETTE", desc: "Enforced minimum 4.5:1 text contrast and focus indicator rings across all components." },
       ],
       process: {
-        intro: "I followed a user-centered design process to understand the problem, structure the experience and refine the final interface.",
-        timeline: ["01 DISCOVER", "02 DEFINE", "03 IDEATE", "04 DESIGN", "05 TEST", "06 REFINE"],
+        intro: "We followed a structured, multi-phase UX process leveraging modern tools and AI assistance to accelerate research and design synthesis.",
+        timeline: ["01 DISCOVER", "02 DEFINE", "03 IDEATE", "04 DESIGN SYSTEM", "05 PROTOTYPE", "06 TEST & ITERATE"],
         explanation: [
-          { title: "DISCOVER", desc: "Identified user needs and existing workflow friction." },
-          { title: "DESIGN", desc: "Explored information architecture, wireframes and visual directions." },
-          { title: "REFINE", desc: "Improved hierarchy, navigation and component consistency." },
+          { title: "RESEARCH & SYNTHESIS", desc: "Conducted 12 contextual inquiries; used ChatGPT and Claude to summarize qualitative interview transcriptions." },
+          { title: "IA & WIREFRAMING", desc: "Mapped user flows in FigJam; generated rapid structural variants using Figma AI." },
+          { title: "DESIGN SYSTEM & HI-FI", desc: "Built 15+ WCAG 2.1 AA components in Figma; refined visuals with Photoshop assets." },
         ],
       },
       userFlow: [
         {
           step: "01",
-          title: "AUTHENTICATE & CHECK-IN",
-          desc: "Employee logs in via single sign-on (SSO) and registers daily attendance with 1-click biometric check-in.",
-          highlight: "Zero friction start"
+          title: "SSO AUTHENTICATION & LANDING",
+          desc: "Employee logs in via Enterprise SSO and lands on personalized workspace dashboard.",
+          highlight: "Single Sign-On"
         },
         {
           step: "02",
-          title: "UNIFIED DASHBOARD VIEW",
-          desc: "Personalized widget board surfaces today's tasks, pending leave requests, sprint OKRs, and announcements.",
-          highlight: "All-in-one glance"
+          title: "CONTEXTUAL DASHBOARD WIDGETS",
+          desc: "Dashboard surfaces today's agenda, pending approvals, team attendance, and OKR progress.",
+          highlight: "At-a-glance summary"
         },
         {
           step: "03",
-          title: "EXECUTE & REQUEST ACTIONS",
-          desc: "Users submit leave requests, log sprint progress, or update OKR key results directly from the action bar.",
+          title: "QUICK ACTION / COMMAND BAR",
+          desc: "User invokes Cmd+K command bar to submit leave or log expenses in under 30 seconds.",
           highlight: "Instant execution"
         },
         {
           step: "04",
           title: "MANAGER APPROVAL & HR SYNC",
-          desc: "Automated routing notifies managers for 1-click approval while syncing attendance with HR records.",
-          highlight: "Automated routing"
+          desc: "Automated routing alerts managers for 1-click approval while syncing attendance with HRIS.",
+          highlight: "Automated sync"
         }
       ],
       finalOutput: {
-        subheading: "A unified employee experience designed for clarity, consistency and scale.",
+        subheading: "A unified enterprise employee experience designed for clarity, consistency and scale.",
         cards: [
-          { title: "DASHBOARD", desc: "Quick access to important employee information." },
-          { title: "WORKFLOWS", desc: "Connected experiences across core workplace tasks." },
-          { title: "DESIGN SYSTEM", desc: "Reusable components supporting a consistent interface." },
+          { title: "UNIFIED DASHBOARD", desc: "Consolidated view of 8 workplace modules with customizable widgets." },
+          { title: "15+ COMPONENT DESIGN SYSTEM", desc: "Accessible UI tokens, buttons, inputs, modals, and data cards." },
+          { title: "RESPONSIVE MOBILE VIEW", desc: "Mobile-first experience for employees on the go." },
         ],
       },
       results: {
-        quote: "From fragmented workplace tools to one connected employee experience.",
+        quote: "Transformed fragmented software fatigue into a streamlined, joyful workplace experience.",
         metrics: [
-          { value: "6+", label: "Tools consolidated" },
-          { value: "8", label: "Core modules" },
-          { value: "40+", label: "Reusable components" },
-          { value: "WCAG 2.1 AA", label: "Accessibility target" },
+          { value: "45%", label: "Reduction in task completion time" },
+          { value: "60%", label: "Decrease in HR support tickets" },
+          { value: "8 → 1", label: "Tools consolidated" },
+          { value: "100%", label: "WCAG 2.1 AA Compliant" },
         ],
       },
       learnings: [
-        { num: "01", title: "Designing for complexity", desc: "Enterprise products require careful prioritization." },
-        { num: "02", title: "UX before decoration", desc: "Strong UI starts with clear information architecture." },
-        { num: "03", title: "Systems create consistency", desc: "Reusable components make complex products easier to scale." },
+        { num: "01", title: "Consolidation requires strict IA", desc: "Merging 8 modules demands unambiguous navigation rules so users never feel lost." },
+        { num: "02", title: "Accessibility empowers everyone", desc: "Designing for WCAG 2.1 AA improved scan speed for all employees, not just those using assistive tools." },
+        { num: "03", title: "AI accelerates research synthesis", desc: "Using LLMs to cluster research notes saved days during the synthesis phase." },
       ],
     },
   },
   {
-    id: 6,
+    id: 2,
+    slug: "government-redesign",
+    category: "Public Service UX",
+    projectType: "Personal Project",
+    title: "GOVERNMENT WEBSITE REDESIGN",
+    subtitle: "Public Service UX & Information Architecture Redesign",
+    image: project1Url,
+    processImage: snippet3Url,
+    finalOutputImage: project3Url,
+    accentColor: "bg-primary",
+    year: "2025",
+    tags: ["Figma", "FigJam", "Maze", "Lovable", "ChatGPT", "Claude", "Figma AI"],
+    role: "Solo Product Designer & UX Researcher",
+    duration: "6 Weeks",
+    tools: ["Figma", "FigJam", "Maze"],
+    aiTools: ["Lovable", "ChatGPT", "Claude", "Figma AI"],
+    platform: "Responsive Web Portal",
+    shortDesc: "Restructured the website’s information architecture, navigation, and service discovery to help citizens find essential services and information with less effort.",
+    link: "https://github.com/harish2n5/Harish-newPortfolio",
+    caseStudy: {
+      toolsNotice: {
+        tools: ["Figma", "FigJam", "Maze"],
+        ai: ["Lovable", "ChatGPT", "Claude", "Figma AI"]
+      },
+      heroTagline: "Restructured the website’s information architecture, navigation, and service discovery to help citizens find essential services and information with less effort.",
+      targetUsers: {
+        quote: "Designed for citizens of all digital literacy levels, elderly individuals, and public service seekers.",
+        paragraph: "Public services must be accessible to every citizen regardless of tech-savviness, visual impairments, or device types.",
+        users: [
+          {
+            role: "PRIMARY USER",
+            title: "Everyday Citizens",
+            desc: "Individuals seeking birth certificates, permit renewals, tax documents, or public transit schedules quickly.",
+            needs: ["Clear service categories", "Searchable portal with plain language", "Mobile-optimized application forms"]
+          },
+          {
+            role: "SPECIAL NEEDS",
+            title: "Elderly & Disabled Citizens",
+            desc: "Users requiring screen readers, high-contrast text, large touch targets, and straightforward guidance.",
+            needs: ["WCAG 2.1 AA screen reader support", "Large text & high contrast mode", "Zero jargon step-by-step instructions"]
+          },
+          {
+            role: "ADMINISTRATORS",
+            title: "Public Service Officers",
+            desc: "Government staff processing incoming citizen applications, service inquiries, and appointment requests.",
+            needs: ["Reduced incomplete submissions", "Clear citizen tracking status", "Automated document verification flow"]
+          }
+        ]
+      },
+      quickGlance: {
+        problem: "Citizens struggled to navigate confusing government jargon, multi-tiered dropdowns, and broken mobile flows.",
+        solution: "A task-based information architecture, plain-language service search, and responsive mobile-first redesign.",
+        result: "65% improvement in service discovery speed, 50% decrease in bounce rates, and 92% Maze usability score.",
+      },
+      metrics: [
+        { value: "65%", label: "Faster service discovery" },
+        { value: "50%", label: "Lower bounce rate" },
+        { value: "92/100", label: "Maze usability score" },
+        { value: "100%", label: "Responsive compliance" },
+      ],
+      challenge: {
+        quote: "Overwhelming bureaucratic jargon, hidden links, and zero mobile optimization.",
+        paragraph: "Citizens visiting the legacy portal faced dense walls of legalistic text, complex departmental hierarchy (rather than task-based navigation), and broken layouts on mobile devices. Finding basic services required up to 7 clicks.",
+        cards: [
+          { num: "01", title: "Departmental Jargon Navigation", desc: "Nav menu organized by ministry departments rather than citizen tasks." },
+          { num: "02", title: "Information Overload", desc: "Homepages cluttered with news archives and disclaimers instead of core services." },
+          { num: "03", title: "Poor Accessibility & Mobile Experience", desc: "Low color contrast, broken form fields on smartphones, non-screen reader friendly." },
+        ],
+      },
+      goal: {
+        quote: "Transform public service access into a simple, citizen-first digital portal.",
+        cards: [
+          { title: "RESTRUCTURE IA", desc: "Re-organize navigation around top citizen intent and tasks." },
+          { title: "HUMAN-CENTERED", desc: "Translate bureaucratic legal speak into clear plain language." },
+          { title: "ACCESSIBLE", desc: "Ensure 100% WCAG 2.1 AA compliance across mobile and desktop." },
+        ],
+      },
+      solution: {
+        quote: "Intent-based navigation. Plain-language search. Universal accessibility.",
+        paragraph: "Designed an intent-focused public portal featuring a prominent predictive search bar, categorized top service cards, guided step-by-step application flows, and high contrast typography.",
+        cards: [
+          { title: "Intent-Driven Home Portal", desc: "Prominent search bar and top 6 citizen service categories above the fold." },
+          { title: "Guided Service Wizard", desc: "Step-by-step progress tracker for document applications and renewals." },
+          { title: "Multilingual & Accessible UI", desc: "Instant language switcher, font sizing controls, and high contrast toggles." },
+          { title: "Mobile-First Forms", desc: "Touch-optimized input fields, camera document upload, and status SMS tracking." },
+        ],
+      },
+      decisions: [
+        { num: "01", title: "TASK OVER DEPARTMENT", desc: "Shifted navigation from 'Ministry of Revenue' to 'Pay Taxes & Utilities'." },
+        { num: "02", title: "PREDICTIVE SERVICE SEARCH", desc: "Built smart search indexing common queries (e.g., 'lost ID' -> 'Replace National ID')." },
+        { num: "03", title: "STEP WIZARDS", desc: "Broken long 4-page forms into 3 digestible step-by-step wizard screens." },
+      ],
+      process: {
+        intro: "I executed a rigorous UX process combining card sorting on FigJam, usability testing via Maze, and AI-assisted prototyping with Lovable and Figma AI.",
+        timeline: ["01 AUDIT", "02 CARD SORTING", "03 WIREFRAMING", "04 MAZE TESTING", "05 DESIGN SYSTEM", "06 HI-FI PORTAL"],
+        explanation: [
+          { title: "HEURISTIC AUDIT & CARD SORT", desc: "Evaluated 45 legacy pages; conducted open card sorting with 15 citizens to regroup 60+ service links." },
+          { title: "TESTING & PROTOTYPING", desc: "Created interactive prototypes in Figma; ran quantitative task-completion tests on Maze." },
+          { title: "AI-ASSISTED REFLECTION", desc: "Used Lovable and Claude to test responsive layouts and refine micro-copy clarity." },
+        ],
+      },
+      userFlow: [
+        {
+          step: "01",
+          title: "CITIZEN SEARCH & INTENT SELECTION",
+          desc: "Citizen opens portal and searches 'renew driver license' or clicks top service card.",
+          highlight: "Intent-based entry"
+        },
+        {
+          step: "02",
+          title: "CLEAR ELIGIBILITY & CHECKLIST",
+          desc: "Service page highlights required documents, fees, and processing times upfront.",
+          highlight: "Zero surprises"
+        },
+        {
+          step: "03",
+          title: "STEP-BY-STEP APPLICATION WIZARD",
+          desc: "User completes 3-step digital form with auto-fill and instant document preview.",
+          highlight: "Guided progress"
+        },
+        {
+          step: "04",
+          title: "CONFIRMATION & SMS TRACKING",
+          desc: "Citizen receives digital receipt and SMS tracking number for real-time status updates.",
+          highlight: "Instant tracking"
+        }
+      ],
+      finalOutput: {
+        subheading: "A citizen-centered government portal built for clarity, speed and universal inclusion.",
+        cards: [
+          { title: "CITIZEN HUB HOMEPAGE", desc: "Clean hero search with instant service category grid." },
+          { title: "GUIDED APPLICATION FLOW", desc: "Step-by-step form completion with live progress indicator." },
+          { title: "ACCESSIBILITY TOOLBAR", desc: "Font resizing, high contrast mode, and voice reader support." },
+        ],
+      },
+      results: {
+        quote: "Democratized civic access through intuitive digital service design.",
+        metrics: [
+          { value: "65%", label: "Faster task completion" },
+          { value: "92/100", label: "Maze usability score" },
+          { value: "50%", label: "Lower bounce rate" },
+          { value: "100%", label: "WCAG 2.1 AA Compliant" },
+        ],
+      },
+      learnings: [
+        { num: "01", title: "Language is UI", desc: "Replacing bureaucratic legal jargon with everyday language had a bigger impact than visual restyling." },
+        { num: "02", title: "Card sorting reveals mental models", desc: "Citizens think in tasks ('Fix my street light'), not agency titles ('Department of Public Works')." },
+        { num: "03", title: "Accessibility is non-negotiable", desc: "Designing for edge cases creates a significantly smoother experience for everyone." },
+      ],
+    },
+  },
+  {
+    id: 3,
     slug: "insighthub",
-    category: "SaaS",
+    category: "Analytics & BI",
+    projectType: "Personal Project",
     title: "INSIGHTHUB",
-    subtitle: "Business Intelligence Platform",
+    subtitle: "Business Intelligence & Executive Analytics Platform",
     image: project4Url,
     processImage: snippet5Url,
     finalOutputImage: project4Url,
     accentColor: "bg-primary",
     year: "2025",
-    tags: ["Figma", "Data Visualization", "AI", "SaaS"],
-    role: "UX Architect",
+    tags: ["Figma", "Relume AI", "ChatGPT", "Claude", "Figma AI"],
+    role: "UX Architect & Data Visualization Designer",
     duration: "6 Weeks",
     tools: ["Figma"],
-    platform: "Desktop Platform",
-    shortDesc: "Turning complex financial data streams into plain-language actionable insights.",
+    aiTools: ["Relume AI", "ChatGPT", "Claude", "Figma AI"],
+    platform: "Desktop Analytics Suite",
+    shortDesc: "Transformed complex financial data into clear, actionable insights by improving information hierarchy, dashboard structure, data visualization, and progressive disclosure.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
-      heroTagline: "Turning complex financial data streams into plain-language actionable insights.",
+      toolsNotice: {
+        tools: ["Figma"],
+        ai: ["Relume AI", "ChatGPT", "Claude", "Figma AI"]
+      },
+      heroTagline: "Transformed complex financial data into clear, actionable insights by improving information hierarchy, dashboard structure, data visualization, and progressive disclosure.",
       targetUsers: {
-        quote: "Built for decision makers who need immediate narrative clarity over dense chart grids.",
-        paragraph: "INSIGHTHUB bridges the gap between complex raw analytics and executive decision-making across three primary personas.",
+        quote: "Built for executives, financial analysts, and business directors needing instant clarity over complex metrics.",
+        paragraph: "INSIGHTHUB bridges the gap between raw financial telemetry and high-stakes executive decision-making.",
         users: [
           {
             role: "PRIMARY USER",
             title: "C-Suite & Executives",
-            desc: "CEOs and VPs who require rapid executive summaries, plain-language trend insights, and instant metric anomaly alerts.",
-            needs: ["Plain-English narrative metrics feed", "Proactive anomaly notifications", "1-Click Slack & PDF report exports"]
+            desc: "CEOs, CFOs, and VPs who require rapid executive summaries, plain-language trend insights, and instant metric anomaly alerts.",
+            needs: ["Plain-English narrative metrics feed", "Proactive anomaly notifications", "1-Click executive PDF & Slack exports"]
           },
           {
             role: "ANALYTICAL USER",
-            title: "Data Analysts & BI Leads",
-            desc: "Data teams configuring analytics pipelines, validating automated narrative rules, and performing deep-dive cohort analysis.",
-            needs: ["Interactive side-drawer deep-dives", "Custom widget & chart builders", "Colorblind-safe visualization palettes"]
+            title: "Data Analysts & Controllers",
+            desc: "Data specialists configuring financial pipelines, validating automated metric rules, and running cohort deep dives.",
+            needs: ["Contextual side-drawer deep-dives", "Custom chart builders", "Colorblind-safe visualization palettes"]
           },
           {
             role: "OPERATIONAL USER",
             title: "Department Directors",
-            desc: "Operational leaders tracking departmental KPIs across sales, marketing, and product on a daily and weekly cadence.",
-            needs: ["Role-filtered dashboard views", "Cohort performance tracking", "Real-time metric threshold alerts"]
+            desc: "Department heads monitoring unit economics, budget vs actuals, and operational KPIs on a daily cadence.",
+            needs: ["Role-filtered dashboard views", "Cohort performance tracking", "Threshold alert customization"]
           }
         ]
       },
       quickGlance: {
-        problem: "Executives were drowning in dense, un-annotated Tableau charts without visual hierarchy.",
-        solution: "An AI-powered analytics digest that highlights metric anomalies in plain English.",
-        result: "Faster executive decision velocity with zero reliance on manual analyst queries.",
+        problem: "Executives were drowning in 30+ un-annotated spreadsheet charts, taking 15+ minutes to interpret key metrics.",
+        solution: "A narrative-first BI dashboard with progressive disclosure, AI insight digests, and high-contrast anomaly badges.",
+        result: "85% reduction in time-to-insight (15m → 2m), 40% drop in analyst inquiry tickets, and 100% colorblind-safe visual hierarchy.",
       },
       metrics: [
-        { value: "15m → 2m", label: "Time to insight" },
-        { value: "30+", label: "Charts simplified" },
-        { value: "1-Click", label: "Slack reporting" },
-        { value: "100%", label: "Colorblind safe" },
+        { value: "15m → 2m", label: "Time-to-insight" },
+        { value: "40%", label: "Fewer analyst tickets" },
+        { value: "100%", label: "Colorblind-safe charts" },
+        { value: "1-Click", label: "Executive export" },
       ],
       challenge: {
-        quote: "Dense data charts. Zero narrative clarity.",
-        paragraph: "Decision makers spent 15+ minutes attempting to decipher complex multi-axis graphs or had to submit manual inquiry tickets to data analysts.",
+        quote: "Dense charts, missing narrative context, and visual fatigue.",
+        paragraph: "Financial executives were presented with dashboards cramming 30+ multi-axis graphs onto a single screen. Without visual hierarchy or narrative callouts, finding revenue spikes or cost anomalies required manual spreadsheet digging.",
         cards: [
-          { num: "01", title: "Overloaded dashboards", desc: "30+ un-annotated charts cluttering the screen without visual hierarchy." },
-          { num: "02", title: "Data blindness", desc: "Important trend anomalies went unnoticed until quarter end." },
-          { num: "03", title: "High friction sharing", desc: "10 manual steps required to export and share reports to leadership." },
+          { num: "01", title: "Information Overload", desc: "30+ graphs cluttering the display without visual hierarchy or focus points." },
+          { num: "02", title: "Chart Noise & Cryptic Axes", desc: "Non-standard chart colors and unclear labels forcing users to calculate trends manually." },
+          { num: "03", title: "High Friction Reporting", desc: "10+ manual steps to capture screenshots and build executive summary slides." },
         ],
       },
       goal: {
-        quote: "Deliver narrative-first analytics that executives can scan in seconds.",
+        quote: "Transform raw financial numbers into instant, plain-English executive insights.",
         cards: [
-          { title: "SIMPLIFY", desc: "Replace chart noise with plain-English summaries." },
-          { title: "CENTRALIZE", desc: "Surface anomalous metrics directly on launch." },
-          { title: "STANDARDIZE", desc: "Build colorblind-safe data visualization tokens." },
+          { title: "NARRATIVE FIRST", desc: "Place plain-language metric digests ahead of complex charts." },
+          { title: "PROGRESSIVE DISCLOSURE", desc: "Surface top-level summary KPIs first; reveal granular charts on hover/click." },
+          { title: "ACCESSIBLE DATA VIS", desc: "Establish colorblind-compliant data visualization palettes and clear scales." },
         ],
       },
       solution: {
-        quote: "Narrative-first analytics. Proactive anomaly detection.",
-        paragraph: "Architected a feed-first executive digest that places plain-language summaries ahead of graphs, backed by an interactive side-drawer deep dive.",
+        quote: "Narrative summaries. Progressive disclosure. Colorblind-safe visualization.",
+        paragraph: "Engineered an executive BI platform featuring an AI narrative summary feed, interactive side-drawer deep-dives, customizable KPI cards, and accessible chart color tokens.",
         cards: [
-          { title: "AI Narrative Feed", desc: "Plain-English story cards summarizing daily metric movements." },
-          { title: "Anomaly Detection", desc: "Proactive callouts highlighting metric spikes and drops." },
-          { title: "1-Click Sharing", desc: "Instant formatted chart exports directly to team Slack channels." },
-          { title: "Accessible Visualization", desc: "WCAG AA compliant chart color palettes." },
+          { title: "AI Executive Digest Feed", desc: "Natural language summaries highlighting financial trends and anomalies." },
+          { title: "Progressive Side-Drawer Workspace", desc: "Clicking any KPI card opens a contextual deep-dive drawer with cohort filters." },
+          { title: "Accessible Visual Palette", desc: "Colorblind-tested palette using shape indicators alongside color cues." },
+          { title: "1-Click Slack & PDF Broadcast", desc: "Instant formatted summary exports to executive communication channels." },
         ],
       },
       decisions: [
-        { num: "01", title: "NARRATIVE FIRST", desc: "Placed text explanations above chart axes based on user gaze tracking." },
-        { num: "02", title: "ANOMALY HIGHLIGHTS", desc: "Used high-contrast badges to draw immediate focus to outliers." },
-        { num: "03", title: "DENSE YET SCANNABLE", desc: "Maintained high information density while eliminating visual noise." },
+        { num: "01", title: "NARRATIVE ABOVE CHARTS", desc: "Placed text summaries above charts based on F-pattern eye-tracking studies." },
+        { num: "02", title: "SIDE-DRAWER DEEP DIVES", desc: "Used slide-over drawers instead of full-page reloads to preserve dashboard context." },
+        { num: "03", title: "DUAL ENCODING VISUALS", desc: "Combined color hues with line pattern textures for 100% colorblind accessibility." },
       ],
       process: {
-        intro: "I followed a user-centered design process to understand the problem, structure the experience and refine the final interface.",
-        timeline: ["01 DISCOVER", "02 DEFINE", "03 IDEATE", "04 DESIGN", "05 TEST", "06 REFINE"],
+        intro: "I leveraged AI tools like Relume AI, ChatGPT, and Claude to map financial sitemaps and refine narrative structures, paired with high-precision Figma design execution.",
+        timeline: ["01 DISCOVER", "02 ARCHITECTURE", "03 WIREFRAMING", "04 DESIGN TOKENS", "05 HI-FI DASHBOARD", "06 EVALUATION"],
         explanation: [
-          { title: "DISCOVER", desc: "Conducted C-suite interviews to analyze how leaders consume data under pressure." },
-          { title: "DESIGN", desc: "Explored feed-first layouts vs chart grids and created data visualization design tokens." },
-          { title: "REFINE", desc: "Tested narrative scan speed and optimized tablet touch target areas." },
+          { title: "AI SITEMAP & IA", desc: "Used Relume AI and ChatGPT to model executive reporting hierarchies and KPI taxonomies." },
+          { title: "DATA VIS DESIGN SYSTEM", desc: "Created colorblind-safe chart components, sparklines, metric badges, and table filters in Figma." },
+          { title: "PROTOTYPING & EVALUATION", desc: "Built interactive side-drawer prototypes and evaluated scan speed with 6 financial leads." },
         ],
       },
       userFlow: [
         {
           step: "01",
-          title: "EXECUTIVE BRIEFING FEED",
-          desc: "Leadership logs into a clean, narrative-first digest summarizing daily revenue, churn, and metrics in plain English.",
-          highlight: "Narrative clarity"
+          title: "EXECUTIVE DIGEST LAUNCH",
+          desc: "Executive logs into clean dashboard featuring natural language summary of daily revenue, CAC, and margin trends.",
+          highlight: "Narrative-first"
         },
         {
           step: "02",
-          title: "ANOMALY DETECTION ALERT",
-          desc: "System automatically flags statistical outliers (spikes or drops) with high-contrast alert badges.",
-          highlight: "Instant alerts"
+          title: "AUTOMATED ANOMALY FLAG",
+          desc: "High-contrast alert badge flags unexpected 14% spike in operational cost.",
+          highlight: "Proactive alert"
         },
         {
           step: "03",
-          title: "CONTEXTUAL DEEP DIVE",
-          desc: "Clicking any metric opens a side-drawer displaying cohort breakdowns, time-series graphs, and segment filters.",
-          highlight: "Side-drawer workspace"
+          title: "PROGRESSIVE DEEP DIVE",
+          desc: "Clicking anomaly card slides out contextual drawer showing underlying vendor line items.",
+          highlight: "Contextual drawer"
         },
         {
           step: "04",
-          title: "ANNOTATE & DISTRIBUTE",
-          desc: "Executives add notes to anomalous findings and broadcast automated reports directly to team Slack channels.",
-          highlight: "1-Click Slack export"
+          title: "ANNOTATE & SHARE",
+          desc: "User adds executive note and broadcasts 1-click snapshot to CFO Slack channel.",
+          highlight: "1-Click export"
         }
       ],
       finalOutput: {
-        subheading: "An executive analytics experience engineered for speed, clarity and strategic impact.",
+        subheading: "An executive analytics experience engineered for speed, narrative clarity and strategic impact.",
         cards: [
-          { title: "EXECUTIVE DIGEST", desc: "Plain-language narrative summary feed for fast scanning." },
-          { title: "DEEP DIVE WORKSPACE", desc: "Interactive chart analytics with cohort filter drawers." },
-          { title: "DATA SYSTEM", desc: "Accessible component library for financial visualizations." },
+          { title: "EXECUTIVE DIGEST DASHBOARD", desc: "Plain-language narrative summary feed paired with high-level KPI cards." },
+          { title: "INTERACTIVE SIDE-DRAWER", desc: "Detailed cohort breakdown drawer preserving main dashboard focus." },
+          { title: "FINANCIAL DATA SYSTEM", desc: "Colorblind-safe data visualization library with reusable chart tokens." },
         ],
       },
       results: {
-        quote: "From dense spreadsheet overload to rapid narrative clarity.",
+        quote: "From spreadsheet overload to lightning-fast executive decision making.",
         metrics: [
-          { value: "15m → 2m", label: "Time to insight" },
-          { value: "85%", label: "Executive adoption" },
-          { value: "40%", label: "Fewer analyst tickets" },
-          { value: "WCAG 2.1 AA", label: "Accessibility target" },
+          { value: "15m → 2m", label: "Time-to-insight" },
+          { value: "40%", label: "Reduction in analyst tickets" },
+          { value: "85%", label: "Executive adoption rate" },
+          { value: "100%", label: "Colorblind-safe design" },
         ],
       },
       learnings: [
-        { num: "01", title: "Plain language wins", desc: "Data literacy varies; clear narrative is the ultimate UI equalizer." },
-        { num: "02", title: "Gaze hierarchy matters", desc: "Users read headlines before reading graph axis labels." },
-        { num: "03", title: "Proactive over reactive", desc: "Surface critical outliers automatically instead of hiding them." },
-      ],
-    },
-  },
-  {
-    id: 5,
-    slug: "supplychain-nexus",
-    category: "Enterprise",
-    title: "SUPPLYCHAIN NEXUS",
-    subtitle: "Procurement System",
-    image: project3Url,
-    processImage: snippet7Url,
-    finalOutputImage: project3Url,
-    accentColor: "bg-[#FFD6A0]",
-    year: "2025",
-    tags: ["Figma", "Complex Workflows", "RBAC", "SaaS"],
-    role: "UI/UX Designer",
-    duration: "10 Weeks",
-    tools: ["Figma"],
-    platform: "Desktop Platform",
-    shortDesc: "Digitizing multi-regional purchasing lifecycles into a 1-click approval workflow.",
-    link: "https://github.com/harish2n5/Harish-newPortfolio",
-    caseStudy: {
-      heroTagline: "Digitizing multi-regional purchasing lifecycles into a 1-click approval workflow.",
-      targetUsers: {
-        quote: "Engineered for international logistics hubs, procurement teams, and finance directors.",
-        paragraph: "SUPPLYCHAIN NEXUS streamlines high-frequency purchasing workflows across 200+ multi-regional logistics hubs.",
-        users: [
-          {
-            role: "PRIMARY USER",
-            title: "Logistics Hub Managers",
-            desc: "Field operators across global logistics hubs submitting requisitions for equipment, spare parts, and local supplies.",
-            needs: ["Mobile-friendly fast requisition forms", "Auto-filled vendor catalog lookup", "Real-time order status tracking"]
-          },
-          {
-            role: "APPROVER",
-            title: "Procurement Officers",
-            desc: "Procurement managers evaluating supplier quotes, verifying contract terms, and clearing purchase order queues.",
-            needs: ["Unified decision command inbox", "Vendor comparative quote viewer", "Keyboard-driven fast verification"]
-          },
-          {
-            role: "FINANCE LEAD",
-            title: "Finance & Audit Directors",
-            desc: "Financial controllers managing department budget allocations, tracking commitments, and verifying compliance.",
-            needs: ["Real-time budget ledger drawer", "Immutable activity audit timeline", "100% paperless audit reporting"]
-          }
-        ]
-      },
-      quickGlance: {
-        problem: "Logistics hubs relied on paper requisition forms and untracked email chains.",
-        solution: "A digitized procurement portal with real-time budget tracking and role-based approval queues.",
-        result: "Significantly faster requisition approvals with 100% audit trail compliance.",
-      },
-      metrics: [
-        { value: "18d → 4d", label: "Approval cycle" },
-        { value: "200+", label: "Hubs integrated" },
-        { value: "100%", label: "Paperless forms" },
-        { value: "100%", label: "Audit compliance" },
-      ],
-      challenge: {
-        quote: "Opaque approval chains. Paper bottlenecks.",
-        paragraph: "Purchase requisitions routinely stalled for up to 3 weeks in approval black holes across 200 international logistics hubs.",
-        cards: [
-          { num: "01", title: "Paper requisitions", desc: "Manual paperwork caused missing data errors and lost requests." },
-          { num: "02", title: "Zero status tracking", desc: "Requesters sent 15+ status inquiry emails per week asking where orders were stuck." },
-          { num: "03", title: "Budget blindspots", desc: "Approvers lacked real-time remaining budget visibility during reviews." },
-        ],
-      },
-      goal: {
-        quote: "Digitize the entire purchasing process while giving approvers real-time financial context.",
-        cards: [
-          { title: "SIMPLIFY", desc: "Automate request routing based on approval thresholds." },
-          { title: "CENTRALIZE", desc: "Display live budget balance directly on approval cards." },
-          { title: "STANDARDIZE", desc: "Create unified status tracking indicators." },
-        ],
-      },
-      solution: {
-        quote: "Automated approval routing. Live budget visibility.",
-        paragraph: "Designed a high-density enterprise dashboard featuring automated RBAC request routing, real-time budget context drawers, and instant 1-click decision queues.",
-        cards: [
-          { title: "Approval Queue", desc: "Priority decision inbox with inline budget health indicators." },
-          { title: "Requisition Builder", desc: "Smart form with automated vendor catalog lookup." },
-          { title: "Live Spend Ledger", desc: "Real-time tracking of department purchase commitments." },
-          { title: "Audit Timeline", desc: "Immutable historical log of every approval action." },
-        ],
-      },
-      decisions: [
-        { num: "01", title: "CONTEXTUAL BUDGETS", desc: "Embedded remaining budget bars directly inside approval action cards." },
-        { num: "02", title: "STATUS TRANSPARENCY", desc: "Designed a visual step-progress tracker visible to all stakeholders." },
-        { num: "03", title: "DENSITY CONTROL", desc: "Optimized table spacing for fast keyboard-driven data verification." },
-      ],
-      process: {
-        intro: "I followed a user-centered design process to understand the problem, structure the experience and refine the final interface.",
-        timeline: ["01 DISCOVER", "02 DEFINE", "03 IDEATE", "04 DESIGN", "05 TEST", "06 REFINE"],
-        explanation: [
-          { title: "DISCOVER", desc: "Shadowed procurement leads across logistics hubs to map the 24-step purchasing workflow." },
-          { title: "DESIGN", desc: "Wireframed approval routing logic, decision drawers, and status tracking indicators." },
-          { title: "REFINE", desc: "Streamlined keyboard navigation and added optimistic UI approval feedback." },
-        ],
-      },
-      userFlow: [
-        {
-          step: "01",
-          title: "REQUISITION BUILDER",
-          desc: "Field logistics managers create purchase requests using smart catalog auto-complete and calculated unit costs.",
-          highlight: "Smart catalog lookup"
-        },
-        {
-          step: "02",
-          title: "DYNAMIC RBAC ROUTING",
-          desc: "Order threshold logic automatically routes requests to appropriate local, regional, or executive finance approvers.",
-          highlight: "Rules-based routing"
-        },
-        {
-          step: "03",
-          title: "COMMAND DECISION INBOX",
-          desc: "Approvers review requests with live remaining department budget ledgers displayed directly on the card.",
-          highlight: "Above-the-fold budget context"
-        },
-        {
-          step: "04",
-          title: "PO GENERATION & AUDIT TIMELINE",
-          desc: "Approved requests generate automated purchase orders and log immutable compliance timestamps into the ledger.",
-          highlight: "100% paperless audit trail"
-        }
-      ],
-      finalOutput: {
-        subheading: "An enterprise procurement system engineered for speed, transparency and compliance.",
-        cards: [
-          { title: "COMMAND QUEUE", desc: "Instant decision inbox with live budget health indicators." },
-          { title: "REQUISITION FLOW", desc: "Streamlined form builder with instant vendor lookup." },
-          { title: "AUDIT LEDGER", desc: "Comprehensive activity timeline ensuring 100% compliance." },
-        ],
-      },
-      results: {
-        quote: "From paper-based approval delays to instant digital transparency.",
-        metrics: [
-          { value: "18d → 4d", label: "Approval cycle" },
-          { value: "200+", label: "Hubs integrated" },
-          { value: "100%", label: "Paperless workflow" },
-          { value: "100%", label: "Audit compliance" },
-        ],
-      },
-      learnings: [
-        { num: "01", title: "Context accelerates decisions", desc: "Showing live budget numbers on screen eliminated approval hesitation." },
-        { num: "02", title: "High density requires clarity", desc: "Enterprise users prefer structured data density over whitespace." },
-        { num: "03", title: "Visibility stops inquiries", desc: "Real-time status trackers eliminated thousands of status emails." },
+        { num: "01", title: "Words complement numbers", desc: "Plain-English text summaries accelerate data comprehension faster than raw visual charts alone." },
+        { num: "02", title: "Progressive disclosure reduces anxiety", desc: "Hiding granular data until requested prevents cognitive paralysis." },
+        { num: "03", title: "Accessible charts benefit everyone", desc: "Designing high-contrast, dual-encoded charts made dark mode reading far crispier." },
       ],
     },
   },
