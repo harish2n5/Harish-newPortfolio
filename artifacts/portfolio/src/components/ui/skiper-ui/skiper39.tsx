@@ -145,12 +145,13 @@ export const PortfolioCanvas = ({ className = "absolute bottom-0 h-full w-full p
         ctx.fillRect(4, 4, pWidth, pHeight);
 
         // Pill body
-        ctx.fillStyle = "#0D0D0D";
+        ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, pWidth, pHeight);
+        ctx.strokeStyle = "#000000";
         ctx.strokeRect(0, 0, pWidth, pHeight);
 
         // Pill text
-        ctx.fillStyle = pill.color;
+        ctx.fillStyle = "#000000";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(pill.text, pWidth / 2, pHeight / 2);
@@ -190,7 +191,7 @@ export const PortfolioCanvas = ({ className = "absolute bottom-0 h-full w-full p
 
 export const Skiper39 = () => {
   return (
-    <div className="relative h-full w-full bg-black text-white overflow-hidden">
+    <div className="relative h-full w-full bg-white text-black overflow-hidden">
       <PortfolioCanvas />
     </div>
   );

@@ -71,8 +71,8 @@ export default function Navbar() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 24, delay: 0.4 }}
-          className="bg-black border-[3px] border-black flex items-center justify-around px-2 py-2"
-          style={{ boxShadow: "4px 4px 0px #CCFF00" }}
+          className="bg-white border-[3px] border-black flex items-center justify-around px-2 py-2"
+          style={{ boxShadow: "4px 4px 0px #000" }}
         >
           {/* Main nav items */}
           {mobileMainLinks.map((link) => {
@@ -82,7 +82,7 @@ export default function Navbar() {
                 <motion.span
                   whileTap={{ scale: 0.88 }}
                   className={`flex flex-col items-center gap-0.5 px-4 py-1.5 cursor-pointer transition-colors ${
-                    isActive ? "text-black bg-primary" : "text-white"
+                    isActive ? "text-black bg-primary border border-black" : "text-black"
                   }`}
                 >
                   <link.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.8} />
