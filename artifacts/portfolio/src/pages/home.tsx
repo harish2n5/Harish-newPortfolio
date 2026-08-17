@@ -370,7 +370,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── 1. HERO SECTION (Solid Black + Portfolio Canvas Skiper39 Animation) ── */}
-      <section id="hero" className="relative py-16 sm:py-24 md:py-28 border-b-[4px] border-black bg-black text-white overflow-hidden min-h-[75vh] flex items-center">
+      <section id="hero" className="relative pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 border-b-[4px] border-black bg-black text-white overflow-hidden flex items-center">
         
         {/* Skiper39 Animated Portfolio Canvas Floor */}
         <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-85 z-0" />
