@@ -9,6 +9,7 @@ import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import { projects as dataProjects } from "@/lib/data";
 import CaseStudyModal from "./case-study";
+import { Link001, Link004, Link005 } from "@/components/ui/skiper-ui/skiper40";
 
 const EMAILJS_SERVICE_ID = "service_ij7iwe7";
 const EMAILJS_TEMPLATE_ID = "template_u7yhrx9";
@@ -253,24 +254,24 @@ function ProjectCard({
       style={{ x: mag.springX, y: mag.springY }}
       onMouseMove={mag.onMove}
       onMouseLeave={mag.onLeave}
-      className="group border-[4px] border-black dark:border-white bg-white dark:bg-card brutal-shadow p-6 md:p-8 flex flex-col justify-between h-full transition-colors"
+      className="group border-[4px] border-black bg-white brutal-shadow p-6 md:p-8 flex flex-col justify-between h-full transition-colors"
       data-testid={`project-card-${index}`}
     >
       <div>
-        <div className="flex items-center justify-between mb-3 border-b-[2px] border-black/10 dark:border-white/10 pb-3">
+        <div className="flex items-center justify-between mb-3 border-b-[2px] border-black/10 pb-3">
           <span className="font-mono text-xs uppercase font-bold tracking-widest text-muted-foreground">{project.subtitle}</span>
-          <span className="font-mono text-[11px] font-black uppercase px-2.5 py-0.5 border border-black dark:border-white bg-primary text-black">{project.year || "2024"}</span>
+          <span className="font-mono text-[11px] font-black uppercase px-2.5 py-0.5 border border-black bg-primary text-black">{project.year || "2024"}</span>
         </div>
-        <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3 text-black dark:text-white">{project.title}</h3>
+        <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-3 text-black">{project.title}</h3>
         
-        <p className="font-mono text-sm leading-relaxed text-gray-700 dark:text-gray-300 font-medium mb-6">
+        <p className="font-mono text-sm leading-relaxed text-gray-700 font-medium mb-6">
           {project.shortDesc}
         </p>
 
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.slice(0, 3).map((tag: string) => (
-              <span key={tag} className="border border-black dark:border-white px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase bg-[#F4F4F0] dark:bg-white/10 text-black dark:text-white">
+              <span key={tag} className="border border-black px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase bg-[#F4F4F0] text-black">
                 {tag}
               </span>
             ))}
@@ -278,25 +279,21 @@ function ProjectCard({
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 pt-4 border-t-[2px] border-black/10 dark:border-white/10 mt-auto">
+      <div className="flex flex-wrap items-center gap-3 pt-4 border-t-[2px] border-black/10 mt-auto">
         <motion.button
           onClick={() => onSelectCaseStudy(project)}
           whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
           whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
-          className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black dark:border-white bg-primary text-black px-4 py-2.5 brutal-shadow hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-primary text-black px-4 py-2.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
         >
           View Case Study <ArrowRight className="w-4 h-4" />
         </motion.button>
-        <motion.a
+        <Link001
           href={project.link || "https://github.com/harish2n5/Harish-newPortfolio"}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ x: -2, y: -2, boxShadow: "4px 4px 0px #000" }}
-          whileTap={{ x: 1, y: 1, boxShadow: "1px 1px 0px #000" }}
-          className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm border-[3px] border-black dark:border-white bg-white dark:bg-transparent text-black dark:text-white px-4 py-2.5 brutal-shadow hover:bg-secondary hover:text-black transition-colors"
+          className="font-bold uppercase text-xs sm:text-sm border-[3px] border-black bg-white text-black px-4 py-2.5 brutal-shadow hover:bg-secondary transition-colors"
         >
-          Live Site <ExternalLink className="w-4 h-4" />
-        </motion.a>
+          Live Site
+        </Link001>
       </div>
     </motion.div>
   );
@@ -329,7 +326,7 @@ function ContactForm() {
           required
           placeholder="Your Name"
           data-testid="input-contact-name"
-          className="border-[3px] border-black dark:border-white px-6 py-4 font-mono bg-white dark:bg-card text-black dark:text-white placeholder:text-muted-foreground focus:outline-none focus:bg-primary focus:text-black transition-colors md:border-r-[1.5px]"
+          className="border-[3px] border-black px-6 py-4 font-mono bg-white text-black placeholder:text-muted-foreground focus:outline-none focus:bg-primary transition-colors md:border-r-[1.5px]"
         />
         <input
           name="reply_to"
@@ -337,7 +334,7 @@ function ContactForm() {
           required
           placeholder="Your Email"
           data-testid="input-contact-email"
-          className="border-[3px] border-black dark:border-white border-t-0 md:border-t-[3px] md:border-l-[1.5px] px-6 py-4 font-mono bg-white dark:bg-card text-black dark:text-white placeholder:text-muted-foreground focus:outline-none focus:bg-primary focus:text-black transition-colors"
+          className="border-[3px] border-black border-t-0 md:border-t-[3px] md:border-l-[1.5px] px-6 py-4 font-mono bg-white text-black placeholder:text-muted-foreground focus:outline-none focus:bg-primary transition-colors"
         />
       </div>
       <textarea
@@ -346,7 +343,7 @@ function ContactForm() {
         rows={5}
         placeholder="Tell me about your project..."
         data-testid="input-contact-message"
-        className="border-[3px] border-black dark:border-white border-t-0 px-6 py-4 font-mono bg-white dark:bg-card text-black dark:text-white placeholder:text-muted-foreground focus:outline-none focus:bg-primary focus:text-black transition-colors resize-none"
+        className="border-[3px] border-black border-t-0 px-6 py-4 font-mono bg-white text-black placeholder:text-muted-foreground focus:outline-none focus:bg-primary transition-colors resize-none"
       />
       <motion.button
         type="submit"
@@ -354,7 +351,7 @@ function ContactForm() {
         data-testid="button-contact-submit"
         whileHover={status !== "sending" ? { x: -4, y: -4, boxShadow: "8px 8px 0px #000" } : {}}
         whileTap={status !== "sending" ? { x: 1, y: 1, boxShadow: "2px 2px 0px #000" } : {}}
-        className="border-[3px] border-black dark:border-white border-t-0 px-8 py-5 font-black uppercase tracking-widest text-lg flex items-center justify-center gap-3 bg-black dark:bg-white text-primary dark:text-black brutal-shadow disabled:opacity-60 cursor-pointer"
+        className="border-[3px] border-black border-t-0 px-8 py-5 font-black uppercase tracking-widest text-lg flex items-center justify-center gap-3 bg-black text-primary brutal-shadow disabled:opacity-60 cursor-pointer"
       >
         {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed — Try Again" : (
           <><Send className="w-5 h-5" /> Send Message</>
@@ -371,8 +368,8 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Adjusted Size, Solid Black, Rich Animations) ── */}
-      <section id="hero" className="relative py-16 sm:py-20 md:py-24 border-b-[4px] border-black dark:border-white bg-black text-white overflow-hidden">
+      {/* ── 1. HERO SECTION (Solid Black + Skiper UI Animated Links & Motion) ── */}
+      <section id="hero" className="relative py-16 sm:py-20 md:py-24 border-b-[4px] border-black bg-black text-white overflow-hidden">
         
         {/* Animated Ambient Light Orbs */}
         <motion.div
@@ -445,7 +442,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Action buttons */}
+            {/* Action buttons with Skiper UI design */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -536,7 +533,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. MARQUEE BANNER ─────────────────────────────────────── */}
-      <div className="w-full border-y-[3px] border-black dark:border-white bg-primary py-5 overflow-hidden flex whitespace-nowrap relative z-10 transform -rotate-1 origin-center scale-105">
+      <div className="w-full border-y-[3px] border-black bg-primary py-5 overflow-hidden flex whitespace-nowrap relative z-10 transform -rotate-1 origin-center scale-105">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ ease: "linear", duration: 14, repeat: Infinity }}
@@ -549,7 +546,7 @@ export default function Home() {
       </div>
 
       {/* ── 3. STATS BAR ──────────────────────────────────────────── */}
-      <section className="border-b-[3px] border-black dark:border-white bg-white dark:bg-card transition-colors">
+      <section className="border-b-[3px] border-black bg-white transition-colors">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, i) => (
             <motion.div
@@ -558,10 +555,10 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 sm:p-10 text-center border-r-[3px] border-black dark:border-white last:border-r-0 md:[&:nth-child(2)]:border-r-[3px]"
+              className="p-8 sm:p-10 text-center border-r-[3px] border-black last:border-r-0 md:[&:nth-child(2)]:border-r-[3px]"
               data-testid={`stat-home-${i}`}
             >
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-2 text-black dark:text-white">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter mb-2 text-black">
                 <Counter target={stat.value} suffix={stat.suffix} />
               </div>
               <div className="font-mono text-xs sm:text-sm uppercase tracking-widest text-muted-foreground">{stat.label}</div>
@@ -571,14 +568,14 @@ export default function Home() {
       </section>
 
       {/* ── 4. ABOUT SECTION (`#about`) ───────────────────────────── */}
-      <section id="about" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black dark:border-white bg-white dark:bg-black transition-colors">
+      <section id="about" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black bg-white transition-colors">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <SectionWrapper>
             <motion.p variants={slideUp} className="font-mono text-sm sm:text-base uppercase tracking-widest mb-3 text-muted-foreground">
               — About Me
             </motion.p>
-            <motion.h2 variants={slideUp} className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-12 text-black dark:text-white">
+            <motion.h2 variants={slideUp} className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-12 text-black">
               I Build <span className="text-secondary">Experiences.</span>
             </motion.h2>
           </SectionWrapper>
@@ -587,21 +584,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Story text */}
             <SectionWrapper className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black dark:border-white pb-3 text-black dark:text-white">The Story</h3>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-3 text-black">The Story</h3>
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
                 I started as a designer obsessed with aesthetics, then realised that beautiful products without solid engineering are just pretty ideas.
               </p>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
                 So I learned to code. Not just enough to hand off specs, but enough to build the entire thing myself — from database schema to pixel-level animation.
               </p>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 dark:text-gray-200 mb-8">
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 mb-8">
                 Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
               </p>
               <motion.a
                 href="/contact"
                 whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black dark:border-white bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors cursor-pointer"
+                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
               >
                 Work With Me <ArrowRight className="w-5 h-5" />
               </motion.a>
@@ -610,9 +607,9 @@ export default function Home() {
             {/* Profile Photo Display */}
             <SectionWrapper className="flex justify-center md:justify-end">
               <div className="relative max-w-sm w-full">
-                <div className="absolute -bottom-3 -right-3 w-full aspect-[4/5] border-[4px] border-black dark:border-white bg-primary" />
+                <div className="absolute -bottom-3 -right-3 w-full aspect-[4/5] border-[4px] border-black bg-primary" />
                 <div
-                  className="relative border-[4px] border-black dark:border-white overflow-hidden aspect-[4/5] bg-muted z-10"
+                  className="relative border-[4px] border-black overflow-hidden aspect-[4/5] bg-muted z-10"
                   style={{ boxShadow: "8px 8px 0px #000" }}
                 >
                   <img
@@ -621,9 +618,9 @@ export default function Home() {
                     className="w-full h-full object-cover object-center"
                     data-testid="img-about-photo"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 border-t-[4px] border-black dark:border-white bg-white dark:bg-card px-5 py-3 flex items-center justify-between">
-                    <span className="font-black uppercase tracking-tight text-lg text-black dark:text-white">Harish</span>
-                    <span className="font-mono text-xs border-[2px] border-black dark:border-white px-3 py-1 bg-primary uppercase font-bold text-black">UI/UX + Dev</span>
+                  <div className="absolute bottom-0 left-0 right-0 border-t-[4px] border-black bg-white px-5 py-3 flex items-center justify-between">
+                    <span className="font-black uppercase tracking-tight text-lg text-black">Harish</span>
+                    <span className="font-mono text-xs border-[2px] border-black px-3 py-1 bg-primary uppercase font-bold text-black">UI/UX + Dev</span>
                   </div>
                 </div>
               </div>
@@ -633,14 +630,14 @@ export default function Home() {
       </section>
 
       {/* ── 5. THE STACK / TOOLKIT ────────────────────────────────── */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black dark:border-white bg-background dark:bg-card transition-colors">
+      <section className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black bg-background transition-colors">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-6 text-black dark:text-white"
+              className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-6 text-black"
             >
               The Stack.
             </motion.h2>
@@ -649,7 +646,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="font-mono text-base sm:text-lg max-w-md text-gray-800 dark:text-gray-200"
+              className="font-mono text-base sm:text-lg max-w-md text-gray-800"
             >
               Tools I use to bend pixels and bytes to my will. Combining design intuition with modern engineering standards.
             </motion.p>
@@ -658,12 +655,12 @@ export default function Home() {
           <div className="flex flex-col gap-10">
             {/* Design Tools */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 dark:border-white/10 pb-2">Design Tools</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Tools</h3>
               <div className="flex flex-wrap gap-3.5 items-center">
                 {/* Figma */}
                 <motion.div
                   whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black dark:border-white px-4 py-2.5 text-sm md:text-base font-bold bg-black text-white brutal-shadow flex items-center gap-2.5 cursor-default"
+                  className="border-[3px] border-black px-4 py-2.5 text-sm md:text-base font-bold bg-black text-white brutal-shadow flex items-center gap-2.5 cursor-default"
                 >
                   <div className="flex items-center -space-x-1">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#F24E1E]" />
@@ -705,7 +702,7 @@ export default function Home() {
                 {/* FigJam */}
                 <motion.div
                   whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black dark:border-white bg-[#C8B8FF] text-black px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                  className="border-[3px] border-black bg-[#C8B8FF] text-black px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
                 >
                   <span className="font-sans font-black tracking-tight">FigJam</span>
                 </motion.div>
@@ -713,7 +710,7 @@ export default function Home() {
                 {/* Canva */}
                 <motion.div
                   whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black dark:border-white bg-[#00C4CC] text-white px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
+                  className="border-[3px] border-black bg-[#00C4CC] text-white px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
                 >
                   <span className="font-sans font-black tracking-tight">Canva</span>
                 </motion.div>
@@ -722,13 +719,13 @@ export default function Home() {
 
             {/* Frontend & Code */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 dark:border-white/10 pb-2">Frontend & Code</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Frontend & Code</h3>
               <div className="flex flex-wrap gap-3">
                 {frontendSkills.map((skill) => (
                   <motion.div
                     key={skill}
                     whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
-                    className="border-[3px] border-black dark:border-white px-4 py-2 text-sm md:text-base font-bold bg-secondary text-black brutal-shadow hover:bg-white transition-colors cursor-default"
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-secondary text-black brutal-shadow hover:bg-white transition-colors cursor-default"
                   >
                     {skill}
                   </motion.div>
@@ -738,13 +735,13 @@ export default function Home() {
 
             {/* UX Methods */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 dark:border-white/10 pb-2">UX Methods</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">UX Methods</h3>
               <div className="flex flex-wrap gap-3">
                 {uxMethods.map((skill) => (
                   <motion.div
                     key={skill}
                     whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
-                    className="border-[3px] border-black dark:border-white px-4 py-2 text-sm md:text-base font-bold bg-white text-black brutal-shadow hover:bg-primary transition-colors cursor-default"
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-white text-black brutal-shadow hover:bg-primary transition-colors cursor-default"
                   >
                     {skill}
                   </motion.div>
@@ -754,13 +751,13 @@ export default function Home() {
 
             {/* Accessibility */}
             <div>
-              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 dark:border-white/10 pb-2">Accessibility & QA</h3>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Accessibility & QA</h3>
               <div className="flex flex-wrap gap-3">
                 {accessibilitySkills.map((skill) => (
                   <motion.div
                     key={skill}
                     whileHover={{ y: -4, x: -4, boxShadow: "4px 4px 0px #000" }}
-                    className="border-[3px] border-black dark:border-white px-4 py-2 text-sm md:text-base font-bold bg-[#C8B8FF] text-black brutal-shadow hover:bg-white transition-colors cursor-default"
+                    className="border-[3px] border-black px-4 py-2 text-sm md:text-base font-bold bg-[#C8B8FF] text-black brutal-shadow hover:bg-white transition-colors cursor-default"
                   >
                     {skill}
                   </motion.div>
@@ -772,17 +769,17 @@ export default function Home() {
       </section>
 
       {/* ── 6. SERVICES SECTION (`#services`) ─────────────────────── */}
-      <section id="services" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black dark:border-white bg-white dark:bg-black transition-colors">
+      <section id="services" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black bg-white transition-colors">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <SectionWrapper>
             <motion.p variants={slideUp} className="font-mono text-sm sm:text-base uppercase tracking-widest mb-3 text-muted-foreground">
               — What I Do
             </motion.p>
-            <motion.h2 variants={slideUp} className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-6 text-black dark:text-white">
+            <motion.h2 variants={slideUp} className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter mb-6 text-black">
               Services <span className="text-secondary">That Ship.</span>
             </motion.h2>
-            <motion.p variants={slideUp} className="text-lg sm:text-xl font-mono max-w-2xl border-l-[6px] border-primary pl-4 sm:pl-6 mb-16 text-gray-800 dark:text-gray-200">
+            <motion.p variants={slideUp} className="text-lg sm:text-xl font-mono max-w-2xl border-l-[6px] border-primary pl-4 sm:pl-6 mb-16 text-gray-800">
               A full creative-to-code service. Whether you need a designer, a developer, or someone who thinks in both — I've got you.
             </motion.p>
           </SectionWrapper>
@@ -797,24 +794,24 @@ export default function Home() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08 }}
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
-                className="border-[3px] border-black dark:border-white bg-background dark:bg-card brutal-shadow flex flex-col transition-colors"
+                className="border-[3px] border-black bg-background brutal-shadow flex flex-col transition-colors"
                 data-testid={`service-card-${i}`}
               >
-                <div className={`${svc.color} border-b-[3px] border-black dark:border-white p-6 flex items-center justify-between`}>
-                  <div className="w-12 h-12 border-[3px] border-black dark:border-white bg-white flex items-center justify-center">
+                <div className={`${svc.color} border-b-[3px] border-black p-6 flex items-center justify-between`}>
+                  <div className="w-12 h-12 border-[3px] border-black bg-white flex items-center justify-center">
                     <svc.icon className="w-6 h-6 text-black" />
                   </div>
-                  <span className="font-mono text-xs font-bold uppercase tracking-widest border-[2px] border-black dark:border-white bg-white px-3 py-1 text-black">
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest border-[2px] border-black bg-white px-3 py-1 text-black">
                     {svc.tag}
                   </span>
                 </div>
                 <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-black dark:text-white">{svc.title}</h3>
-                  <p className="font-mono text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-6 flex-grow">{svc.description}</p>
-                  <ul className="space-y-2.5 pt-4 border-t-[2px] border-black/10 dark:border-white/10">
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-black">{svc.title}</h3>
+                  <p className="font-mono text-sm leading-relaxed text-gray-700 mb-6 flex-grow">{svc.description}</p>
+                  <ul className="space-y-2.5 pt-4 border-t-[2px] border-black/10">
                     {svc.deliverables.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 font-mono text-xs text-gray-800 dark:text-gray-200">
-                        <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-black dark:text-primary" />
+                      <li key={item} className="flex items-start gap-2.5 font-mono text-xs text-gray-800">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-black" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -825,9 +822,9 @@ export default function Home() {
           </div>
 
           {/* Differentiators ("Why Hire Me?") */}
-          <div className="pt-12 border-t-[3px] border-black dark:border-white">
+          <div className="pt-12 border-t-[3px] border-black">
             <SectionWrapper>
-              <motion.h3 variants={slideUp} className="text-3xl sm:text-5xl font-black uppercase tracking-tighter mb-12 text-black dark:text-white">
+              <motion.h3 variants={slideUp} className="text-3xl sm:text-5xl font-black uppercase tracking-tighter mb-12 text-black">
                 Why Hire Me?
               </motion.h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -835,14 +832,14 @@ export default function Home() {
                   <motion.div
                     key={d.title}
                     variants={slideUp}
-                    className="border-[3px] border-black dark:border-white bg-background dark:bg-card p-8 brutal-shadow transition-colors"
+                    className="border-[3px] border-black bg-background p-8 brutal-shadow transition-colors"
                     data-testid={`differentiator-${i}`}
                   >
-                    <div className="w-14 h-14 border-[3px] border-black dark:border-white bg-primary flex items-center justify-center mb-6">
+                    <div className="w-14 h-14 border-[3px] border-black bg-primary flex items-center justify-center mb-6">
                       <d.icon className="w-7 h-7 text-black" />
                     </div>
-                    <h4 className="text-xl font-black uppercase tracking-tight mb-3 text-black dark:text-white">{d.title}</h4>
-                    <p className="font-mono text-sm leading-relaxed text-gray-800 dark:text-gray-300">{d.body}</p>
+                    <h4 className="text-xl font-black uppercase tracking-tight mb-3 text-black">{d.title}</h4>
+                    <p className="font-mono text-sm leading-relaxed text-gray-800">{d.body}</p>
                   </motion.div>
                 ))}
               </div>
@@ -852,7 +849,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. SELECTED WORK (`#work`) ────────────────────────────── */}
-      <section id="work" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black dark:border-white bg-background dark:bg-card transition-colors">
+      <section id="work" className="px-4 sm:px-6 py-16 sm:py-24 border-b-[3px] border-black bg-background transition-colors">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -862,13 +859,13 @@ export default function Home() {
           >
             <div>
               <p className="font-mono text-sm sm:text-base uppercase tracking-widest mb-3 text-muted-foreground">— Portfolio</p>
-              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-black dark:text-white">Selected Work.</h2>
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none text-black">Selected Work.</h2>
             </div>
             <motion.a
               href="/work"
               data-testid="link-home-all-work"
               whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-              className="inline-flex items-center gap-2 font-bold uppercase border-[3px] border-black dark:border-white bg-primary text-black px-6 py-3 brutal-shadow hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+              className="inline-flex items-center gap-2 font-bold uppercase border-[3px] border-black bg-primary text-black px-6 py-3 brutal-shadow hover:bg-black hover:text-white transition-colors"
             >
               All Work <ArrowRight className="w-5 h-5" />
             </motion.a>
@@ -888,7 +885,7 @@ export default function Home() {
       </section>
 
       {/* ── 8. CONTACT SECTION (`#contact`) ───────────────────────── */}
-      <section id="contact" className="px-4 sm:px-6 py-16 sm:py-24 border-t-[3px] border-black dark:border-white bg-white dark:bg-black transition-colors">
+      <section id="contact" className="px-4 sm:px-6 py-16 sm:py-24 border-t-[3px] border-black bg-white transition-colors">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Info Side */}
           <div>
@@ -905,7 +902,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-8 text-black dark:text-white"
+              className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-8 text-black"
             >
               Let's Build<br />
               <span className="text-secondary">Something.</span>
@@ -915,12 +912,12 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="font-mono text-base sm:text-lg max-w-sm mb-12 text-gray-800 dark:text-gray-200"
+              className="font-mono text-base sm:text-lg max-w-sm mb-12 text-gray-800"
             >
               Got a project in mind? Drop me a message — I reply within 24 hours. First conversation is always free.
             </motion.p>
 
-            {/* Direct Contact Links */}
+            {/* Direct Contact Links with Skiper UI */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -928,43 +925,29 @@ export default function Home() {
               transition={{ delay: 0.3 }}
               className="flex flex-col gap-4"
             >
-              {[
-                {
-                  icon: Mail,
-                  label: "harish2n5@gmail.com",
-                  href: "mailto:harish2n5@gmail.com",
-                  testId: "link-contact-email",
-                  color: "hover:bg-primary",
-                },
-                {
-                  icon: Phone,
-                  label: "+91 98433 27279",
-                  href: "tel:+919843327279",
-                  testId: "link-contact-phone",
-                  color: "hover:bg-primary",
-                },
-                {
-                  icon: MessageCircle,
-                  label: "WhatsApp Me",
-                  href: "https://wa.me/9843327279",
-                  testId: "link-contact-whatsapp",
-                  color: "hover:bg-[#B8F0A0]",
-                },
-              ].map((item) => (
-                <motion.a
-                  key={item.testId}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  data-testid={item.testId}
-                  whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                  whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                  className={`flex items-center gap-4 border-[3px] border-black dark:border-white bg-background dark:bg-card px-6 py-4 font-bold uppercase brutal-shadow transition-colors text-black dark:text-white ${item.color}`}
-                >
-                  <item.icon className="w-5 h-5 shrink-0" />
-                  {item.label}
-                </motion.a>
-              ))}
+              <Link001
+                href="mailto:harish2n5@gmail.com"
+                className="flex items-center gap-4 border-[3px] border-black bg-background px-6 py-4 font-bold uppercase brutal-shadow transition-colors text-black hover:bg-primary"
+              >
+                <Mail className="w-5 h-5 shrink-0" />
+                harish2n5@gmail.com
+              </Link001>
+
+              <Link001
+                href="tel:+919843327279"
+                className="flex items-center gap-4 border-[3px] border-black bg-background px-6 py-4 font-bold uppercase brutal-shadow transition-colors text-black hover:bg-primary"
+              >
+                <Phone className="w-5 h-5 shrink-0" />
+                +91 98433 27279
+              </Link001>
+
+              <Link001
+                href="https://wa.me/9843327279"
+                className="flex items-center gap-4 border-[3px] border-black bg-background px-6 py-4 font-bold uppercase brutal-shadow transition-colors text-black hover:bg-[#B8F0A0]"
+              >
+                <MessageCircle className="w-5 h-5 shrink-0" />
+                WhatsApp Me
+              </Link001>
             </motion.div>
 
             {/* Social Icons */}
@@ -987,7 +970,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                   whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                  className="p-4 border-[3px] border-black dark:border-white bg-background dark:bg-card brutal-shadow hover:bg-primary transition-colors text-black dark:text-white"
+                  className="p-4 border-[3px] border-black bg-background brutal-shadow hover:bg-primary transition-colors text-black"
                   aria-label={social.label}
                 >
                   <social.icon className="w-6 h-6" />
@@ -1003,11 +986,11 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="border-[4px] border-black dark:border-white" style={{ boxShadow: "8px 8px 0px #000" }}>
-              <div className="bg-primary border-b-[4px] border-black dark:border-white px-8 py-5">
+            <div className="border-[4px] border-black" style={{ boxShadow: "8px 8px 0px #000" }}>
+              <div className="bg-primary border-b-[4px] border-black px-8 py-5">
                 <h3 className="text-2xl font-black uppercase tracking-tight text-black">Send a Message</h3>
               </div>
-              <div className="bg-background dark:bg-card">
+              <div className="bg-background">
                 <ContactForm />
               </div>
             </div>
