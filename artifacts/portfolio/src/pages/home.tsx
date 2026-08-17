@@ -1,16 +1,15 @@
-import { motion, useMotionValue, useSpring, AnimatePresence, useInView } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight, Github, Linkedin, Mail, Phone, MessageCircle, Send,
   ExternalLink, PenTool, Code2, Layers, BarChart3, Smartphone,
-  Globe, CheckCircle2, Zap, Clock, Shield, Sparkles, Terminal, Code
+  Globe, CheckCircle2, Zap, Clock, Shield, Sparkles, ArrowDown
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import { projects as dataProjects } from "@/lib/data";
 import CaseStudyModal from "./case-study";
 import { Link001 } from "@/components/ui/skiper-ui/skiper40";
-import { PortfolioCanvas } from "@/components/ui/skiper-ui/skiper39";
 
 const EMAILJS_SERVICE_ID = "service_ij7iwe7";
 const EMAILJS_TEMPLATE_ID = "template_u7yhrx9";
@@ -365,30 +364,37 @@ function ContactForm() {
 export default function Home() {
   const [activeProject, setActiveProject] = useState<typeof dataProjects[0] | null>(null);
 
+  // Hero Section Scroll Animation Hooks
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Smooth scroll transformations for kinetic typography & parallax
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const heroRotate = useTransform(scrollYProgress, [0, 1], [0, -2]);
+
+  const textXLine1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const textXLine2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const textXLine3 = useTransform(scrollYProgress, [0, 1], [0, -35]);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Electric Neo-Brutalist Cream + Skiper39 Portfolio Canvas) ── */}
-      <section id="hero" className="relative pt-8 sm:pt-10 md:pt-12 pb-14 sm:pb-18 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center">
-        
-        {/* Skiper39 Animated Portfolio Canvas Floor */}
-        <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-90 z-0" />
-
-        {/* Animated Ambient Accent Light Orbs */}
+      {/* ── 1. HERO SECTION (Interactive Scrolling Animation) ── */}
+      <section
+        ref={heroRef}
+        id="hero"
+        className="relative pt-8 sm:pt-12 md:pt-14 pb-16 sm:pb-20 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[70vh]"
+      >
+        {/* Interactive Scroll-Driven Parallax Container */}
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary opacity-30 blur-[90px] pointer-events-none"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.25, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-secondary opacity-25 blur-[100px] pointer-events-none"
-        />
-
-        {/* Hero Content Container */}
-        <div className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6">
+          style={{ y: heroY, scale: heroScale, rotate: heroRotate }}
+          className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6"
+        >
           <div className="max-w-3xl">
             {/* Kicker badge */}
             <motion.div
@@ -401,29 +407,43 @@ export default function Home() {
               <span>UI/UX Designer & Full Stack Developer</span>
             </motion.div>
 
-            {/* Kinetic Typography */}
+            {/* Kinetic Typography with Scroll-Driven Motion */}
             <div className="perspective-[800px] mb-6">
-              {[
-                { text: "I DESIGN.", color: "text-black" },
-                { text: "I CODE.", color: "text-secondary" },
-                { text: "I SHIP.", color: "text-black" },
-              ].map((line, li) => (
-                <motion.div
-                  key={li}
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delayChildren: li * 0.2 }}
-                  className={`flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] ${line.color}`}
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {line.text.split("").map((char, ci) => (
-                    <motion.span key={ci} variants={letterVariant} className="inline-block">
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </motion.div>
-              ))}
+              {/* Line 1: I DESIGN */}
+              <motion.div
+                style={{ x: textXLine1 }}
+                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-black"
+              >
+                {"I DESIGN.".split("").map((char, ci) => (
+                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.div>
+
+              {/* Line 2: I CODE */}
+              <motion.div
+                style={{ x: textXLine2 }}
+                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-secondary"
+              >
+                {"I CODE.".split("").map((char, ci) => (
+                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.div>
+
+              {/* Line 3: I SHIP */}
+              <motion.div
+                style={{ x: textXLine3 }}
+                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-black"
+              >
+                {"I SHIP.".split("").map((char, ci) => (
+                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.div>
             </div>
 
             {/* Bio Box */}
@@ -466,7 +486,17 @@ export default function Home() {
               </motion.a>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Scroll Indicator Badge */}
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-4 right-6 hidden md:flex items-center gap-2 border-[2px] border-black bg-white px-3 py-1.5 font-mono text-xs font-bold uppercase brutal-shadow"
+        >
+          <span>Scroll to explore</span>
+          <ArrowDown className="w-4 h-4 text-black animate-bounce" />
+        </motion.div>
       </section>
 
       {/* ── 2. MARQUEE BANNER ─────────────────────────────────────── */}
