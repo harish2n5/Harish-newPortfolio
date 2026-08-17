@@ -369,27 +369,22 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Solid Black + Portfolio Canvas Skiper39 Animation) ── */}
-      <section id="hero" className="relative pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 border-b-[4px] border-black bg-black text-white overflow-hidden flex items-center">
+      {/* ── 1. HERO SECTION (Light Theme + Skiper39 Portfolio Canvas) ── */}
+      <section id="hero" className="relative pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 border-b-[4px] border-black bg-background text-foreground overflow-hidden flex items-center">
         
         {/* Skiper39 Animated Portfolio Canvas Floor */}
-        <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-85 z-0" />
+        <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-90 z-0" />
 
-        {/* Animated Ambient Light Orbs */}
+        {/* Animated Ambient Accent Light Orbs */}
         <motion.div
-          animate={{ scale: [1, 1.25, 1], opacity: [0.25, 0.45, 0.25] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary/30 blur-[100px] pointer-events-none"
+          className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary opacity-30 blur-[90px] pointer-events-none"
         />
         <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+          animate={{ scale: [1, 1.25, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-secondary/30 blur-[120px] pointer-events-none"
-        />
-
-        {/* Animated Cyber Grid Overlay */}
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#CCFF00_1px,transparent_1px)] [background-size:24px_24px]"
+          className="absolute bottom-0 right-10 w-96 h-96 rounded-full bg-secondary opacity-25 blur-[100px] pointer-events-none"
         />
 
         {/* Hero Content Container */}
@@ -406,12 +401,12 @@ export default function Home() {
               <span>UI/UX Designer & Full Stack Developer</span>
             </motion.div>
 
-            {/* Kinetic High-Contrast Typography */}
+            {/* Kinetic Typography */}
             <div className="perspective-[800px] mb-6">
               {[
-                { text: "I DESIGN.", color: "text-white" },
+                { text: "I DESIGN.", color: "text-black" },
                 { text: "I CODE.", color: "text-secondary" },
-                { text: "I SHIP.", color: "text-primary" },
+                { text: "I SHIP.", color: "text-black" },
               ].map((line, li) => (
                 <motion.div
                   key={li}
@@ -436,10 +431,10 @@ export default function Home() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="border-[3px] border-white/20 bg-black/85 backdrop-blur-md p-6 brutal-shadow max-w-xl mb-8"
-              style={{ boxShadow: "6px 6px 0px #CCFF00" }}
+              className="border-[3px] border-black bg-white p-6 brutal-shadow max-w-xl mb-8"
+              style={{ boxShadow: "6px 6px 0px #000" }}
             >
-              <p className="text-base sm:text-lg font-mono text-gray-200 leading-relaxed border-l-[4px] border-primary pl-4">
+              <p className="text-base sm:text-lg font-mono text-black leading-relaxed border-l-[4px] border-primary pl-4 font-medium">
                 Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
               </p>
             </motion.div>
@@ -454,18 +449,18 @@ export default function Home() {
               <motion.a
                 href="#work"
                 data-testid="button-hero-work"
-                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #CCFF00" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #CCFF00" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-primary bg-primary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-white transition-colors"
+                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-foreground text-background px-8 py-4 brutal-shadow cursor-pointer hover:bg-primary hover:text-black transition-colors"
               >
                 See Work <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.a
                 href="/contact"
                 data-testid="button-hero-contact"
-                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #FF5252" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #FF5252" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-secondary bg-secondary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-white transition-colors"
+                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
                 Hire Me
               </motion.a>
@@ -522,51 +517,26 @@ export default function Home() {
             </motion.h2>
           </SectionWrapper>
 
-          {/* Bio Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Story text */}
-            <SectionWrapper className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-3 text-black">The Story</h3>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
-                I started as a designer obsessed with aesthetics, then realised that beautiful products without solid engineering are just pretty ideas.
-              </p>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
-                So I learned to code. Not just enough to hand off specs, but enough to build the entire thing myself — from database schema to pixel-level animation.
-              </p>
-              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 mb-8">
-                Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
-              </p>
-              <motion.a
-                href="/contact"
-                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
-              >
-                Work With Me <ArrowRight className="w-5 h-5" />
-              </motion.a>
-            </SectionWrapper>
-
-            {/* Profile Photo Display */}
-            <SectionWrapper className="flex justify-center md:justify-end">
-              <div className="relative max-w-sm w-full">
-                <div className="absolute -bottom-3 -right-3 w-full aspect-[4/5] border-[4px] border-black bg-primary" />
-                <div
-                  className="relative border-[4px] border-black overflow-hidden aspect-[4/5] bg-muted z-10"
-                  style={{ boxShadow: "8px 8px 0px #000" }}
-                >
-                  <img
-                    src={HERO_IMAGE}
-                    alt="Harish"
-                    className="w-full h-full object-cover object-center"
-                    data-testid="img-about-photo"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 border-t-[4px] border-black bg-white px-5 py-3 flex items-center justify-between">
-                    <span className="font-black uppercase tracking-tight text-lg text-black">Harish</span>
-                    <span className="font-mono text-xs border-[2px] border-black px-3 py-1 bg-primary uppercase font-bold text-black">UI/UX + Dev</span>
-                  </div>
-                </div>
-              </div>
-            </SectionWrapper>
+          {/* Bio Story text */}
+          <div className="max-w-3xl space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-3 text-black">The Story</h3>
+            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
+              I started as a designer obsessed with aesthetics, then realised that beautiful products without solid engineering are just pretty ideas.
+            </p>
+            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
+              So I learned to code. Not just enough to hand off specs, but enough to build the entire thing myself — from database schema to pixel-level animation.
+            </p>
+            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 mb-8">
+              Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
+            </p>
+            <motion.a
+              href="/contact"
+              whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+              whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+              className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+            >
+              Work With Me <ArrowRight className="w-5 h-5" />
+            </motion.a>
           </div>
         </div>
       </section>
