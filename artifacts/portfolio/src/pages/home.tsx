@@ -388,31 +388,31 @@ export default function Home() {
       <section
         ref={heroRef}
         id="hero"
-        className="relative pt-8 sm:pt-12 md:pt-14 pb-16 sm:pb-20 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[70vh]"
+        className="relative pt-6 sm:pt-8 md:pt-10 pb-10 sm:pb-14 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[55vh]"
       >
         {/* Interactive Scroll-Driven Parallax Container */}
         <motion.div
           style={{ y: heroY, scale: heroScale, rotate: heroRotate }}
           className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6"
         >
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             {/* Kicker badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-widest bg-primary text-black border-[3px] border-black px-4 py-2 brutal-shadow mb-6"
+              className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest bg-primary text-black border-[2.5px] border-black px-3 py-1.5 brutal-shadow mb-4"
             >
-              <Sparkles className="w-4 h-4 fill-black" />
+              <Sparkles className="w-3.5 h-3.5 fill-black" />
               <span>UI/UX Designer & Full Stack Developer</span>
             </motion.div>
 
             {/* Kinetic Typography with Scroll-Driven Motion */}
-            <div className="perspective-[800px] mb-6">
+            <div className="perspective-[800px] mb-5">
               {/* Line 1: I DESIGN */}
               <motion.div
                 style={{ x: textXLine1 }}
-                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-black"
+                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black"
               >
                 {"I DESIGN.".split("").map((char, ci) => (
                   <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
@@ -424,7 +424,7 @@ export default function Home() {
               {/* Line 2: I CODE */}
               <motion.div
                 style={{ x: textXLine2 }}
-                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-secondary"
+                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-secondary"
               >
                 {"I CODE.".split("").map((char, ci) => (
                   <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
@@ -436,7 +436,7 @@ export default function Home() {
               {/* Line 3: I SHIP */}
               <motion.div
                 style={{ x: textXLine3 }}
-                className="flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] text-black"
+                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black"
               >
                 {"I SHIP.".split("").map((char, ci) => (
                   <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
@@ -451,10 +451,10 @@ export default function Home() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="border-[3px] border-black bg-white p-6 brutal-shadow max-w-xl mb-8"
-              style={{ boxShadow: "6px 6px 0px #000" }}
+              className="border-[2.5px] border-black bg-white p-4 sm:p-5 brutal-shadow max-w-lg mb-6"
+              style={{ boxShadow: "5px 5px 0px #000" }}
             >
-              <p className="text-base sm:text-lg font-mono text-black leading-relaxed border-l-[4px] border-primary pl-4 font-medium">
+              <p className="text-sm sm:text-base font-mono text-black leading-relaxed border-l-[3px] border-primary pl-3.5 font-medium">
                 Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
               </p>
             </motion.div>
@@ -464,23 +464,23 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
-              className="flex gap-4 flex-wrap items-center"
+              className="flex gap-3 flex-wrap items-center"
             >
               <motion.a
                 href="#work"
                 data-testid="button-hero-work"
-                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
+                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-primary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
-                See Work <ArrowRight className="w-5 h-5" />
+                See Work <ArrowRight className="w-4 h-4" />
               </motion.a>
               <motion.a
                 href="/contact"
                 data-testid="button-hero-contact"
-                whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
+                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-secondary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-secondary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
                 Hire Me
               </motion.a>
