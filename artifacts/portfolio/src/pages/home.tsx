@@ -9,7 +9,8 @@ import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import { projects as dataProjects } from "@/lib/data";
 import CaseStudyModal from "./case-study";
-import { Link001, Link004, Link005 } from "@/components/ui/skiper-ui/skiper40";
+import { Link001 } from "@/components/ui/skiper-ui/skiper40";
+import { PortfolioCanvas } from "@/components/ui/skiper-ui/skiper39";
 
 const EMAILJS_SERVICE_ID = "service_ij7iwe7";
 const EMAILJS_TEMPLATE_ID = "template_u7yhrx9";
@@ -368,9 +369,12 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Solid Black + Skiper UI Animated Links & Motion) ── */}
-      <section id="hero" className="relative py-16 sm:py-20 md:py-24 border-b-[4px] border-black bg-black text-white overflow-hidden">
+      {/* ── 1. HERO SECTION (Solid Black + Portfolio Canvas Skiper39 Animation) ── */}
+      <section id="hero" className="relative py-16 sm:py-24 md:py-28 border-b-[4px] border-black bg-black text-white overflow-hidden min-h-[75vh] flex items-center">
         
+        {/* Skiper39 Animated Portfolio Canvas Floor */}
+        <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-85 z-0" />
+
         {/* Animated Ambient Light Orbs */}
         <motion.div
           animate={{ scale: [1, 1.25, 1], opacity: [0.25, 0.45, 0.25] }}
@@ -389,10 +393,8 @@ export default function Home() {
         />
 
         {/* Hero Content Container */}
-        <div className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          {/* Left Column: Text & Kinetic Titles */}
-          <div className="lg:col-span-7">
+        <div className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl">
             {/* Kicker badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -417,7 +419,7 @@ export default function Home() {
                   initial="hidden"
                   animate="visible"
                   transition={{ delayChildren: li * 0.2 }}
-                  className={`flex overflow-hidden text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-[0.88] ${line.color}`}
+                  className={`flex overflow-hidden text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.88] ${line.color}`}
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   {line.text.split("").map((char, ci) => (
@@ -434,7 +436,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="border-[3px] border-white/20 bg-white/5 backdrop-blur-md p-6 brutal-shadow max-w-xl mb-8"
+              className="border-[3px] border-white/20 bg-black/85 backdrop-blur-md p-6 brutal-shadow max-w-xl mb-8"
               style={{ boxShadow: "6px 6px 0px #CCFF00" }}
             >
               <p className="text-base sm:text-lg font-mono text-gray-200 leading-relaxed border-l-[4px] border-primary pl-4">
@@ -442,7 +444,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Action buttons with Skiper UI design */}
+            {/* Action buttons */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -469,66 +471,6 @@ export default function Home() {
               </motion.a>
             </motion.div>
           </div>
-
-          {/* Right Column: Animated Cyber Photo Frame */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: 3 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="relative max-w-xs sm:max-w-sm w-full"
-            >
-              {/* Floating backdrop shadow box with motion */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -right-4 w-full aspect-[4/5] border-[4px] border-[#CCFF00] bg-primary/20"
-              />
-
-              {/* Main Photo Container */}
-              <motion.div
-                whileHover={{ scale: 1.02, rotate: -1 }}
-                className="relative border-[4px] border-white overflow-hidden aspect-[4/5] bg-black z-10 brutal-shadow"
-                style={{ boxShadow: "8px 8px 0px #CCFF00" }}
-              >
-                <img
-                  src={HERO_IMAGE}
-                  alt="Harish — UI/UX Designer & Full Stack Developer"
-                  className="w-full h-full object-cover object-center filter contrast-110"
-                  data-testid="img-hero-photo"
-                />
-
-                {/* Animated Name Badge */}
-                <div className="absolute bottom-0 left-0 right-0 border-t-[4px] border-white bg-black/90 backdrop-blur-md px-5 py-3 flex items-center justify-between">
-                  <div>
-                    <span className="font-black uppercase tracking-tight text-lg text-white block">Harish</span>
-                    <span className="font-mono text-[10px] text-gray-400 uppercase">Designer & Full Stack Dev</span>
-                  </div>
-                  <span className="font-mono text-xs border-[2px] border-black bg-primary text-black font-bold px-2.5 py-1 uppercase">
-                    Available
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Floating tech badge pill */}
-              <motion.div
-                animate={{ y: [0, -8, 0], x: [0, 4, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-5 -left-5 z-20 bg-secondary text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-[3px] border-black brutal-shadow flex items-center gap-1.5"
-              >
-                <Terminal className="w-4 h-4" /> Full Stack
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 8, 0], x: [0, -4, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -bottom-5 -left-5 z-20 bg-primary text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-[3px] border-black brutal-shadow flex items-center gap-1.5"
-              >
-                <Code className="w-4 h-4" /> Pixel Perfect
-              </motion.div>
-            </motion.div>
-          </div>
-
         </div>
       </section>
 
