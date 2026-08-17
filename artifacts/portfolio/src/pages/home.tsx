@@ -478,7 +478,7 @@ export default function Home() {
                 See Work <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="#contact"
+                href="/contact"
                 data-testid="button-hero-contact"
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
@@ -577,7 +577,7 @@ export default function Home() {
                 Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
               </p>
               <motion.a
-                href="#contact"
+                href="/contact"
                 whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
                 className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"

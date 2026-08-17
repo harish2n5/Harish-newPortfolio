@@ -1,56 +1,30 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
-import { Home, Briefcase, Mail, MoreHorizontal, Layers, User, X, FileDown } from "lucide-react";
+import { Home, Briefcase, Mail, MoreHorizontal, FileDown, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const desktopLinks = [
-  { label: "Home",     href: "/#hero",     icon: Home },
-  { label: "About",    href: "/#about",    icon: User },
-  { label: "Services", href: "/#services", icon: Layers },
-  { label: "Work",     href: "/work",      icon: Briefcase },
-  { label: "Contact",  href: "/#contact",  icon: Mail },
+  { label: "Home",    href: "/",        icon: Home },
+  { label: "Work",    href: "/work",    icon: Briefcase },
+  { label: "Contact", href: "/contact", icon: Mail },
 ];
 
 const mobileMainLinks = [
-  { label: "Home",     href: "/#hero",     icon: Home },
-  { label: "About",    href: "/#about",    icon: User },
-  { label: "Services", href: "/#services", icon: Layers },
-  { label: "Work",     href: "/work",      icon: Briefcase },
+  { label: "Home",    href: "/",        icon: Home },
+  { label: "Work",    href: "/work",    icon: Briefcase },
+  { label: "Contact", href: "/contact", icon: Mail },
 ];
 
 const moreLinks = [
-  { label: "Contact",  href: "/#contact",  icon: Mail, external: false },
-  { label: "Resume",   href: "/Harish_DResume.pdf", icon: FileDown, external: true, download: true },
+  { label: "Resume",  href: "/Harish_DResume.pdf", icon: FileDown, external: true, download: true },
 ];
 
 export default function Navbar() {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const [moreOpen, setMoreOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   // Close "More" menu on route change
   useEffect(() => { setMoreOpen(false); }, [location]);
-
-  // Handle smooth scroll when navigating to anchor link
-  const scrollToAnchor = (targetId: string) => {
-    const el = document.getElementById(targetId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleNavClick = (e: React.MouseEvent, href: string) => {
-    if (href.startsWith("/#")) {
-      e.preventDefault();
-      const targetId = href.replace("/#", "");
-      if (location === "/" || location === "") {
-        scrollToAnchor(targetId);
-      } else {
-        setLocation("/");
-        setTimeout(() => scrollToAnchor(targetId), 100);
-      }
-    }
-  };
 
   const isMoreActive = moreLinks.some((l) => l.href === location);
 
@@ -59,45 +33,24 @@ export default function Navbar() {
       {/* ── Desktop / Tablet Top Navbar ─────────────────────────── */}
       <nav className="border-b-[3px] border-black px-4 sm:px-6 py-4 flex justify-between items-center bg-white relative z-40 sticky top-0">
         <div className="flex-1 flex justify-start">
-          <a
-            href="/#hero"
-            onClick={(e) => handleNavClick(e, "/#hero")}
-            data-testid="link-logo"
-          >
-            <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase cursor-pointer hover:text-secondary transition-colors">
+          <Link href="/" data-testid="link-logo">
+            <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase cursor-pointer hover:text-secondary transition-colors text-black">
               HARISH.
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Nav links — hidden on mobile */}
         <div className="hidden md:flex items-center justify-center gap-1 shrink-0">
           {desktopLinks.map((link) => {
-            const isActive = location === link.href || (location === "/" && link.href === "/#hero");
-            return link.href.startsWith("/#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                data-testid={`link-nav-${link.label.toLowerCase()}`}
-              >
-                <span
-                  className={`px-4 py-2 font-bold uppercase tracking-wider text-sm cursor-pointer transition-colors border-[2px] ${
-                    isActive
-                      ? "bg-primary border-black brutal-shadow"
-                      : "border-transparent hover:bg-primary hover:border-black"
-                  }`}
-                >
-                  {link.label}
-                </span>
-              </a>
-            ) : (
+            const isActive = location === link.href;
+            return (
               <Link key={link.href} href={link.href} data-testid={`link-nav-${link.label.toLowerCase()}`}>
                 <span
                   className={`px-4 py-2 font-bold uppercase tracking-wider text-sm cursor-pointer transition-colors border-[2px] ${
                     isActive
-                      ? "bg-primary border-black brutal-shadow"
-                      : "border-transparent hover:bg-primary hover:border-black"
+                      ? "bg-primary border-black brutal-shadow text-black"
+                      : "border-transparent text-black hover:bg-primary hover:border-black"
                   }`}
                 >
                   {link.label}
@@ -112,15 +65,11 @@ export default function Navbar() {
           <a
             href="/Harish_DResume.pdf"
             download
-            className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-black transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary"
+            className="flex items-center gap-2 font-bold uppercase tracking-wider text-sm hover:text-black transition-colors border-[2px] border-transparent px-4 py-2 hover:border-black hover:bg-primary text-black"
           >
             <FileDown className="w-4 h-4" /> Resume
           </a>
-          <a
-            href="/#contact"
-            onClick={(e) => handleNavClick(e, "/#contact")}
-            data-testid="link-nav-hire"
-          >
+          <Link href="/contact" data-testid="link-nav-hire">
             <motion.span
               whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
               whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
@@ -128,7 +77,7 @@ export default function Navbar() {
             >
               Hire Me
             </motion.span>
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -160,7 +109,7 @@ export default function Navbar() {
                 {/* Header */}
                 <div className="flex items-center justify-between border-b-[2px] border-white/20 px-4 py-2">
                   <span className="font-mono text-[9px] uppercase tracking-widest text-white/50">More</span>
-                  <button onClick={() => setMoreOpen(false)} className="text-white/50 hover:text-white transition-colors">
+                  <button onClick={() => setMoreOpen(false)} className="text-white/50 hover:text-white transition-colors cursor-pointer">
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -186,17 +135,9 @@ export default function Navbar() {
                       {inner}
                     </a>
                   ) : (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={(e) => {
-                        handleNavClick(e, link.href);
-                        setMoreOpen(false);
-                      }}
-                      data-testid={`link-mobile-more-${link.label.toLowerCase()}`}
-                    >
+                    <Link key={link.href} href={link.href} data-testid={`link-mobile-more-${link.label.toLowerCase()}`}>
                       {inner}
-                    </a>
+                    </Link>
                   );
                 })}
               </motion.div>
@@ -209,39 +150,17 @@ export default function Navbar() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 24, delay: 0.4 }}
-          className="bg-black border-[3px] border-black flex items-center justify-around px-1 py-2"
+          className="bg-black border-[3px] border-black flex items-center justify-around px-2 py-2"
           style={{ boxShadow: "4px 4px 0px #CCFF00" }}
         >
           {/* Main nav items */}
           {mobileMainLinks.map((link) => {
             const isActive = location === link.href;
-            return link.href.startsWith("/#") ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                data-testid={`link-mobile-nav-${link.label.toLowerCase()}`}
-              >
-                <motion.span
-                  whileTap={{ scale: 0.88 }}
-                  className={`flex flex-col items-center gap-0.5 px-3 py-1.5 cursor-pointer transition-colors ${
-                    isActive ? "text-black bg-primary" : "text-white"
-                  }`}
-                >
-                  <link.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.8} />
-                  <span className="text-[9px] font-bold uppercase tracking-wider leading-none">
-                    {link.label}
-                  </span>
-                  {isActive && (
-                    <motion.div layoutId="mobile-nav-indicator" className="w-1 h-1 bg-black rounded-full" />
-                  )}
-                </motion.span>
-              </a>
-            ) : (
+            return (
               <Link key={link.href} href={link.href} data-testid={`link-mobile-nav-${link.label.toLowerCase()}`}>
                 <motion.span
                   whileTap={{ scale: 0.88 }}
-                  className={`flex flex-col items-center gap-0.5 px-3 py-1.5 cursor-pointer transition-colors ${
+                  className={`flex flex-col items-center gap-0.5 px-4 py-1.5 cursor-pointer transition-colors ${
                     isActive ? "text-black bg-primary" : "text-white"
                   }`}
                 >
@@ -262,7 +181,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.88 }}
             onClick={() => setMoreOpen((p) => !p)}
             data-testid="button-mobile-nav-more"
-            className={`flex flex-col items-center gap-0.5 px-3 py-1.5 cursor-pointer transition-colors ${
+            className={`flex flex-col items-center gap-0.5 px-4 py-1.5 cursor-pointer transition-colors ${
               isMoreActive || moreOpen ? "text-black bg-primary" : "text-white"
             }`}
           >
