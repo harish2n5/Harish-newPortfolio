@@ -369,8 +369,8 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Pure White + Skiper39 Portfolio Canvas) ── */}
-      <section id="hero" className="relative pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 border-b-[4px] border-black bg-white text-foreground overflow-hidden flex items-center">
+      {/* ── 1. HERO SECTION (Electric Neo-Brutalist Cream + Skiper39 Portfolio Canvas) ── */}
+      <section id="hero" className="relative pt-8 sm:pt-10 md:pt-12 pb-14 sm:pb-18 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center">
         
         {/* Skiper39 Animated Portfolio Canvas Floor */}
         <PortfolioCanvas className="absolute inset-0 h-full w-full pointer-events-none opacity-90 z-0" />
@@ -451,7 +451,7 @@ export default function Home() {
                 data-testid="button-hero-work"
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-foreground text-background px-8 py-4 brutal-shadow cursor-pointer hover:bg-primary hover:text-black transition-colors"
+                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
                 See Work <ArrowRight className="w-5 h-5" />
               </motion.a>
@@ -460,7 +460,7 @@ export default function Home() {
                 data-testid="button-hero-contact"
                 whileHover={{ x: -4, y: -4, boxShadow: "8px 8px 0px #000" }}
                 whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+                className="inline-flex items-center gap-3 font-bold uppercase text-base sm:text-lg border-[3px] border-black bg-secondary text-black px-8 py-4 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
                 Hire Me
               </motion.a>
