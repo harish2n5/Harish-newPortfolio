@@ -84,7 +84,7 @@ const workflowSteps = [
       "Responsive variants and edge case coverage",
     ],
     devDetails: [
-      "Feature development with TypeScript end-to-end",
+      "Feature development end-to-end",
       "Daily syncs to catch design-dev gaps before they compound",
       "Automated testing for critical paths",
     ],

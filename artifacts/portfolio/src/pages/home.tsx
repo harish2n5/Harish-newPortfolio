@@ -24,7 +24,7 @@ const uxMethods = [
 ];
 
 const frontendSkills = [
-  "React", "JavaScript", "TypeScript", "Next.js", "HTML5", "CSS3 / Tailwind"
+  "React", "HTML5", "CSS3 / Tailwind"
 ];
 
 const accessibilitySkills = [
@@ -125,6 +125,24 @@ const FramerAILogo = () => (
   </svg>
 );
 
+const ReplitAILogo = () => (
+  <div className="flex items-center gap-1 shrink-0">
+    <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#F26207]" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 1.5A1.5 1.5 0 0 1 3.5 0h7A1.5 1.5 0 0 1 12 1.5V7a1.5 1.5 0 0 1-1.5 1.5H8.5V12h3.5A1.5 1.5 0 0 1 13.5 13.5v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3.5 20.5V15a1.5 1.5 0 0 1 1.5-1.5H8.5V8.5H3.5A1.5 1.5 0 0 1 2 7V1.5z"/>
+    </svg>
+    <Sparkles className="w-3.5 h-3.5 text-[#F26207] fill-[#F26207]" />
+  </div>
+);
+
+const AntigravityLogo = () => (
+  <div className="flex items-center gap-1 shrink-0">
+    <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#4285F4]" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+    <Sparkles className="w-3.5 h-3.5 text-[#4285F4] fill-[#4285F4]" />
+  </div>
+);
+
 const designTools = [
   { name: "Figma", icon: FigmaLogo, bg: "bg-white", text: "text-black", border: "border-black" },
   { name: "Illustrator", icon: IllustratorLogo, bg: "bg-[#260000]", text: "text-[#FF9A00]", border: "border-[#FF9A00]" },
@@ -135,6 +153,8 @@ const designTools = [
 ];
 
 const aiTools = [
+  { name: "Replit AI", icon: ReplitAILogo, bg: "bg-[#FFF4ED]", text: "text-black", border: "border-[#F26207]" },
+  { name: "Antigravity", icon: AntigravityLogo, bg: "bg-[#EEF4FF]", text: "text-black", border: "border-[#4285F4]" },
   { name: "ChatGPT", icon: ChatGPTLogo, bg: "bg-[#10A37F]", text: "text-white", border: "border-black" },
   { name: "Figma AI", icon: FigmaAILogo, bg: "bg-white", text: "text-black", border: "border-black" },
   { name: "Lovable.ai", icon: LovableLogo, bg: "bg-[#FFF0F3]", text: "text-black", border: "border-[#FF3366]" },
@@ -177,7 +197,7 @@ const services = [
     description:
       "Production-grade web applications built with modern stacks. From API design to deployment — clean architecture typed end-to-end.",
     deliverables: [
-      "React / Next.js Frontend",
+      "React Frontend",
       "Node.js / Express Backend",
       "PostgreSQL & Database Design",
       "REST or GraphQL APIs",
@@ -195,7 +215,7 @@ const services = [
     deliverables: [
       "Token Architecture (color, type, space)",
       "Figma Component Library",
-      "React Component Library (TypeScript)",
+      "React Component Library",
       "Documentation & Guidelines",
       "Accessibility & WCAG Audit",
       "Team Adoption Guide",

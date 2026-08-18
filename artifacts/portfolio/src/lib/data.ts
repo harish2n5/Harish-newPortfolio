@@ -59,18 +59,18 @@ export const projects = [
     finalOutputImage: project1Url,
     accentColor: "bg-secondary",
     year: "2026",
-    tags: ["Figma", "FigJam", "Photoshop", "Replit", "ChatGPT", "Claude", "Figma AI"],
+    tags: ["Figma", "FigJam", "Photoshop", "Replit AI", "Antigravity", "ChatGPT", "Claude", "Figma AI"],
     role: "Lead UI/UX Designer",
     duration: "8 Weeks",
     tools: ["Figma", "FigJam", "Photoshop"],
-    aiTools: ["Replit", "ChatGPT", "Claude", "Figma AI"],
+    aiTools: ["Replit AI", "Antigravity", "ChatGPT", "Claude", "Figma AI"],
     platform: "Web & Mobile Ecosystem",
     shortDesc: "Consolidated fragmented employee workflows across 8 modules into a unified platform, reducing tool switching and making everyday HR tasks easier to discover and complete.",
     link: "https://github.com/harish2n5/Harish-newPortfolio",
     caseStudy: {
       toolsNotice: {
         tools: ["Figma", "FigJam", "Photoshop"],
-        ai: ["Replit", "ChatGPT", "Claude", "Figma AI"]
+        ai: ["Replit AI", "Antigravity", "ChatGPT", "Claude", "Figma AI"]
       },
       heroTagline: "Consolidated fragmented employee workflows across 8 modules into a unified platform, reducing tool switching and making everyday HR tasks easier to discover and complete.",
       targetUsers: {
