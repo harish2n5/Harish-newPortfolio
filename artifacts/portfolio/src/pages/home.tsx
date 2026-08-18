@@ -384,19 +384,19 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Horizontal Layout) ── */}
+      {/* ── 1. HERO SECTION ── */}
       <section
         ref={heroRef}
         id="hero"
-        className="relative pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[60vh]"
+        className="relative pt-10 sm:pt-14 md:pt-18 pb-12 sm:pb-16 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[60vh]"
       >
         {/* Interactive Scroll-Driven Parallax Container */}
         <motion.div
           style={{ y: heroY, scale: heroScale, rotate: heroRotate }}
           className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6"
         >
-          {/* Top Row: Kicker Badge */}
-          <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+          <div className="flex flex-col items-start gap-6 max-w-5xl">
+            {/* Top Row: Kicker Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -406,106 +406,78 @@ export default function Home() {
               <Sparkles className="w-3.5 h-3.5 fill-black" />
               <span>UI/UX Designer & Full Stack Developer</span>
             </motion.div>
-          </div>
 
-          {/* Main Horizontal Section (2-Column Horizontal Split Grid) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column: Horizontal Headline + Action Buttons */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              {/* Kinetic Typography arranged Horizontally in a row */}
-              <div className="perspective-[800px] mb-6">
-                <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95]">
-                  {/* Item 1: I DESIGN. */}
-                  <motion.div style={{ x: textXLine1 }} className="flex text-black">
-                    {"I DESIGN.".split("").map((char, ci) => (
-                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                        {char === " " ? "\u00A0" : char}
-                      </motion.span>
-                    ))}
-                  </motion.div>
+            {/* Headline: I DESIGN. I CODE. I SHIP. (Horizontal next to next) */}
+            <div className="perspective-[800px] w-full">
+              <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.95]">
+                {/* Item 1: I DESIGN. */}
+                <motion.div style={{ x: textXLine1 }} className="flex text-black">
+                  {"I DESIGN.".split("").map((char, ci) => (
+                    <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.div>
 
-                  {/* Item 2: I CODE. */}
-                  <motion.div style={{ x: textXLine2 }} className="flex text-secondary">
-                    {"I CODE.".split("").map((char, ci) => (
-                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                        {char === " " ? "\u00A0" : char}
-                      </motion.span>
-                    ))}
-                  </motion.div>
+                {/* Item 2: I CODE. */}
+                <motion.div style={{ x: textXLine2 }} className="flex text-secondary">
+                  {"I CODE.".split("").map((char, ci) => (
+                    <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.div>
 
-                  {/* Item 3: I SHIP. */}
-                  <motion.div style={{ x: textXLine3 }} className="flex text-black">
-                    {"I SHIP.".split("").map((char, ci) => (
-                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                        {char === " " ? "\u00A0" : char}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-                </div>
+                {/* Item 3: I SHIP. */}
+                <motion.div style={{ x: textXLine3 }} className="flex text-black">
+                  {"I SHIP.".split("").map((char, ci) => (
+                    <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.div>
               </div>
-
-              {/* Action Buttons */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
-                className="flex gap-3 flex-wrap items-center mt-2"
-              >
-                <motion.a
-                  href="#work"
-                  data-testid="button-hero-work"
-                  whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                  whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                  className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-primary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
-                >
-                  See Work <ArrowRight className="w-4 h-4" />
-                </motion.a>
-                <motion.a
-                  href="/contact"
-                  data-testid="button-hero-contact"
-                  whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                  whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                  className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-secondary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
-                >
-                  Hire Me
-                </motion.a>
-              </motion.div>
             </div>
 
-            {/* Right Column: Bio Box + Profile Avatar (Horizontally Placed Alongside) */}
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-6 items-center lg:items-start">
-              {/* Profile Avatar Frame */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="relative shrink-0"
-              >
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-[3.5px] border-black overflow-hidden bg-primary brutal-shadow">
-                  <img
-                    src={HERO_IMAGE}
-                    alt="Harish"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <div className="absolute -bottom-1 -right-1 bg-[#B8F0A0] border-[2px] border-black px-2 py-0.5 font-mono text-[10px] font-black uppercase text-black rounded-full brutal-shadow">
-                  AVAILABLE
-                </div>
-              </motion.div>
+            {/* Description (Below Headline) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="border-[2.5px] border-black bg-white p-5 brutal-shadow max-w-2xl"
+              style={{ boxShadow: "6px 6px 0px #000" }}
+            >
+              <p className="text-base sm:text-lg font-mono text-black leading-relaxed border-l-[4px] border-primary pl-4 font-medium">
+                Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
+              </p>
+            </motion.div>
 
-              {/* Bio Box */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="border-[2.5px] border-black bg-white p-5 brutal-shadow w-full"
-                style={{ boxShadow: "6px 6px 0px #000" }}
+            {/* CTA Buttons (Below Description) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+              className="flex gap-4 flex-wrap items-center pt-2"
+            >
+              <motion.a
+                href="#work"
+                data-testid="button-hero-work"
+                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-primary text-black px-6 py-3.5 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
               >
-                <p className="text-sm sm:text-base font-mono text-black leading-relaxed border-l-[3.5px] border-primary pl-4 font-medium">
-                  Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
-                </p>
-              </motion.div>
-            </div>
+                See Work <ArrowRight className="w-4 h-4" />
+              </motion.a>
+              <motion.a
+                href="/contact"
+                data-testid="button-hero-contact"
+                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-secondary text-black px-6 py-3.5 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+              >
+                Hire Me
+              </motion.a>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -568,26 +540,52 @@ export default function Home() {
             </motion.h2>
           </SectionWrapper>
 
-          {/* Bio Story text */}
-          <div className="max-w-3xl space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-3 text-black">The Story</h3>
-            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
-              I started as a designer obsessed with aesthetics, then realised that beautiful products without solid engineering are just pretty ideas.
-            </p>
-            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
-              So I learned to code. Not just enough to hand off specs, but enough to build the entire thing myself — from database schema to pixel-level animation.
-            </p>
-            <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 mb-8">
-              Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
-            </p>
-            <motion.a
-              href="/contact"
-              whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-              whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-              className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
-            >
-              Work With Me <ArrowRight className="w-5 h-5" />
-            </motion.a>
+          {/* Grid Layout: Left = Bio Story text, Right = Hero Image / Portrait Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Bio Story Text (Left 7 cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-4 border-b-[3px] border-black pb-3 text-black">The Story</h3>
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
+                I started as a designer obsessed with aesthetics, then realised that beautiful products without solid engineering are just pretty ideas.
+              </p>
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800">
+                So I learned to code. Not just enough to hand off specs, but enough to build the entire thing myself — from database schema to pixel-level animation.
+              </p>
+              <p className="font-mono text-base sm:text-lg leading-relaxed text-gray-800 mb-8">
+                Today I work with startups and product teams who need someone who speaks both languages fluently. No translation layer. No miscommunication. Just great products.
+              </p>
+              <motion.a
+                href="/contact"
+                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                className="inline-flex items-center gap-3 font-bold uppercase border-[3px] border-black bg-primary text-black px-8 py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+              >
+                Work With Me <ArrowRight className="w-5 h-5" />
+              </motion.a>
+            </div>
+
+            {/* Profile Image Box (Right 5 cols) */}
+            <div className="lg:col-span-5 flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative border-[4px] border-black bg-white p-3 brutal-shadow max-w-sm w-full"
+                style={{ boxShadow: "8px 8px 0px #000" }}
+              >
+                <div className="border-[3px] border-black overflow-hidden bg-primary relative aspect-[4/5] w-full">
+                  <img
+                    src={HERO_IMAGE}
+                    alt="Harish - UI/UX Designer & Full Stack Developer"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-[#B8F0A0] border-[2.5px] border-black px-3 py-1 font-mono text-xs font-black uppercase text-black brutal-shadow">
+                    HARISH • AVAILABLE FOR HIRE
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
