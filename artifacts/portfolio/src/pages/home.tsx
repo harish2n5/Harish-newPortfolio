@@ -384,107 +384,128 @@ export default function Home() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white text-foreground font-sans selection:bg-primary selection:text-black transition-colors">
       <Navbar />
 
-      {/* ── 1. HERO SECTION (Interactive Scrolling Animation) ── */}
+      {/* ── 1. HERO SECTION (Horizontal Layout) ── */}
       <section
         ref={heroRef}
         id="hero"
-        className="relative pt-6 sm:pt-8 md:pt-10 pb-10 sm:pb-14 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[55vh]"
+        className="relative pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 border-b-[4px] border-black bg-[#F9F9F4] text-foreground overflow-hidden flex items-center min-h-[60vh]"
       >
         {/* Interactive Scroll-Driven Parallax Container */}
         <motion.div
           style={{ y: heroY, scale: heroScale, rotate: heroRotate }}
           className="relative z-10 max-w-6xl w-full mx-auto px-4 sm:px-6"
         >
-          <div className="max-w-2xl">
-            {/* Kicker badge */}
+          {/* Top Row: Kicker Badge */}
+          <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest bg-primary text-black border-[2.5px] border-black px-3 py-1.5 brutal-shadow mb-4"
+              className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest bg-primary text-black border-[2.5px] border-black px-3.5 py-1.5 brutal-shadow"
             >
               <Sparkles className="w-3.5 h-3.5 fill-black" />
               <span>UI/UX Designer & Full Stack Developer</span>
             </motion.div>
+          </div>
 
-            {/* Kinetic Typography with Scroll-Driven Motion */}
-            <div className="perspective-[800px] mb-5">
-              {/* Line 1: I DESIGN */}
-              <motion.div
-                style={{ x: textXLine1 }}
-                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black"
-              >
-                {"I DESIGN.".split("").map((char, ci) => (
-                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.div>
+          {/* Main Horizontal Section (2-Column Horizontal Split Grid) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Horizontal Headline + Action Buttons */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              {/* Kinetic Typography arranged Horizontally in a row */}
+              <div className="perspective-[800px] mb-6">
+                <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.95]">
+                  {/* Item 1: I DESIGN. */}
+                  <motion.div style={{ x: textXLine1 }} className="flex text-black">
+                    {"I DESIGN.".split("").map((char, ci) => (
+                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.div>
 
-              {/* Line 2: I CODE */}
-              <motion.div
-                style={{ x: textXLine2 }}
-                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-secondary"
-              >
-                {"I CODE.".split("").map((char, ci) => (
-                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.div>
+                  {/* Item 2: I CODE. */}
+                  <motion.div style={{ x: textXLine2 }} className="flex text-secondary">
+                    {"I CODE.".split("").map((char, ci) => (
+                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.div>
 
-              {/* Line 3: I SHIP */}
+                  {/* Item 3: I SHIP. */}
+                  <motion.div style={{ x: textXLine3 }} className="flex text-black">
+                    {"I SHIP.".split("").map((char, ci) => (
+                      <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
               <motion.div
-                style={{ x: textXLine3 }}
-                className="flex overflow-hidden text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-black"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
+                className="flex gap-3 flex-wrap items-center mt-2"
               >
-                {"I SHIP.".split("").map((char, ci) => (
-                  <motion.span key={ci} variants={letterVariant} initial="hidden" animate="visible" className="inline-block">
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
+                <motion.a
+                  href="#work"
+                  data-testid="button-hero-work"
+                  whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                  whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                  className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-primary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+                >
+                  See Work <ArrowRight className="w-4 h-4" />
+                </motion.a>
+                <motion.a
+                  href="/contact"
+                  data-testid="button-hero-contact"
+                  whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                  whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                  className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-secondary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+                >
+                  Hire Me
+                </motion.a>
               </motion.div>
             </div>
 
-            {/* Bio Box */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="border-[2.5px] border-black bg-white p-4 sm:p-5 brutal-shadow max-w-lg mb-6"
-              style={{ boxShadow: "5px 5px 0px #000" }}
-            >
-              <p className="text-sm sm:text-base font-mono text-black leading-relaxed border-l-[3px] border-primary pl-3.5 font-medium">
-                Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
-              </p>
-            </motion.div>
+            {/* Right Column: Bio Box + Profile Avatar (Horizontally Placed Alongside) */}
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-6 items-center lg:items-start">
+              {/* Profile Avatar Frame */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative shrink-0"
+              >
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-[3.5px] border-black overflow-hidden bg-primary brutal-shadow">
+                  <img
+                    src={HERO_IMAGE}
+                    alt="Harish"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div className="absolute -bottom-1 -right-1 bg-[#B8F0A0] border-[2px] border-black px-2 py-0.5 font-mono text-[10px] font-black uppercase text-black rounded-full brutal-shadow">
+                  AVAILABLE
+                </div>
+              </motion.div>
 
-            {/* Action buttons */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
-              className="flex gap-3 flex-wrap items-center"
-            >
-              <motion.a
-                href="#work"
-                data-testid="button-hero-work"
-                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-primary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
+              {/* Bio Box */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="border-[2.5px] border-black bg-white p-5 brutal-shadow w-full"
+                style={{ boxShadow: "6px 6px 0px #000" }}
               >
-                See Work <ArrowRight className="w-4 h-4" />
-              </motion.a>
-              <motion.a
-                href="/contact"
-                data-testid="button-hero-contact"
-                whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                className="inline-flex items-center gap-2.5 font-bold uppercase text-sm sm:text-base border-[2.5px] border-black bg-secondary text-black px-6 py-3 brutal-shadow cursor-pointer hover:bg-black hover:text-white transition-colors"
-              >
-                Hire Me
-              </motion.a>
-            </motion.div>
+                <p className="text-sm sm:text-base font-mono text-black leading-relaxed border-l-[3.5px] border-primary pl-4 font-medium">
+                  Bridging raw design instinct with engineering precision. I close the gap between what looks good and what works.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
 
@@ -492,7 +513,7 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-4 right-6 hidden md:flex items-center gap-2 border-[2px] border-black bg-white px-3 py-1.5 font-mono text-xs font-bold uppercase brutal-shadow"
+          className="absolute bottom-4 right-6 hidden md:flex items-center gap-2 border-[2px] border-black bg-white px-3 py-1.5 font-mono text-xs font-bold uppercase brutal-shadow z-20"
         >
           <span>Scroll to explore</span>
           <ArrowDown className="w-4 h-4 text-black animate-bounce" />
