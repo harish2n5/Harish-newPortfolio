@@ -31,6 +31,120 @@ const accessibilitySkills = [
   "WCAG 2.1 Guidelines", "Component Documentation", "Keyboard Navigation", "ARIA Attributes"
 ];
 
+// Tool SVG Logos
+const FigmaLogo = () => (
+  <svg viewBox="0 0 38 57" className="w-4 h-4 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38H19V28.5Z" fill="#0ACF83"/>
+    <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#1ABCFE"/>
+    <path d="M0 28.5C0 23.2533 4.25329 19 9.5 19H19V38H9.5C4.25329 38 0 33.7467 0 28.5Z" fill="#A259FF"/>
+    <path d="M0 9.5C0 4.25329 4.25329 0 9.5 0H19V19H9.5C4.25329 19 0 14.7467 0 9.5Z" fill="#F24E1E"/>
+    <path d="M19 0H28.5C33.7467 0 38 4.25329 38 9.5C38 14.7467 33.7467 19 28.5 19H19V0Z" fill="#FF7262"/>
+  </svg>
+);
+
+const IllustratorLogo = () => (
+  <span className="w-5 h-5 bg-[#330000] text-[#FF9A00] border border-[#FF9A00] font-black text-[10px] rounded flex items-center justify-center font-mono shrink-0">
+    Ai
+  </span>
+);
+
+const PhotoshopLogo = () => (
+  <span className="w-5 h-5 bg-[#001E36] text-[#31A8FF] border border-[#31A8FF] font-black text-[10px] rounded flex items-center justify-center font-sans shrink-0">
+    Ps
+  </span>
+);
+
+const AfterEffectsLogo = () => (
+  <span className="w-5 h-5 bg-[#000033] text-[#9999FF] border border-[#9999FF] font-black text-[10px] rounded flex items-center justify-center font-sans shrink-0">
+    Ae
+  </span>
+);
+
+const FigJamLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#A259FF]" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2zm4 8h-2V7h2v10z"/>
+  </svg>
+);
+
+const CanvaLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 shrink-0" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="#00C4CC" />
+    <path d="M14.5 8.5c-.8 0-1.5.4-1.9 1.1-.3.5-.4 1.2-.4 2 0 1.9.9 3.2 2.4 3.2.7 0 1.3-.3 1.7-.8l-1-1.1c-.2.3-.4.5-.7.5-.5 0-.8-.5-.8-1.2h4.5c.1-.4.1-.7.1-1.1 0-1.6-.9-2.6-2.9-2.6zm-1 2.3c0-.6.3-1 .8-1 .5 0 .8.4.8 1h-1.6z" fill="#FFF"/>
+  </svg>
+);
+
+const ChatGPTLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.04 6.04 0 0 0-6.51-2.9 6.07 6.07 0 0 0-4.99-2.43 6.06 6.06 0 0 0-5.8 4.24 6.04 6.04 0 0 0-4.14 3.01 6.01 6.01 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.04 6.04 0 0 0 6.52 2.9 6.05 6.05 0 0 0 4.98 2.43 6.06 6.06 0 0 0 5.81-4.24 6.04 6.04 0 0 0 4.13-3.01 6.01 6.01 0 0 0-.73-7.1zm-8.83 11.23a4.42 4.42 0 0 1-2.85-1.04l.15-.09 3.53-2.04a.79.79 0 0 0 .39-.68v-4.98l1.49.86v4.14a4.44 4.44 0 0 1-2.71 3.83zm-7.85-3.32a4.43 4.43 0 0 1-.54-3.01l.15.09 3.53 2.04a.78.78 0 0 0 .78 0l4.31-2.49v1.73l-3.59 2.07a4.44 4.44 0 0 1-4.64-.43zm-1.08-8.52a4.42 4.42 0 0 1 2.31-1.97v4.35a.78.78 0 0 0 .39.68l4.31 2.49-1.5.86-3.58-2.07a4.44 4.44 0 0 1-1.93-4.34zm10.74 3.55-4.31-2.49 1.49-.86 3.58 2.07a4.44 4.44 0 0 1 1.93 4.34 4.42 4.42 0 0 1-2.31 1.97v-4.35a.78.78 0 0 0-.38-.68zm2.66-2.22-.15-.09-3.53-2.04a.78.78 0 0 0-.78 0l-4.31 2.49v-1.73l3.59-2.07a4.44 4.44 0 0 1 5.18 3.44zM9.54 8.52a.79.79 0 0 0-.39.68v4.98l-1.49-.86v-4.14a4.44 4.44 0 0 1 4.7-3.9l-.15.09-3.53 2.04zm.79 2.48 2.17-1.25 2.17 1.25v2.5l-2.17 1.25-2.17-1.25v-2.5z"/>
+  </svg>
+);
+
+const FigmaAILogo = () => (
+  <div className="flex items-center gap-1 shrink-0">
+    <FigmaLogo />
+    <Sparkles className="w-3.5 h-3.5 text-[#A259FF] fill-[#A259FF]" />
+  </div>
+);
+
+const LovableLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#FF3366]" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+);
+
+const RelumeLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-black" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="8" height="8" rx="1.5" />
+    <rect x="13" y="3" width="8" height="8" rx="1.5" />
+    <rect x="3" y="13" width="8" height="8" rx="1.5" />
+    <polygon points="13,13 21,13 21,21" />
+  </svg>
+);
+
+const MidjourneyLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L4 20h3.5l1.5-4h6l1.5 4H20L12 2zm-1.5 11L12 9l1.5 4h-3z"/>
+  </svg>
+);
+
+const ClaudeLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#D97706]" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+  </svg>
+);
+
+const UizardLogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-[#7C3AED]" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.5 2v10a4.5 4.5 0 0 0 9 0V2h-3v10a1.5 1.5 0 0 1-3 0V2h-3zM2 17.5A4.5 4.5 0 0 0 6.5 22h11a4.5 4.5 0 0 0 4.5-4.5v-1h-20v1z"/>
+  </svg>
+);
+
+const FramerAILogo = () => (
+  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-black" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 2h16v7h-8l8 8h-8v5l-8-8h8V9H4V2z"/>
+  </svg>
+);
+
+const designTools = [
+  { name: "Figma", icon: FigmaLogo, bg: "bg-white", text: "text-black", border: "border-black" },
+  { name: "Illustrator", icon: IllustratorLogo, bg: "bg-[#260000]", text: "text-[#FF9A00]", border: "border-[#FF9A00]" },
+  { name: "Photoshop", icon: PhotoshopLogo, bg: "bg-[#001E36]", text: "text-[#31A8FF]", border: "border-[#31A8FF]" },
+  { name: "After Effects", icon: AfterEffectsLogo, bg: "bg-[#000033]", text: "text-[#9999FF]", border: "border-[#9999FF]" },
+  { name: "FigJam", icon: FigJamLogo, bg: "bg-[#C8B8FF]", text: "text-black", border: "border-black" },
+  { name: "Canva", icon: CanvaLogo, bg: "bg-[#00C4CC]", text: "text-white", border: "border-black" },
+];
+
+const aiTools = [
+  { name: "ChatGPT", icon: ChatGPTLogo, bg: "bg-[#10A37F]", text: "text-white", border: "border-black" },
+  { name: "Figma AI", icon: FigmaAILogo, bg: "bg-white", text: "text-black", border: "border-black" },
+  { name: "Lovable.ai", icon: LovableLogo, bg: "bg-[#FFF0F3]", text: "text-black", border: "border-[#FF3366]" },
+  { name: "Relume AI", icon: RelumeLogo, bg: "bg-[#F4F4F0]", text: "text-black", border: "border-black" },
+  { name: "Midjourney", icon: MidjourneyLogo, bg: "bg-[#1A1A2E]", text: "text-white", border: "border-black" },
+  { name: "Claude Design", icon: ClaudeLogo, bg: "bg-[#FEF3C7]", text: "text-black", border: "border-[#D97706]" },
+  { name: "Uizard", icon: UizardLogo, bg: "bg-[#F3E8FF]", text: "text-black", border: "border-[#7C3AED]" },
+  { name: "Framer AI", icon: FramerAILogo, bg: "bg-white", text: "text-black", border: "border-black" },
+];
+
 const stats = [
   { value: 1, suffix: "+", label: "Year Experience" },
   { value: 5, suffix: "+", label: "Projects Delivered" },
@@ -609,72 +723,45 @@ export default function Home() {
               transition={{ delay: 0.15 }}
               className="font-mono text-base sm:text-lg max-w-md text-gray-800"
             >
-              Tools I use to bend pixels and bytes to my will. Combining design intuition with modern engineering standards.
+              Tools I use to bend pixels and bytes to my will. Combining design intuition, AI acceleration, and modern engineering standards.
             </motion.p>
           </div>
 
           <div className="flex flex-col gap-10">
-            {/* Design Tools */}
+            {/* Design Tools (With Logos) */}
             <div>
               <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Design Tools</h3>
               <div className="flex flex-wrap gap-3.5 items-center">
-                {/* Figma */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black px-4 py-2.5 text-sm md:text-base font-bold bg-white text-black brutal-shadow flex items-center gap-2.5 cursor-default"
-                >
-                  <div className="flex items-center -space-x-1">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#F24E1E]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF7262]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#A259FF]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#1ABCFE]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#0ACF83]" />
-                  </div>
-                  <span className="font-sans font-black tracking-tight text-black text-base">Figma</span>
-                </motion.div>
+                {designTools.map((tool) => (
+                  <motion.div
+                    key={tool.name}
+                    whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                    className={`border-[3px] ${tool.border} px-4 py-2.5 text-sm md:text-base font-bold ${tool.bg} ${tool.text} brutal-shadow flex items-center gap-2.5 cursor-default`}
+                  >
+                    <tool.icon />
+                    <span className="font-sans font-black tracking-tight">{tool.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-                {/* Adobe Ai */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-[#FF9A00] bg-[#260000] text-[#FF9A00] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
-                >
-                  <span className="bg-[#FF9A00] text-[#260000] font-black text-xs px-1.5 py-0.5 rounded font-mono">Ai</span>
-                  <span className="font-sans font-black tracking-wider text-[#FF9A00]">Illustrator</span>
-                </motion.div>
-
-                {/* Adobe Ps */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-[#31A8FF] bg-[#001E36] text-[#31A8FF] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
-                >
-                  <span className="bg-[#31A8FF] text-[#001E36] font-black text-xs px-1.5 py-0.5 rounded font-sans">Ps</span>
-                  <span className="font-sans font-black tracking-wider text-[#31A8FF]">Photoshop</span>
-                </motion.div>
-
-                {/* Adobe Ae */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-[#9999FF] bg-[#000033] text-[#9999FF] px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
-                >
-                  <span className="bg-[#9999FF] text-[#000033] font-black text-xs px-1.5 py-0.5 rounded font-sans">Ae</span>
-                  <span className="font-sans font-black tracking-wider text-[#9999FF]">After Effects</span>
-                </motion.div>
-
-                {/* FigJam */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black bg-[#C8B8FF] text-black px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
-                >
-                  <span className="font-sans font-black tracking-tight">FigJam</span>
-                </motion.div>
-
-                {/* Canva */}
-                <motion.div
-                  whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
-                  className="border-[3px] border-black bg-[#00C4CC] text-white px-4 py-2.5 text-sm md:text-base font-bold brutal-shadow flex items-center gap-2 cursor-default"
-                >
-                  <span className="font-sans font-black tracking-tight">Canva</span>
-                </motion.div>
+            {/* AI Tools Section (With Logos) */}
+            <div>
+              <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2 border-b-[2px] border-black/10 pb-2">
+                <span>AI & Automation Tools</span>
+                <Sparkles className="w-4 h-4 text-primary fill-primary" />
+              </h3>
+              <div className="flex flex-wrap gap-3.5 items-center">
+                {aiTools.map((tool) => (
+                  <motion.div
+                    key={tool.name}
+                    whileHover={{ y: -4, x: -4, boxShadow: "5px 5px 0px #000" }}
+                    className={`border-[3px] ${tool.border} px-4 py-2.5 text-sm md:text-base font-bold ${tool.bg} ${tool.text} brutal-shadow flex items-center gap-2.5 cursor-default`}
+                  >
+                    <tool.icon />
+                    <span className="font-sans font-black tracking-tight">{tool.name}</span>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
@@ -710,7 +797,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Accessibility */}
+            {/* Accessibility & QA */}
             <div>
               <h3 className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-4 block border-b-[2px] border-black/10 pb-2">Accessibility & QA</h3>
               <div className="flex flex-wrap gap-3">
