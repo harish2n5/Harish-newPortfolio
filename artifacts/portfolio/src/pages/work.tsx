@@ -1,16 +1,11 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "wouter";
-import { projects } from "@/lib/data";
-import { ArrowRight, ExternalLink, X, ArrowUpRight } from "lucide-react";
-import project1Url from "../assets/project-1.png";
-import project2Url from "../assets/project-2.png";
-import project3Url from "../assets/project-3.png";
-import project4Url from "../assets/project-4.png";
+import { projects, graphicDesignProjects, GraphicDesignProject } from "@/lib/data";
+import { ArrowRight, ExternalLink, ArrowUpRight, Palette, Layers, Sparkles, Filter } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import { LaptopMockup, PhoneMockup, IsometricMockup } from "@/components/ui/Mockup";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import CaseStudyModal from "./case-study";
+import GraphicProjectModal from "./graphic-project";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -22,7 +17,7 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const MARQUEE_TEXT = "DESIGN • DEVELOP • DELIVER • ITERATE • ";
+const MARQUEE_TEXT = "BRAND IDENTITY • MARKETING CAMPAIGNS • PACKAGING DESIGN • EDITORIAL DESIGN • ";
 
 const workflowSteps = [
   {
@@ -135,7 +130,8 @@ function SectionWrapper({ children, className = "" }: { children: React.ReactNod
 
 export default function Work() {
   const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
-
+  const [activeGraphicProject, setActiveGraphicProject] = useState<GraphicDesignProject | null>(null);
+  const [activeFilter, setActiveFilter] = useState<"all" | "uiux" | "graphic">("all");
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -152,7 +148,7 @@ export default function Work() {
             transition={{ duration: 0.4 }}
             className="font-mono text-lg uppercase tracking-widest mb-4 text-muted-foreground"
           >
-            — Selected Work
+            — Selected Portfolio Work
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -169,12 +165,12 @@ export default function Work() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-xl md:text-2xl font-mono max-w-2xl border-l-[6px] border-primary pl-6"
           >
-            Projects that shipped, problems that were solved, and products that users actually wanted to use.
+            UI/UX Case Studies & Graphic Design Projects crafted with strategic intent and high visual impact.
           </motion.p>
         </div>
       </section>
 
-      {/* Marquee */}
+      {/* Marquee Banner */}
       <div className="w-full border-y-[3px] border-black bg-primary py-4 overflow-hidden flex whitespace-nowrap transform -rotate-1 origin-center scale-105">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -187,112 +183,261 @@ export default function Work() {
         </motion.div>
       </div>
 
+      {/* Filter Tabs Navigation Option */}
+      <section className="px-4 sm:px-6 py-8 border-b-[3px] border-black bg-white sticky top-[68px] z-30 shadow-sm">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-2 font-mono text-xs font-black uppercase tracking-wider text-black">
+            <Filter className="w-4 h-4 text-primary fill-primary" />
+            <span>Select Projects View:</span>
+          </div>
 
-
-      {/* Featured Projects */}
-      <section className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
-        <div className="max-w-6xl mx-auto">
-          <SectionWrapper>
-            <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest mb-2 text-muted-foreground">
-              — Deep Dives
-            </motion.p>
-      <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-16">
-              Featured Projects.
-            </motion.h2>
-          </SectionWrapper>
-
-          <div className="space-y-12">
-            {projects.map((project: any, i: number) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="border-[4px] border-black bg-white brutal-shadow p-8 md:p-12 relative overflow-hidden"
-                data-testid={`project-featured-${project.id}`}
-              >
-                {/* Header info */}
-                <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b-[3px] border-black pb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs font-black uppercase tracking-widest border-[2px] border-black bg-black text-white px-3 py-1">
-                      {project.category}
-                    </span>
-                    <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                      {project.subtitle}
-                    </span>
-                  </div>
-                  <div className="font-mono text-xs font-black uppercase border-[2px] border-black bg-primary px-3 py-1 text-black">
-                    {project.year}
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <div className="mb-6">
-                  <h3 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-black">
-                    {project.title}
-                  </h3>
-                  <p className="font-mono text-base md:text-lg leading-relaxed text-gray-800 font-medium border-l-[4px] border-primary pl-4 py-1">
-                    {project.shortDesc}
-                  </p>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag: string) => (
-                    <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-[#F4F4F0] text-black">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Required Details Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-y-[3px] border-black py-6 mb-8 bg-[#F4F4F0] px-6 brutal-shadow-sm font-mono text-xs">
-                  <div>
-                    <div className="text-gray-500 font-bold uppercase mb-1">Role</div>
-                    <div className="font-black text-black text-sm uppercase">{project.role}</div>
-                  </div>
-                  <div>
-                    <div className="text-gray-500 font-bold uppercase mb-1">Duration</div>
-                    <div className="font-black text-black text-sm uppercase">{project.duration}</div>
-                  </div>
-                  <div>
-                    <div className="text-gray-500 font-bold uppercase mb-1">Platform</div>
-                    <div className="font-black text-black text-sm uppercase">{project.platform}</div>
-                  </div>
-                  <div>
-                    <div className="text-gray-500 font-bold uppercase mb-1">Tools</div>
-                    <div className="font-black text-black text-sm uppercase">{project.tools.join(", ")}</div>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <motion.button
-                    onClick={() => setActiveProject(project)}
-                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                    data-testid={`button-project-detail-${project.id}`}
-                    className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-primary text-black px-6 py-3.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
-                  >
-                    View Case Study <ArrowUpRight className="w-5 h-5" />
-                  </motion.button>
-                  <motion.a
-                    href={project.link || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
-                    whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
-                    className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-6 py-3.5 brutal-shadow hover:bg-secondary transition-colors"
-                  >
-                    Live <ExternalLink className="w-5 h-5" />
-                  </motion.a>
-                </div>
-              </motion.div>
-            ))}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <button
+              onClick={() => setActiveFilter("all")}
+              className={`px-4 py-2 font-mono text-xs sm:text-sm font-black uppercase border-[2.5px] border-black brutal-shadow-sm transition-colors cursor-pointer ${
+                activeFilter === "all" ? "bg-black text-white" : "bg-white text-black hover:bg-primary"
+              }`}
+            >
+              All Projects ({projects.length + graphicDesignProjects.length})
+            </button>
+            <button
+              onClick={() => setActiveFilter("uiux")}
+              className={`px-4 py-2 font-mono text-xs sm:text-sm font-black uppercase border-[2.5px] border-black brutal-shadow-sm transition-colors cursor-pointer ${
+                activeFilter === "uiux" ? "bg-primary text-black" : "bg-white text-black hover:bg-primary"
+              }`}
+            >
+              UI/UX Case Studies ({projects.length})
+            </button>
+            <button
+              onClick={() => setActiveFilter("graphic")}
+              className={`px-4 py-2 font-mono text-xs sm:text-sm font-black uppercase border-[2.5px] border-black brutal-shadow-sm transition-colors cursor-pointer ${
+                activeFilter === "graphic" ? "bg-secondary text-black" : "bg-white text-black hover:bg-secondary"
+              }`}
+            >
+              Graphic Design Projects ({graphicDesignProjects.length})
+            </button>
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          SECTION 1: GRAPHIC DESIGN PROJECTS
+      ========================================================================= */}
+      {(activeFilter === "all" || activeFilter === "graphic") && (
+        <section id="graphic-design" className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-[#F4F4F0]">
+          <div className="max-w-6xl mx-auto">
+            <SectionWrapper>
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest text-black bg-secondary border-[2px] border-black px-3 py-1 inline-block font-black">
+                  — Visual Identity & Branding
+                </motion.p>
+                <span className="font-mono text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  4 INDIVIDUAL CASE STUDIES
+                </span>
+              </div>
+              <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4 text-black">
+                Graphic Design Projects.
+              </motion.h2>
+              <motion.p variants={fadeUp} className="font-mono text-base sm:text-lg max-w-2xl mb-16 text-gray-700">
+                Explore individual brand identity systems, packaging designs, marketing campaigns, and editorial publications. Click any project to open its dedicated page.
+              </motion.p>
+            </SectionWrapper>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {graphicDesignProjects.map((gProj, i) => (
+                <motion.div
+                  key={gProj.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="border-[4px] border-black bg-white brutal-shadow p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden"
+                >
+                  {/* Top Badge & Number Header */}
+                  <div>
+                    <div className="flex items-center justify-between gap-2 border-b-[3px] border-black pb-4 mb-6">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-black uppercase bg-black text-white px-3 py-1 border border-black">
+                          {gProj.num}
+                        </span>
+                        <span className="font-mono text-xs font-bold uppercase tracking-wider text-black bg-[#E2E8F0] border border-black px-2.5 py-1">
+                          {gProj.category}
+                        </span>
+                      </div>
+                      <span className="font-mono text-xs font-black uppercase bg-primary border-[2px] border-black px-3 py-1 text-black">
+                        {gProj.year}
+                      </span>
+                    </div>
+
+                    {/* Title & Term */}
+                    <div className="mb-6">
+                      <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-black mb-2 group-hover:text-secondary transition-colors">
+                        {gProj.num} — {gProj.title} | {gProj.category}
+                      </h3>
+                      <p className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600">
+                        {gProj.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Image Mockup Preview */}
+                    <div className="border-[3px] border-black overflow-hidden mb-6 bg-black aspect-[16/9]">
+                      <img
+                        src={gProj.image}
+                        alt={`${gProj.title} Mockup`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
+                    {/* Challenge, Approach & Impact Details */}
+                    <div className="space-y-4 font-mono text-xs sm:text-sm border-t-[3px] border-black pt-6 mb-8">
+                      <div className="bg-[#FFF0F3] border-[2px] border-black p-3.5 brutal-shadow-sm">
+                        <span className="font-black text-red-600 uppercase block mb-1">Challenge:</span>
+                        <p className="text-gray-800 font-medium leading-relaxed">{gProj.challenge}</p>
+                      </div>
+
+                      <div className="bg-[#EEF4FF] border-[2px] border-black p-3.5 brutal-shadow-sm">
+                        <span className="font-black text-blue-600 uppercase block mb-1">Approach:</span>
+                        <p className="text-gray-800 font-medium leading-relaxed">{gProj.approach}</p>
+                      </div>
+
+                      <div className="bg-[#F0FFF4] border-[2px] border-black p-3.5 brutal-shadow-sm">
+                        <span className="font-black text-green-700 uppercase block mb-1">Impact:</span>
+                        <p className="text-gray-800 font-medium leading-relaxed">{gProj.impact}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Open Individual Page Button */}
+                  <div className="pt-2 border-t-[2px] border-black/10">
+                    <motion.button
+                      onClick={() => setActiveGraphicProject(gProj)}
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      className="w-full inline-flex items-center justify-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-primary text-black py-4 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+                    >
+                      Open Individual Page <ArrowUpRight className="w-5 h-5" />
+                    </motion.button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+          SECTION 2: UI/UX FEATURED CASE STUDIES
+      ========================================================================= */}
+      {(activeFilter === "all" || activeFilter === "uiux") && (
+        <section id="ui-ux" className="px-4 sm:px-6 py-12 md:py-24 border-b-[3px] border-black bg-background">
+          <div className="max-w-6xl mx-auto">
+            <SectionWrapper>
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <motion.p variants={fadeUp} className="font-mono text-lg uppercase tracking-widest text-black bg-primary border-[2px] border-black px-3 py-1 inline-block font-black">
+                  — Product Design & Engineering
+                </motion.p>
+                <span className="font-mono text-xs font-black uppercase tracking-wider text-muted-foreground">
+                  3 DEEP-DIVE CASE STUDIES
+                </span>
+              </div>
+              <motion.h2 variants={fadeUp} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-16">
+                Featured UI/UX Case Studies.
+              </motion.h2>
+            </SectionWrapper>
+
+            <div className="space-y-12">
+              {projects.map((project: any, i: number) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="border-[4px] border-black bg-white brutal-shadow p-8 md:p-12 relative overflow-hidden"
+                  data-testid={`project-featured-${project.id}`}
+                >
+                  {/* Header info */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b-[3px] border-black pb-4">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs font-black uppercase tracking-widest border-[2px] border-black bg-black text-white px-3 py-1">
+                        {project.category}
+                      </span>
+                      <span className="font-mono text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                        {project.subtitle}
+                      </span>
+                    </div>
+                    <div className="font-mono text-xs font-black uppercase border-[2px] border-black bg-primary px-3 py-1 text-black">
+                      {project.year}
+                    </div>
+                  </div>
+
+                  {/* Title & Description */}
+                  <div className="mb-6">
+                    <h3 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-black">
+                      {project.title}
+                    </h3>
+                    <p className="font-mono text-base md:text-lg leading-relaxed text-gray-800 font-medium border-l-[4px] border-primary pl-4 py-1">
+                      {project.shortDesc}
+                    </p>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag: string) => (
+                      <span key={tag} className="border-[2px] border-black px-3 py-1 font-mono text-xs font-bold uppercase bg-[#F4F4F0] text-black">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Required Details Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-y-[3px] border-black py-6 mb-8 bg-[#F4F4F0] px-6 brutal-shadow-sm font-mono text-xs">
+                    <div>
+                      <div className="text-gray-500 font-bold uppercase mb-1">Role</div>
+                      <div className="font-black text-black text-sm uppercase">{project.role}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-500 font-bold uppercase mb-1">Duration</div>
+                      <div className="font-black text-black text-sm uppercase">{project.duration}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-500 font-bold uppercase mb-1">Platform</div>
+                      <div className="font-black text-black text-sm uppercase">{project.platform}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-500 font-bold uppercase mb-1">Tools</div>
+                      <div className="font-black text-black text-sm uppercase">{project.tools.join(", ")}</div>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap gap-4">
+                    <motion.button
+                      onClick={() => setActiveProject(project)}
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      data-testid={`button-project-detail-${project.id}`}
+                      className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-primary text-black px-6 py-3.5 brutal-shadow hover:bg-black hover:text-white transition-colors cursor-pointer"
+                    >
+                      View Case Study <ArrowUpRight className="w-5 h-5" />
+                    </motion.button>
+                    <motion.a
+                      href={project.link || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: -3, y: -3, boxShadow: "6px 6px 0px #000" }}
+                      whileTap={{ x: 1, y: 1, boxShadow: "2px 2px 0px #000" }}
+                      className="inline-flex items-center gap-3 font-black uppercase text-sm sm:text-base border-[3px] border-black bg-white text-black px-6 py-3.5 brutal-shadow hover:bg-secondary transition-colors"
+                    >
+                      Live <ExternalLink className="w-5 h-5" />
+                    </motion.a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* How I Work */}
       <section className="px-4 sm:px-6 py-12 md:py-24 bg-white border-b-[3px] border-black">
@@ -395,8 +540,25 @@ export default function Work() {
         </div>
       </section>
 
+      {/* Case Study Modals */}
       <AnimatePresence>
-        {activeProject && <CaseStudyModal project={activeProject} onClose={() => setActiveProject(null)} onNext={(p) => setActiveProject(p)} />}
+        {activeProject && (
+          <CaseStudyModal
+            project={activeProject}
+            onClose={() => setActiveProject(null)}
+            onNext={(p) => setActiveProject(p)}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {activeGraphicProject && (
+          <GraphicProjectModal
+            project={activeGraphicProject}
+            onClose={() => setActiveGraphicProject(null)}
+            onNext={(p) => setActiveGraphicProject(p)}
+          />
+        )}
       </AnimatePresence>
     </div>
   );

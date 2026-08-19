@@ -10,6 +10,223 @@ import snippet5Url from "../assets/snippet-5.png";
 import snippet6Url from "../assets/snippet-6.png";
 import snippet7Url from "../assets/snippet-7.png";
 import snippet8Url from "../assets/snippet-8.png";
+import graphic1Url from "../assets/graphic-1.jpg";
+import graphic2Url from "../assets/graphic-2.jpg";
+import graphic3Url from "../assets/graphic-3.jpg";
+import graphic4Url from "../assets/graphic-4.jpg";
+
+export interface GraphicDesignProject {
+  id: number;
+  num: string;
+  slug: string;
+  category: string;
+  tag: string;
+  title: string;
+  subtitle: string;
+  challenge: string;
+  approach: string;
+  impact: string;
+  image: string;
+  accentColor: string;
+  year: string;
+  client?: string;
+  tools: string[];
+  deliverables: string[];
+  colorPalette: { name: string; hex: string }[];
+  typography: { role: string; font: string }[];
+  details: {
+    overview: string;
+    keyFeatures: string[];
+    brandAttributes: string[];
+  };
+}
+
+export const graphicDesignProjects: GraphicDesignProject[] = [
+  {
+    id: 101,
+    num: "01",
+    slug: "aaranya-cafe",
+    category: "Brand Identity",
+    tag: "Visual Identity & Packaging",
+    title: "Aaranya Café",
+    subtitle: "Brand Identity & Packaging System",
+    challenge: "The café needed a distinctive visual identity that felt warm, modern, and memorable.",
+    approach: "Created a cohesive logo, color palette, typography, packaging, and brand assets.",
+    impact: "Built a consistent brand system that works across digital and physical touchpoints.",
+    image: graphic1Url,
+    accentColor: "bg-[#FFD6A0]",
+    year: "2025",
+    client: "Aaranya Coffee Roasters",
+    tools: ["Adobe Illustrator", "Photoshop", "Figma", "InDesign"],
+    deliverables: [
+      "Logo Suite & Mark",
+      "Brand Guidelines Manual",
+      "Color & Material Palette",
+      "Coffee Cups & Sleeve Packaging",
+      "Takeaway Bags & Seal Labels",
+      "Dine-in Menu & Table Cards",
+      "Digital & Social Media Assets"
+    ],
+    colorPalette: [
+      { name: "Burnt Sienna", hex: "#B86A4C" },
+      { name: "Warm Beige", hex: "#F3E5DC" },
+      { name: "Dark Roast", hex: "#3C2A21" },
+      { name: "Ochre Sun", hex: "#D59F58" }
+    ],
+    typography: [
+      { role: "Primary Headline", font: "Groundwell Display Bold" },
+      { role: "Body & Specs", font: "Source Code Pro / Inter" }
+    ],
+    details: {
+      overview: "Aaranya Café required an authentic brand presence that communicated artisanal quality, cozy warmth, and contemporary urban aesthetics. The brand identity bridges organic earthy tones with high-contrast graphic elements.",
+      keyFeatures: [
+        "Hand-crafted logotype with subtle coffee bean micro-curves",
+        "Sustainable kraft paper material specs for 100% compostable packaging",
+        "Flexible grid system for social campaigns and seasonal menus",
+        "Custom icon set for coffee roast levels and tasting notes"
+      ],
+      brandAttributes: ["Warm", "Authentic", "Modern", "Memorable", "Crafted"]
+    }
+  },
+  {
+    id: 102,
+    num: "02",
+    slug: "tech-product-launch",
+    category: "Marketing Campaign",
+    tag: "Digital Campaign & Creatives",
+    title: "Tech Product Launch",
+    subtitle: "Integrated Digital Marketing Campaign",
+    challenge: "A new tech product needed to stand out in a crowded digital market.",
+    approach: "Developed a campaign system with social posts, ads, banners, and promotional creatives.",
+    impact: "Created a consistent visual language that communicates the product quickly and clearly.",
+    image: graphic2Url,
+    accentColor: "bg-[#C8B8FF]",
+    year: "2025",
+    client: "Synapse Technologies",
+    tools: ["Photoshop", "After Effects", "Figma", "Illustrator"],
+    deliverables: [
+      "Campaign Visual Strategy",
+      "Social Media Motion Graphics",
+      "High-Converting Ad Banners",
+      "Mobile Screen Promotion Ads",
+      "Billboard & Metro Posters",
+      "Email Launch Templates",
+      "Press Kit & Media Assets"
+    ],
+    colorPalette: [
+      { name: "Neon Cyan", hex: "#00F0FF" },
+      { name: "Deep Violet", hex: "#7000FF" },
+      { name: "Midnight Black", hex: "#0B0C10" },
+      { name: "Electric Blue", hex: "#1F51FF" }
+    ],
+    typography: [
+      { role: "Headline", font: "Syne ExtraBold / Helvetica Now" },
+      { role: "Body", font: "JetBrains Mono" }
+    ],
+    details: {
+      overview: "Designed a high-decibel digital marketing system for a futuristic tech product launch. The campaign cut through market noise with high-contrast neon gradients, bold kinetic typography, and motion ad formats.",
+      keyFeatures: [
+        "Modular ad template system optimized for 1:1, 9:16, and 16:9 formats",
+        "High-energy motion templates for Instagram Reels and TikTok",
+        "3D product placement graphics with lighting highlights",
+        "Consistent brand messaging hierarchy across all digital touchpoints"
+      ],
+      brandAttributes: ["Bold", "Futuristic", "High-Energy", "Disruptive", "Clear"]
+    }
+  },
+  {
+    id: 103,
+    num: "03",
+    slug: "annalakshmi-packaging",
+    category: "Packaging Design",
+    tag: "Brand & Eco Packaging",
+    title: "Annalakshmi",
+    subtitle: "Homemade Food Experience & Packaging",
+    challenge: "The brand needed packaging that reflected its homemade food experience while remaining practical for delivery.",
+    approach: "Designed food boxes, labels, delivery bags, menus, and promotional materials around one visual identity.",
+    impact: "Strengthened brand recognition and created a more professional customer experience.",
+    image: graphic3Url,
+    accentColor: "bg-[#B8F0A0]",
+    year: "2024",
+    client: "Annalakshmi Foods",
+    tools: ["Illustrator", "Photoshop", "InDesign"],
+    deliverables: [
+      "Custom Eco Meal Boxes",
+      "Branded Kraft Delivery Bags",
+      "Tamper-Evident Label Seals",
+      "Sauce Jar & Chutney Labels",
+      "Folding Menu Cards",
+      "Promotional Sticker Sheet",
+      "Delivery Rider Kit & Apparel"
+    ],
+    colorPalette: [
+      { name: "Terracotta Red", hex: "#9E2A2B" },
+      { name: "Golden Ochre", hex: "#E9B034" },
+      { name: "Eco Kraft", hex: "#C4A482" },
+      { name: "Deep Maroon", hex: "#541212" }
+    ],
+    typography: [
+      { role: "Brand Title", font: "Rozha One / Serif Display" },
+      { role: "Body Text", font: "Plus Jakarta Sans" }
+    ],
+    details: {
+      overview: "Annalakshmi needed a packaging system that felt like receiving a home-cooked meal prepared with care. We combined traditional motif art with heat-resistant, spill-proof eco-friendly packaging materials.",
+      keyFeatures: [
+        "Grease-proof, recyclable paperboard meal boxes with clear windows",
+        "Heritage motif patterns communicating homemade authentic recipe tradition",
+        "Color-coded labels for diet preferences (Veg / Non-Veg / Vegan)",
+        "Sturdy kraft bags designed for zero-spill delivery transportation"
+      ],
+      brandAttributes: ["Homemade", "Nourishing", "Authentic", "Eco-Friendly", "Premium"]
+    }
+  },
+  {
+    id: 104,
+    num: "04",
+    slug: "annual-report-editorial",
+    category: "Editorial Design",
+    tag: "Editorial & Data Visualization",
+    title: "Annual Report",
+    subtitle: "Publication & Financial Data Design",
+    challenge: "Complex business information needed to become easier and more engaging to read.",
+    approach: "Used a structured grid, typography hierarchy, infographics, and data visualization.",
+    impact: "Transformed dense information into a clear, organized, and visually engaging publication.",
+    image: graphic4Url,
+    accentColor: "bg-primary",
+    year: "2024",
+    client: "Global Innovations Inc.",
+    tools: ["InDesign", "Illustrator", "Figma", "Photoshop"],
+    deliverables: [
+      "64-Page Print Publication",
+      "Interactive Digital PDF / E-Book",
+      "Executive Summary Digest",
+      "Custom Infographics & Charts",
+      "Financial Data Tables",
+      "Iconography & Data Tokens",
+      "Social Highlights Cards"
+    ],
+    colorPalette: [
+      { name: "Corporate Navy", hex: "#0F2537" },
+      { name: "Teal Highlight", hex: "#00A896" },
+      { name: "Clean Slate", hex: "#F4F6F8" },
+      { name: "Electric Cyan", hex: "#028090" }
+    ],
+    typography: [
+      { role: "Headlines", font: "Inter Tight Black" },
+      { role: "Financial Tables & Body", font: "Roboto Mono / Inter" }
+    ],
+    details: {
+      overview: "Transformed dense financial statements, governance audits, and corporate strategy data into an inviting 64-page publication. The layout uses a strict 12-column grid, generous whitespace, and intuitive data graphics.",
+      keyFeatures: [
+        "12-column editorial grid balancing text, financial tables, and photography",
+        "Color-coded section dividers for effortless navigation across quarterly reports",
+        "Custom charts and infographics replacing dry spreadsheet tables",
+        "Accessible contrast and typography scaling optimized for print and screen PDF"
+      ],
+      brandAttributes: ["Structured", "Transparent", "Engaging", "Authoritative", "Clean"]
+    }
+  }
+];
 
 export const designSnippets = [
   {

@@ -10,7 +10,8 @@ import Work from "@/pages/work";
 import Contact from "@/pages/contact";
 
 import CaseStudyModal from "@/pages/case-study";
-import { projects } from "@/lib/data";
+import GraphicProjectModal from "@/pages/graphic-project";
+import { projects, graphicDesignProjects } from "@/lib/data";
 
 const queryClient = new QueryClient();
 
@@ -36,13 +37,25 @@ const pageTransition = {
 function CaseStudyRoute({ params }: { params: { slug: string } }) {
   const [, setLocation] = useLocation();
   const project = projects.find((p) => p.slug === params.slug) || projects[0];
-  const nextProject = projects[(projects.findIndex((p) => p.slug === project.slug) + 1) % projects.length];
 
   return (
     <CaseStudyModal
       project={project}
       onClose={() => setLocation("/work")}
       onNext={(nextP) => setLocation(`/case-study/${nextP.slug}`)}
+    />
+  );
+}
+
+function GraphicProjectRoute({ params }: { params: { slug: string } }) {
+  const [, setLocation] = useLocation();
+  const project = graphicDesignProjects.find((p) => p.slug === params.slug) || graphicDesignProjects[0];
+
+  return (
+    <GraphicProjectModal
+      project={project}
+      onClose={() => setLocation("/work")}
+      onNext={(nextP) => setLocation(`/graphic-design/${nextP.slug}`)}
     />
   );
 }
@@ -65,6 +78,7 @@ function AnimatedRoutes() {
           <Route path="/"        component={Home} />
           <Route path="/work"    component={Work} />
           <Route path="/case-study/:slug" component={CaseStudyRoute} />
+          <Route path="/graphic-design/:slug" component={GraphicProjectRoute} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
