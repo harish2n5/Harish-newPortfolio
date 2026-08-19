@@ -100,8 +100,8 @@ export default function GraphicProjectModal({
                   <span className="font-black text-black text-sm">{project.category}</span>
                 </div>
                 <div>
-                  <span className="text-gray-500 block font-bold uppercase mb-0.5">Client</span>
-                  <span className="font-black text-black text-sm">{project.client || "Client Project"}</span>
+                  <span className="text-gray-500 block font-bold uppercase mb-0.5">Role</span>
+                  <span className="font-black text-black text-sm">{project.role}</span>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <span className="text-gray-500 block font-bold uppercase mb-0.5">Tools Used</span>

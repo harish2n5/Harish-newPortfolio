@@ -29,7 +29,7 @@ export interface GraphicDesignProject {
   image: string;
   accentColor: string;
   year: string;
-  client?: string;
+  role: string;
   tools: string[];
   deliverables: string[];
   colorPalette: { name: string; hex: string }[];
@@ -56,7 +56,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     image: graphic1Url,
     accentColor: "bg-[#FFD6A0]",
     year: "2025",
-    client: "Aaranya Coffee Roasters",
+    role: "Graphic Designer",
     tools: ["Adobe Illustrator", "Photoshop", "Figma", "InDesign"],
     deliverables: [
       "Logo Suite & Mark",
@@ -102,7 +102,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     image: graphic2Url,
     accentColor: "bg-[#C8B8FF]",
     year: "2025",
-    client: "Synapse Technologies",
+    role: "Graphic Designer",
     tools: ["Photoshop", "After Effects", "Figma", "Illustrator"],
     deliverables: [
       "Campaign Visual Strategy",
@@ -148,7 +148,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     image: graphic3Url,
     accentColor: "bg-[#B8F0A0]",
     year: "2024",
-    client: "Annalakshmi Foods",
+    role: "Graphic Designer",
     tools: ["Illustrator", "Photoshop", "InDesign"],
     deliverables: [
       "Custom Eco Meal Boxes",
@@ -194,7 +194,7 @@ export const graphicDesignProjects: GraphicDesignProject[] = [
     image: graphic4Url,
     accentColor: "bg-primary",
     year: "2024",
-    client: "Global Innovations Inc.",
+    role: "Graphic Designer",
     tools: ["InDesign", "Illustrator", "Figma", "Photoshop"],
     deliverables: [
       "64-Page Print Publication",
